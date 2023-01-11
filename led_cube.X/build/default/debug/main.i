@@ -5024,49 +5024,27 @@ void random_pattern(int id){
     clear_plane();
     srand(time(((void*)0)));
     int x = 0, r = 0, prevr, prevx = -1;
-    int x2 = 0, r2 = 0, prevr2, prevx2 = -1;
     lighton(0, prevx);
     r = rand() % 6;
     prevx = x;
     x = move(x,r);
     lighton(x,prevx);
-    lighton(123, prevx2);
-    r2 = rand() % 6;
-    prevx2 = x2;
-    x2 = move(x2,r2);
-    lighton(x2,prevx2);
-    _delay((unsigned long)((30)*(4000000/4000.0)));
-    prevx = x;
-    x = move(x,r);
-    lighton(x,prevx);
-    prevx = x;
-    prevx2 = x2;
-    x2 = move(x2,r);
-    lighton(x2,prevx2);
-    prevx2 = x2;
+    _delay((unsigned long)((2)*(4000000/4000.0)));
     while(mode == id){
         prevr = r;
         r=rand()%6;
         if(r==0||r==1)while(prevr+r==1)r=rand()%6;
         else if(r==2||r==3) while(prevr+r==5)r=rand()%6;
         else if(r==4||r==5) while(prevr+r==9)r=rand()%6;
-        prevr2 = r2;
-        r2=rand()%6;
-        if(r2==0||r2==1)while(prevr2+r2==1)r2=rand()%6;
-        else if(r2==2||r2==3) while(prevr2+r2==5)r2=rand()%6;
-        else if(r2==4||r2==5) while(prevr2+r2==9)r2=rand()%6;
 
         x=move(x,r);
         lighton(x,prevx);
         prevx = x;
-        x2=move(x2,r);
-        lighton(x2,prevx2);
-        prevx2 = x2;
-        _delay((unsigned long)((5)*(4000000/4000.0)));
+        _delay((unsigned long)((2)*(4000000/4000.0)));
     }
 }
 
-void rainfall(int id){
+void slash(int id){
     clear_cube();
     int x = 0;
     plane[0][0] = 1;
@@ -5078,6 +5056,220 @@ void rainfall(int id){
         plane[x][x] = 1;
         set_plane(x);
         draw_plane();
+    }
+}
+
+void rainfall(int id){
+    clear_cube();
+    int x=0, it=5 ,cnt=0,itcnt=0;
+    while(mode == id){
+        clear_plane();
+        draw_plane();
+        if(x==0){
+            if(cnt==0){
+                plane[2][0] = 1;
+                plane[2][1] = 1;
+                plane[2][2] = 1;
+                plane[2][4] = 1;
+            }else if(cnt == 1){
+                plane[2][2] = 1;
+                plane[2][4] = 1;
+            }else if(cnt == 2){
+                plane[2][0] = 1;
+                plane[2][1] = 1;
+                plane[2][2] = 1;
+                plane[2][3] = 1;
+                plane[2][4] = 1;
+            }else if(cnt == 3){
+                plane[2][0] = 1;
+                plane[2][2] = 1;
+            }else if(cnt == 4){
+                plane[2][0] = 1;
+                plane[2][2] = 1;
+                plane[2][3] = 1;
+                plane[2][4] = 1;
+            }
+        }else if(x==1){
+            if(cnt==0){
+                plane[4][0] = 1;
+                plane[3][1] = 1;
+                plane[2][2] = 1;
+                plane[0][4] = 1;
+            }else if(cnt == 1){
+                plane[2][2] = 1;
+                plane[0][4] = 1;
+            }else if(cnt == 2){
+                plane[4][0] = 1;
+                plane[3][1] = 1;
+                plane[2][2] = 1;
+                plane[1][3] = 1;
+                plane[0][4] = 1;
+            }else if(cnt == 3){
+                plane[4][0] = 1;
+                plane[2][2] = 1;
+            }else if(cnt == 4){
+                plane[4][0] = 1;
+                plane[2][2] = 1;
+                plane[1][3] = 1;
+                plane[0][4] = 1;
+            }
+        }else if(x==2){
+            if(cnt==0){
+                plane[4][2] = 1;
+                plane[3][2] = 1;
+                plane[2][2] = 1;
+                plane[0][2] = 1;
+            }else if(cnt == 1){
+                plane[2][2] = 1;
+                plane[0][2] = 1;
+            }else if(cnt == 2){
+                plane[4][2] = 1;
+                plane[3][2] = 1;
+                plane[2][2] = 1;
+                plane[1][2] = 1;
+                plane[0][2] = 1;
+            }else if(cnt == 3){
+                plane[4][2] = 1;
+                plane[2][2] = 1;
+            }else if(cnt == 4){
+                plane[4][2] = 1;
+                plane[2][2] = 1;
+                plane[1][2] = 1;
+                plane[0][2] = 1;
+            }
+        }else if(x==3){
+            if(cnt==0){
+                plane[4][4] = 1;
+                plane[3][3] = 1;
+                plane[2][2] = 1;
+                plane[0][0] = 1;
+            }else if(cnt == 1){
+                plane[2][2] = 1;
+                plane[0][0] = 1;
+            }else if(cnt == 2){
+                plane[4][4] = 1;
+                plane[3][3] = 1;
+                plane[2][2] = 1;
+                plane[1][1] = 1;
+                plane[0][0] = 1;
+            }else if(cnt == 3){
+                plane[4][4] = 1;
+                plane[2][2] = 1;
+            }else if(cnt == 4){
+                plane[4][4] = 1;
+                plane[2][2] = 1;
+                plane[1][1] = 1;
+                plane[0][0] = 1;
+            }
+        }else if(x==4){
+            if(cnt==0){
+                plane[2][0] = 1;
+                plane[2][2] = 1;
+                plane[2][3] = 1;
+                plane[2][4] = 1;
+            }else if(cnt == 1){
+                plane[2][0] = 1;
+                plane[2][2] = 1;
+            }else if(cnt == 2){
+                plane[2][0] = 1;
+                plane[2][1] = 1;
+                plane[2][2] = 1;
+                plane[2][3] = 1;
+                plane[2][4] = 1;
+            }else if(cnt == 3){
+                plane[2][2] = 1;
+                plane[2][4] = 1;
+            }else if(cnt == 4){
+                plane[2][0] = 1;
+                plane[2][1] = 1;
+                plane[2][2] = 1;
+                plane[2][4] = 1;
+            }
+        }else if(x==5){
+            if(cnt==0){
+                plane[0][4] = 1;
+                plane[1][3] = 1;
+                plane[2][2] = 1;
+                plane[4][0] = 1;
+            }else if(cnt == 1){
+                plane[2][2] = 1;
+                plane[4][0] = 1;
+            }else if(cnt == 2){
+                plane[0][4] = 1;
+                plane[1][3] = 1;
+                plane[2][2] = 1;
+                plane[3][1] = 1;
+                plane[4][0] = 1;
+            }else if(cnt == 3){
+                plane[0][4] = 1;
+                plane[2][2] = 1;
+            }else if(cnt == 4){
+                plane[0][4] = 1;
+                plane[2][2] = 1;
+                plane[3][1] = 1;
+                plane[4][0] = 1;
+            }
+        }else if(x==6){
+            if(cnt==0){
+                plane[0][2] = 1;
+                plane[1][2] = 1;
+                plane[2][2] = 1;
+                plane[4][2] = 1;
+            }else if(cnt == 1){
+                plane[2][2] = 1;
+                plane[4][2] = 1;
+            }else if(cnt == 2){
+                plane[0][2] = 1;
+                plane[1][2] = 1;
+                plane[2][2] = 1;
+                plane[3][2] = 1;
+                plane[4][2] = 1;
+            }else if(cnt == 3){
+                plane[0][2] = 1;
+                plane[2][2] = 1;
+            }else if(cnt == 4){
+                plane[0][2] = 1;
+                plane[2][2] = 1;
+                plane[3][2] = 1;
+                plane[4][2] = 1;
+            }
+        }else if(x==7){
+            if(cnt==0){
+                plane[0][0] = 1;
+                plane[1][1] = 1;
+                plane[2][2] = 1;
+                plane[4][4] = 1;
+            }else if(cnt == 1){
+                plane[2][2] = 1;
+                plane[4][4] = 1;
+            }else if(cnt == 2){
+                plane[4][4] = 1;
+                plane[3][3] = 1;
+                plane[2][2] = 1;
+                plane[1][1] = 1;
+                plane[0][0] = 1;
+            }else if(cnt == 3){
+                plane[0][0] = 1;
+                plane[2][2] = 1;
+            }else if(cnt == 4){
+                plane[4][4] = 1;
+                plane[2][2] = 1;
+                plane[3][3] = 1;
+                plane[0][0] = 1;
+            }
+        }
+        set_plane(cnt);
+        draw_plane();
+        cnt++;
+        if(cnt == 5){
+            cnt=0;
+            itcnt++;
+            if(itcnt>it){
+                x++;
+                itcnt=0;
+            }
+            x = x%8;
+        }
     }
 }
 
@@ -5278,8 +5470,8 @@ void __attribute__((picinterrupt(("high_priority"))))H_ISR(){
 
     unsigned char mapResult = 0;
 
-    while (value > 180) {
-        value -= 180;
+    while (value > 205) {
+        value -= 205;
         mapResult += 1;
     }
     mode = mapResult;

@@ -57,19 +57,19 @@
 [v _move move `(i  1 e 2 0 ]
 "167
 [v _random_pattern random_pattern `(v  1 e 1 0 ]
-"213
+"206
 [v _rainfall rainfall `(v  1 e 1 0 ]
-"228
+"420
 [v _scan scan `(v  1 e 1 0 ]
-"285
+"477
 [v _speedup speedup `(v  1 e 1 0 ]
-"322
+"514
 [v _cubeidle cubeidle `(v  1 e 1 0 ]
-"342
+"534
 [v _pulsing pulsing `(v  1 e 1 0 ]
-"382
+"574
 [v _main main `(v  1 e 1 0 ]
-"418
+"610
 [v _H_ISR H_ISR `IIH(v  1 e 1 0 ]
 [s S379 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
@@ -368,82 +368,72 @@
 [v _plane plane `[5][5]i  1 e 50 0 ]
 "18
 [v _mode mode `i  1 e 2 0 ]
-"382
+"574
 [v _main main `(v  1 e 1 0 ]
 {
-"416
+"608
 } 0
-"285
+"477
 [v _speedup speedup `(v  1 e 1 0 ]
 {
-"301
-[v speedup@j_745 j `i  1 a 2 62 ]
-"294
+"493
+[v speedup@j_747 j `i  1 a 2 62 ]
+"486
 [v speedup@j j `i  1 a 2 60 ]
-"312
-[v speedup@j_746 j `i  1 a 2 52 ]
-"287
+"504
+[v speedup@j_748 j `i  1 a 2 52 ]
+"479
 [v speedup@i i `i  1 a 2 58 ]
 [v speedup@del del `i  1 a 2 56 ]
 [v speedup@dcnt dcnt `i  1 a 2 54 ]
-"285
+"477
 [v speedup@id id `i  1 p 2 49 ]
-"320
+"512
 } 0
-"228
+"420
 [v _scan scan `(v  1 e 1 0 ]
 {
-"276
-[v scan@j_738 j `i  1 a 2 79 ]
-"268
-[v scan@j_736 j `i  1 a 2 75 ]
-"259
-[v scan@j_734 j `i  1 a 2 71 ]
-"251
-[v scan@j_732 j `i  1 a 2 67 ]
-"233
+"468
+[v scan@j_740 j `i  1 a 2 79 ]
+"460
+[v scan@j_738 j `i  1 a 2 75 ]
+"451
+[v scan@j_736 j `i  1 a 2 71 ]
+"443
+[v scan@j_734 j `i  1 a 2 67 ]
+"425
 [v scan@j j `i  1 a 2 57 ]
-"274
-[v scan@i_737 i `i  1 a 2 77 ]
-"266
-[v scan@i_735 i `i  1 a 2 73 ]
-"257
-[v scan@i_733 i `i  1 a 2 69 ]
-"249
-[v scan@i_731 i `i  1 a 2 65 ]
-"246
-[v scan@i_730 i `i  1 a 2 63 ]
-"241
-[v scan@i_729 i `i  1 a 2 61 ]
-"236
-[v scan@i_728 i `i  1 a 2 59 ]
-"232
+"466
+[v scan@i_739 i `i  1 a 2 77 ]
+"458
+[v scan@i_737 i `i  1 a 2 73 ]
+"449
+[v scan@i_735 i `i  1 a 2 69 ]
+"441
+[v scan@i_733 i `i  1 a 2 65 ]
+"438
+[v scan@i_732 i `i  1 a 2 63 ]
+"433
+[v scan@i_731 i `i  1 a 2 61 ]
+"428
+[v scan@i_730 i `i  1 a 2 59 ]
+"424
 [v scan@i i `i  1 a 2 55 ]
-"228
+"420
 [v scan@id id `i  1 p 2 49 ]
-"283
+"475
 } 0
 "167
 [v _random_pattern random_pattern `(v  1 e 1 0 ]
 {
 "170
-[v random_pattern@r r `i  1 a 2 73 ]
-"171
-[v random_pattern@r2 r2 `i  1 a 2 71 ]
-[v random_pattern@x2 x2 `i  1 a 2 69 ]
-"170
-[v random_pattern@x x `i  1 a 2 67 ]
-"171
-[v random_pattern@prevx2 prevx2 `i  1 a 2 65 ]
-"170
-[v random_pattern@prevx prevx `i  1 a 2 63 ]
-"171
-[v random_pattern@prevr2 prevr2 `i  1 a 2 61 ]
-"170
+[v random_pattern@r r `i  1 a 2 65 ]
+[v random_pattern@x x `i  1 a 2 63 ]
+[v random_pattern@prevx prevx `i  1 a 2 61 ]
 [v random_pattern@prevr prevr `i  1 a 2 59 ]
 "167
 [v random_pattern@id id `i  1 p 2 49 ]
-"211
+"189
 } 0
 "11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\rand.c
 [v _rand rand `(i  1 e 2 0 ]
@@ -467,6 +457,18 @@
 [v move@r r `i  1 p 2 31 ]
 "165
 } 0
+"206
+[v _rainfall rainfall `(v  1 e 1 0 ]
+{
+"208
+[v rainfall@cnt cnt `i  1 a 2 58 ]
+[v rainfall@x x `i  1 a 2 56 ]
+[v rainfall@itcnt itcnt `i  1 a 2 54 ]
+[v rainfall@it it `i  1 a 2 52 ]
+"206
+[v rainfall@id id `i  1 p 2 49 ]
+"418
+} 0
 "83
 [v _clear_plane clear_plane `(v  1 e 1 0 ]
 {
@@ -476,43 +478,34 @@
 [v clear_plane@i i `i  1 a 2 45 ]
 "88
 } 0
-"213
-[v _rainfall rainfall `(v  1 e 1 0 ]
-{
-"215
-[v rainfall@x x `i  1 a 2 53 ]
-"213
-[v rainfall@id id `i  1 p 2 49 ]
-"226
-} 0
-"342
+"534
 [v _pulsing pulsing `(v  1 e 1 0 ]
 {
-"361
+"553
 [v pulsing@j j `i  1 a 2 55 ]
-"369
-[v pulsing@i_755 i `i  1 a 2 59 ]
-"360
-[v pulsing@i_753 i `i  1 a 2 53 ]
-"350
+"561
+[v pulsing@i_757 i `i  1 a 2 59 ]
+"552
+[v pulsing@i_755 i `i  1 a 2 53 ]
+"542
 [v pulsing@i i `i  1 a 2 57 ]
-"342
+"534
 [v pulsing@id id `i  1 p 2 49 ]
-"380
+"572
 } 0
 "20
 [v _init init `(v  1 e 1 0 ]
 {
 "49
 } 0
-"322
+"514
 [v _cubeidle cubeidle `(v  1 e 1 0 ]
 {
-"327
+"519
 [v cubeidle@i i `i  1 a 2 59 ]
-"322
+"514
 [v cubeidle@id id `i  1 p 2 49 ]
-"340
+"532
 } 0
 "6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\time.c
 [v _time time `(o  1 e 8 0 ]
@@ -593,12 +586,12 @@
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 39 ]
 "53
 } 0
-"418 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
+"610 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _H_ISR H_ISR `IIH(v  1 e 1 0 ]
 {
-"420
+"612
 [v H_ISR@value value `i  1 a 2 2 ]
-"423
+"615
 [v H_ISR@mapResult mapResult `uc  1 a 1 4 ]
-"442
+"634
 } 0
