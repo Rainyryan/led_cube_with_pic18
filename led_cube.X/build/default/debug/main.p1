@@ -865,35 +865,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 73: 
 [e = . . _LATDbits 1 6 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "74
-[; ;main.c: 74: void set_plane(int a){
+[; ;main.c: 74: void plane_on(int a){
 [e = . . _LATDbits 1 7 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "76
-[; ;main.c: 76:     TRISEbits.TRISE2 = 1;
+[; ;main.c: 76:         case 0:
 [e = . . _LATDbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "77
-[; ;main.c: 77:     TRISAbits.TRISA7 = 1;
+[; ;main.c: 77:             TRISEbits.TRISE1 = 0;
 [e = . . _LATDbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "78
-[; ;main.c: 78:     TRISAbits.TRISA6 = 1;
+[; ;main.c: 78:             LATEbits.LE1 = 1;
 [e = . . _LATCbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "79
-[; ;main.c: 79:     TRISCbits.TRISC0 = 1;
+[; ;main.c: 79:             break;
 [e = . . _LATCbits 1 5 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "80
-[; ;main.c: 80:     switch (a){
+[; ;main.c: 80:         case 1:
 [e = . . _LATCbits 1 6 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "81
-[; ;main.c: 81:         case 0:
+[; ;main.c: 81:             TRISEbits.TRISE2 = 0;
 [e :UE 289 ]
 }
 "83
-[; ;main.c: 83:             LATEbits.LE1 = 1;
+[; ;main.c: 83:             break;
 [v _clear_plane `(v ~T0 @X0 1 ef ]
 {
 [e :U _clear_plane ]
 [f ]
 "84
-[; ;main.c: 84:             break;
+[; ;main.c: 84:         case 2:
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -901,7 +901,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 292  ]
 [e :U 291 ]
 "85
-[; ;main.c: 85:         case 1:
+[; ;main.c: 85:             TRISAbits.TRISA7 = 0;
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
@@ -909,7 +909,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 295  ]
 [e :U 294 ]
 "86
-[; ;main.c: 86:             TRISEbits.TRISE2 = 0;
+[; ;main.c: 86:             LATAbits.LA7 = 1;
 [e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
 [e ++ _j -> 1 `i ]
 [e $ < _j -> 5 `i 294  ]
@@ -920,121 +920,106 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 292 ]
 }
 "87
-[; ;main.c: 87:             LATEbits.LE2 = 1;
+[; ;main.c: 87:             break;
 [e ( _draw_plane ..  ]
 "88
-[; ;main.c: 88:             break;
+[; ;main.c: 88:         case 3:
 [e :UE 290 ]
 }
 "90
-[; ;main.c: 90:             TRISAbits.TRISA7 = 0;
-[v _set_plane `(v ~T0 @X0 1 ef1`i ]
+[; ;main.c: 90:             LATAbits.LA6 = 1;
+[v _plane_on `(v ~T0 @X0 1 ef1`i ]
 {
-[e :U _set_plane ]
+[e :U _plane_on ]
 [v _a `i ~T0 @X0 1 r1 ]
 [f ]
 "91
-[; ;main.c: 91:             LATAbits.LA7 = 1;
-[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
-"92
-[; ;main.c: 92:             break;
-[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
-"93
-[; ;main.c: 93:         case 3:
-[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
-"94
-[; ;main.c: 94:             TRISAbits.TRISA6 = 0;
-[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
-"95
-[; ;main.c: 95:             LATAbits.LA6 = 1;
-[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
-"96
-[; ;main.c: 96:             break;
+[; ;main.c: 91:             break;
 [e $U 299  ]
 {
-"97
-[; ;main.c: 97:         case 4:
+"92
+[; ;main.c: 92:         case 4:
 [e :U 300 ]
-"98
-[; ;main.c: 98:             TRISCbits.TRISC0 = 0;
+"93
+[; ;main.c: 93:             TRISCbits.TRISC0 = 0;
 [e = . . _TRISEbits 0 1 -> -> 0 `i `uc ]
-"99
-[; ;main.c: 99:             LATCbits.LC0 = 1 ;
+"94
+[; ;main.c: 94:             LATCbits.LC0 = 1 ;
 [e = . . _LATEbits 1 1 -> -> 1 `i `uc ]
-"100
-[; ;main.c: 100:             break;
+"95
+[; ;main.c: 95:             break;
 [e $U 298  ]
-"101
-[; ;main.c: 101:         default:
+"96
+[; ;main.c: 96:         default:
 [e :U 301 ]
-"102
-[; ;main.c: 102:             TRISEbits.TRISE1 = 1;
+"97
+[; ;main.c: 97:             TRISEbits.TRISE1 = 1;
 [e = . . _TRISEbits 0 2 -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:             TRISEbits.TRISE2 = 1;
+"98
+[; ;main.c: 98:             TRISEbits.TRISE2 = 1;
 [e = . . _LATEbits 1 2 -> -> 1 `i `uc ]
-"104
-[; ;main.c: 104:             TRISAbits.TRISA7 = 1;
+"99
+[; ;main.c: 99:             TRISAbits.TRISA7 = 1;
 [e $U 298  ]
-"105
-[; ;main.c: 105:             TRISAbits.TRISA6 = 1;
+"100
+[; ;main.c: 100:             TRISAbits.TRISA6 = 1;
 [e :U 302 ]
-"106
-[; ;main.c: 106:             TRISCbits.TRISC0 = 1;
+"101
+[; ;main.c: 101:             TRISCbits.TRISC0 = 1;
 [e = . . _TRISAbits 0 7 -> -> 0 `i `uc ]
-"107
-[; ;main.c: 107:             break;
+"102
+[; ;main.c: 102:             break;
 [e = . . _LATAbits 1 7 -> -> 1 `i `uc ]
-"108
-[; ;main.c: 108:     }
+"103
+[; ;main.c: 103:     }
 [e $U 298  ]
-"109
-[; ;main.c: 109: }
+"104
+[; ;main.c: 104: }
 [e :U 303 ]
-"110
-[; ;main.c: 110: 
+"105
+[; ;main.c: 105: 
 [e = . . _TRISAbits 0 6 -> -> 0 `i `uc ]
-"111
-[; ;main.c: 111: void clear_cube(){
+"106
+[; ;main.c: 106: void set_plane(int a){
 [e = . . _LATAbits 1 6 -> -> 1 `i `uc ]
-"112
-[; ;main.c: 112:     TRISEbits.TRISE1 = 1;
+"107
+[; ;main.c: 107:     TRISEbits.TRISE1 = 1;
 [e $U 298  ]
-"113
-[; ;main.c: 113:     TRISEbits.TRISE2 = 1;
+"108
+[; ;main.c: 108:     TRISEbits.TRISE2 = 1;
 [e :U 304 ]
-"114
-[; ;main.c: 114:     TRISAbits.TRISA7 = 1;
+"109
+[; ;main.c: 109:     TRISAbits.TRISA7 = 1;
 [e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"115
-[; ;main.c: 115:     TRISAbits.TRISA6 = 1;
+"110
+[; ;main.c: 110:     TRISAbits.TRISA6 = 1;
 [e = . . _LATCbits 1 0 -> -> 1 `i `uc ]
-"116
-[; ;main.c: 116:     TRISCbits.TRISC0 = 1;
+"111
+[; ;main.c: 111:     TRISCbits.TRISC0 = 1;
 [e $U 298  ]
-"117
-[; ;main.c: 117:     TRISA = 0;
+"112
+[; ;main.c: 112:     plane_on(a);
 [e :U 305 ]
-"118
-[; ;main.c: 118:     TRISB = 0;
+"113
+[; ;main.c: 113: }
 [e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
-"119
-[; ;main.c: 119:     TRISC = 0;
+"114
+[; ;main.c: 114: 
 [e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
-"120
-[; ;main.c: 120:     TRISD = 0;
+"115
+[; ;main.c: 115: 
 [e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
-"121
-[; ;main.c: 121:     TRISE = 0;
+"116
+[; ;main.c: 116: 
 [e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
-"122
-[; ;main.c: 122:     for(int i = 0; i < 5; i++)
+"117
+[; ;main.c: 117: void clear_cube(){
 [e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
-"123
-[; ;main.c: 123:         for(int j = 0; j < 5; j++)
+"118
+[; ;main.c: 118: 
 [e $U 298  ]
-"124
-[; ;main.c: 124:             plane[i][j] = 0;
+"119
+[; ;main.c: 119:     TRISA = 0;
 }
 [e $U 298  ]
 [e :U 299 ]
@@ -1045,170 +1030,203 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 304
  305 ]
 [e :U 298 ]
-"125
-[; ;main.c: 125: }
+"120
+[; ;main.c: 120:     TRISB = 0;
 [e :UE 297 ]
 }
+"122
+[; ;main.c: 122:     TRISD = 0;
+[v _set_plane `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _set_plane ]
+[v _a `i ~T0 @X0 1 r1 ]
+[f ]
+"123
+[; ;main.c: 123:     TRISE = 0;
+[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
+"124
+[; ;main.c: 124:     TRISEbits.TRISE1 = 1;
+[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
+"125
+[; ;main.c: 125:     TRISEbits.TRISE2 = 1;
+[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
+"126
+[; ;main.c: 126:     TRISAbits.TRISA7 = 1;
+[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
 "127
-[; ;main.c: 127: void lighton(int x, int prev){
+[; ;main.c: 127:     TRISAbits.TRISA6 = 1;
+[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+"128
+[; ;main.c: 128:     TRISCbits.TRISC0 = 1;
+[e ( _plane_on (1 _a ]
+"129
+[; ;main.c: 129:     for(int i = 0; i < 5; i++)
+[e :UE 306 ]
+}
+"133
+[; ;main.c: 133: }
 [v _clear_cube `(v ~T0 @X0 1 ef ]
 {
 [e :U _clear_cube ]
 [f ]
-"128
-[; ;main.c: 128:     set_plane(x/25);
-[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
-"129
-[; ;main.c: 129:     if(prev != -1)plane[(prev%25)/5][prev%5] = 0;
-[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
-"130
-[; ;main.c: 130:     plane[(x%25)/5][x%5] = 1;
-[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
-"131
-[; ;main.c: 131:     draw_plane();
-[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
-"132
-[; ;main.c: 132: }
-[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
-"133
-[; ;main.c: 133: int move(int x, int r){
-[e = _TRISA -> -> 0 `i `uc ]
-"134
-[; ;main.c: 134:     if(r == 0)x = (x%5 == 4) ? x-4 : x+1;
-[e = _TRISB -> -> 0 `i `uc ]
 "135
-[; ;main.c: 135:     else if(r == 1)x = (x%5 == 0) ? x+4 : x-1;
-[e = _TRISC -> -> 0 `i `uc ]
+[; ;main.c: 135: void lighton(int x, int prev){
+[e = _TRISA -> -> 0 `i `uc ]
 "136
-[; ;main.c: 136:     else if(r == 2)x = (x%25 >= 20) ? x-20 : x+5;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;main.c: 136:     set_plane(x/25);
+[e = _TRISB -> -> 0 `i `uc ]
 "137
-[; ;main.c: 137:     else if(r == 3)x = (x%25 < 5) ? x+20 : x-5;
-[e = _TRISE -> -> 0 `i `uc ]
+[; ;main.c: 137:     if(prev != -1)plane[(prev%25)/5][prev%5] = 0;
+[e = _TRISC -> -> 0 `i `uc ]
 "138
-[; ;main.c: 138:     else if(r == 4)x = (x >= 100) ? x-100 : x+25;
+[; ;main.c: 138:     plane[(x%25)/5][x%5] = 1;
+[e = _TRISD -> -> 0 `i `uc ]
+"139
+[; ;main.c: 139:     draw_plane();
+[e = _TRISE -> -> 0 `i `uc ]
+"140
+[; ;main.c: 140: }
+[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
+"141
+[; ;main.c: 141: int move(int x, int r){
+[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
+"142
+[; ;main.c: 142:     if(r == 0)x = (x%5 == 4) ? x-4 : x+1;
+[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
+"143
+[; ;main.c: 143:     else if(r == 1)x = (x%5 == 0) ? x+4 : x-1;
+[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
+"144
+[; ;main.c: 144:     else if(r == 2)x = (x%25 >= 20) ? x-20 : x+5;
+[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+"145
+[; ;main.c: 145:     else if(r == 3)x = (x%25 < 5) ? x+20 : x-5;
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 307  ]
-[e $U 308  ]
-[e :U 307 ]
-"139
-[; ;main.c: 139:     else if(r == 5)x = (x<25) ? x+100 : x-25;
+[e $ < _i -> 5 `i 308  ]
+[e $U 309  ]
+[e :U 308 ]
+"146
+[; ;main.c: 146:     else if(r == 4)x = (x >= 100) ? x-100 : x+25;
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 5 `i 310  ]
-[e $U 311  ]
-[e :U 310 ]
-"140
-[; ;main.c: 140:     return x;
+[e $ < _j -> 5 `i 311  ]
+[e $U 312  ]
+[e :U 311 ]
+"147
+[; ;main.c: 147:     else if(r == 5)x = (x<25) ? x+100 : x-25;
 [e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 5 `i 310  ]
-[e :U 311 ]
+[e $ < _j -> 5 `i 311  ]
+[e :U 312 ]
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 307  ]
-[e :U 308 ]
+[e $ < _i -> 5 `i 308  ]
+[e :U 309 ]
 }
-"141
-[; ;main.c: 141: }
-[e :UE 306 ]
+"149
+[; ;main.c: 149: }
+[e :UE 307 ]
 }
-"143
-[; ;main.c: 143: void random_pattern(){
+"151
+[; ;main.c: 151: void random_pattern(int id){
 [v _lighton `(v ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _lighton ]
 [v _x `i ~T0 @X0 1 r1 ]
 [v _prev `i ~T0 @X0 1 r2 ]
 [f ]
-"144
-[; ;main.c: 144:     srand(time(((void*)0)));
+"152
+[; ;main.c: 152:     clear_plane();
 [e ( _set_plane (1 / _x -> 25 `i ]
-"145
-[; ;main.c: 145:     int x = 0, r = 0, prevr, prevx = -1;
-[e $ ! != _prev -U -> 1 `i 314  ]
+"153
+[; ;main.c: 153:     srand(time(((void*)0)));
+[e $ ! != _prev -U -> 1 `i 315  ]
 [e = *U + &U *U + &U _plane * -> -> / % _prev -> 25 `i -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> % _prev -> 5 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> / % _prev -> 25 `i -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-[e :U 314 ]
-"146
-[; ;main.c: 146:     lighton(0, prevx);
+[e :U 315 ]
+"154
+[; ;main.c: 154:     int x = 0, r = 0, prevr, prevx = -1;
 [e = *U + &U *U + &U _plane * -> -> / % _x -> 25 `i -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> % _x -> 5 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> / % _x -> 25 `i -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"147
-[; ;main.c: 147:     r = rand() % 6;
+"155
+[; ;main.c: 155:     int x2 = 0, r2 = 0, prevr2, prevx2 = -1;
 [e ( _draw_plane ..  ]
-"148
-[; ;main.c: 148:     prevx = x;
-[e :UE 313 ]
+"156
+[; ;main.c: 156:     lighton(0, prevx);
+[e :UE 314 ]
 }
-"149
-[; ;main.c: 149:     x = move(x,r);
+"157
+[; ;main.c: 157:     r = rand() % 6;
 [v _move `(i ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _move ]
 [v _x `i ~T0 @X0 1 r1 ]
 [v _r `i ~T0 @X0 1 r2 ]
 [f ]
-"150
-[; ;main.c: 150:     lighton(x,prevx);
-[e $ ! == _r -> 0 `i 316  ]
+"158
+[; ;main.c: 158:     prevx = x;
+[e $ ! == _r -> 0 `i 317  ]
 [e = _x ? == % _x -> 5 `i -> 4 `i : - _x -> 4 `i + _x -> 1 `i ]
-[e $U 317  ]
-"151
-[; ;main.c: 151:     _delay((unsigned long)((30)*(4000000/4000.0)));
-[e :U 316 ]
-[e $ ! == _r -> 1 `i 318  ]
-[e = _x ? == % _x -> 5 `i -> 0 `i : + _x -> 4 `i - _x -> 1 `i ]
-[e $U 319  ]
-"152
-[; ;main.c: 152:     prevx = x;
-[e :U 318 ]
-[e $ ! == _r -> 2 `i 320  ]
-[e = _x ? >= % _x -> 25 `i -> 20 `i : - _x -> 20 `i + _x -> 5 `i ]
-[e $U 321  ]
-"153
-[; ;main.c: 153:     x = move(x,r);
-[e :U 320 ]
-[e $ ! == _r -> 3 `i 322  ]
-[e = _x ? < % _x -> 25 `i -> 5 `i : + _x -> 20 `i - _x -> 5 `i ]
-[e $U 323  ]
-"154
-[; ;main.c: 154:     lighton(x,prevx);
-[e :U 322 ]
-[e $ ! == _r -> 4 `i 324  ]
-[e = _x ? >= _x -> 100 `i : - _x -> 100 `i + _x -> 25 `i ]
-[e $U 325  ]
-"155
-[; ;main.c: 155:     prevx = x;
-[e :U 324 ]
-[e $ ! == _r -> 5 `i 326  ]
-[e = _x ? < _x -> 25 `i : + _x -> 100 `i - _x -> 25 `i ]
-[e :U 326 ]
-[e :U 325 ]
-[e :U 323 ]
-[e :U 321 ]
-[e :U 319 ]
-[e :U 317 ]
-"156
-[; ;main.c: 156:     while(mode == 1){
-[e ) _x ]
-[e $UE 315  ]
-"157
-[; ;main.c: 157:         prevr = r;
-[e :UE 315 ]
-}
+[e $U 318  ]
 "159
-[; ;main.c: 159:         if(r==0||r==1)while(prevr+r==1)r=rand()%6;
-[v _random_pattern `(v ~T0 @X0 1 ef ]
+[; ;main.c: 159:     x = move(x,r);
+[e :U 317 ]
+[e $ ! == _r -> 1 `i 319  ]
+[e = _x ? == % _x -> 5 `i -> 0 `i : + _x -> 4 `i - _x -> 1 `i ]
+[e $U 320  ]
+"160
+[; ;main.c: 160:     lighton(x,prevx);
+[e :U 319 ]
+[e $ ! == _r -> 2 `i 321  ]
+[e = _x ? >= % _x -> 25 `i -> 20 `i : - _x -> 20 `i + _x -> 5 `i ]
+[e $U 322  ]
+"161
+[; ;main.c: 161:     lighton(123, prevx2);
+[e :U 321 ]
+[e $ ! == _r -> 3 `i 323  ]
+[e = _x ? < % _x -> 25 `i -> 5 `i : + _x -> 20 `i - _x -> 5 `i ]
+[e $U 324  ]
+"162
+[; ;main.c: 162:     r2 = rand() % 6;
+[e :U 323 ]
+[e $ ! == _r -> 4 `i 325  ]
+[e = _x ? >= _x -> 100 `i : - _x -> 100 `i + _x -> 25 `i ]
+[e $U 326  ]
+"163
+[; ;main.c: 163:     prevx2 = x2;
+[e :U 325 ]
+[e $ ! == _r -> 5 `i 327  ]
+[e = _x ? < _x -> 25 `i : + _x -> 100 `i - _x -> 25 `i ]
+[e :U 327 ]
+[e :U 326 ]
+[e :U 324 ]
+[e :U 322 ]
+[e :U 320 ]
+[e :U 318 ]
+"164
+[; ;main.c: 164:     x2 = move(x2,r2);
+[e ) _x ]
+[e $UE 316  ]
+"165
+[; ;main.c: 165:     lighton(x2,prevx2);
+[e :UE 316 ]
+}
+"167
+[; ;main.c: 167:     prevx = x;
+[v _random_pattern `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _random_pattern ]
+[v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"160
-[; ;main.c: 160:         else if(r==2||r==3) while(prevr+r==5)r=rand()%6;
+"168
+[; ;main.c: 168:     x = move(x,r);
+[e ( _clear_plane ..  ]
+"169
+[; ;main.c: 169:     lighton(x,prevx);
 [e ( _srand (1 -> ( _time (1 -> -> -> 0 `i `*v `*o `ui ]
-"161
-[; ;main.c: 161:         else if(r==4||r==5) while(prevr+r==9)r=rand()%6;
+"170
+[; ;main.c: 170:     prevx = x;
 [v _x `i ~T0 @X0 1 a ]
 [e = _x -> 0 `i ]
 [v _r `i ~T0 @X0 1 a ]
@@ -1216,501 +1234,1078 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _prevr `i ~T0 @X0 1 a ]
 [v _prevx `i ~T0 @X0 1 a ]
 [e = _prevx -U -> 1 `i ]
-"162
-[; ;main.c: 162: 
-[e ( _lighton (2 , -> 0 `i _prevx ]
-"163
-[; ;main.c: 163:         x=move(x,r);
-[e = _r % ( _rand ..  -> 6 `i ]
-"164
-[; ;main.c: 164:         lighton(x,prevx);
-[e = _prevx _x ]
-"165
-[; ;main.c: 165:         prevx = x;
-[e = _x ( _move (2 , _x _r ]
-"166
-[; ;main.c: 166:         _delay((unsigned long)((30)*(4000000/4000.0)));
-[e ( _lighton (2 , _x _prevx ]
-"167
-[; ;main.c: 167:         x=move(x,r);
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"168
-[; ;main.c: 168:         lighton(x,prevx);
-[e = _prevx _x ]
-"169
-[; ;main.c: 169:         prevx = x;
-[e = _x ( _move (2 , _x _r ]
-"170
-[; ;main.c: 170:         _delay((unsigned long)((30)*(4000000/4000.0)));
-[e ( _lighton (2 , _x _prevx ]
 "171
-[; ;main.c: 171:     }
-[e = _prevx _x ]
+[; ;main.c: 171:     prevx2 = x2;
+[v _x2 `i ~T0 @X0 1 a ]
+[e = _x2 -> 0 `i ]
+[v _r2 `i ~T0 @X0 1 a ]
+[e = _r2 -> 0 `i ]
+[v _prevr2 `i ~T0 @X0 1 a ]
+[v _prevx2 `i ~T0 @X0 1 a ]
+[e = _prevx2 -U -> 1 `i ]
 "172
-[; ;main.c: 172: }
-[e $U 328  ]
-[e :U 329 ]
-{
+[; ;main.c: 172:     x2 = move(x2,r);
+[e ( _lighton (2 , -> 0 `i _prevx ]
 "173
-[; ;main.c: 173: 
-[e = _prevr _r ]
+[; ;main.c: 173:     lighton(x2,prevx2);
+[e = _r % ( _rand ..  -> 6 `i ]
 "174
-[; ;main.c: 174: void speedup(int id){
-[e = _r % ( _rand ..  -> 6 `i ]
-"175
-[; ;main.c: 175:     clear_cube();
-[e $ ! || == _r -> 0 `i == _r -> 1 `i 331  ]
-[e $U 332  ]
-[e :U 333 ]
-[e = _r % ( _rand ..  -> 6 `i ]
-[e :U 332 ]
-[e $ == + _prevr _r -> 1 `i 333  ]
-[e :U 334 ]
-[e $U 335  ]
-"176
-[; ;main.c: 176:     int i = 0, dcnt = 0, del = 50;
-[e :U 331 ]
-[e $ ! || == _r -> 2 `i == _r -> 3 `i 336  ]
-[e $U 337  ]
-[e :U 338 ]
-[e = _r % ( _rand ..  -> 6 `i ]
-[e :U 337 ]
-[e $ == + _prevr _r -> 5 `i 338  ]
-[e :U 339 ]
-[e $U 340  ]
-"177
-[; ;main.c: 177:     plane[0][0] = 1;
-[e :U 336 ]
-[e $ ! || == _r -> 4 `i == _r -> 5 `i 341  ]
-[e $U 342  ]
-[e :U 343 ]
-[e = _r % ( _rand ..  -> 6 `i ]
-[e :U 342 ]
-[e $ == + _prevr _r -> 9 `i 343  ]
-[e :U 344 ]
-[e :U 341 ]
-[e :U 340 ]
-[e :U 335 ]
-"179
-[; ;main.c: 179:     plane[4][0] = 1;
-[e = _x ( _move (2 , _x _r ]
-"180
-[; ;main.c: 180:     plane[4][4] = 1;
-[e ( _lighton (2 , _x _prevx ]
-"181
-[; ;main.c: 181:     while(mode == id){
+[; ;main.c: 174:     prevx2 = x2;
 [e = _prevx _x ]
+"175
+[; ;main.c: 175:     while(mode == id){
+[e = _x ( _move (2 , _x _r ]
+"176
+[; ;main.c: 176:         prevr = r;
+[e ( _lighton (2 , _x _prevx ]
+"177
+[; ;main.c: 177:         r=rand()%6;
+[e ( _lighton (2 , -> 123 `i _prevx2 ]
+"178
+[; ;main.c: 178:         if(r==0||r==1)while(prevr+r==1)r=rand()%6;
+[e = _r2 % ( _rand ..  -> 6 `i ]
+"179
+[; ;main.c: 179:         else if(r==2||r==3) while(prevr+r==5)r=rand()%6;
+[e = _prevx2 _x2 ]
+"180
+[; ;main.c: 180:         else if(r==4||r==5) while(prevr+r==9)r=rand()%6;
+[e = _x2 ( _move (2 , _x2 _r2 ]
+"181
+[; ;main.c: 181:         prevr2 = r2;
+[e ( _lighton (2 , _x2 _prevx2 ]
 "182
-[; ;main.c: 182:         if(i == 0 || i == 4){
+[; ;main.c: 182:         r2=rand()%6;
 [e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "183
-[; ;main.c: 183:             for(int j = 1; j < 4; j++){
-[e = _x ( _move (2 , _x _r ]
-"184
-[; ;main.c: 184:                 plane[j][0] = 1;
-[e ( _lighton (2 , _x _prevx ]
-"185
-[; ;main.c: 185:                 plane[j][4] = 1;
+[; ;main.c: 183:         if(r2==0||r2==1)while(prevr2+r2==1)r2=rand()%6;
 [e = _prevx _x ]
+"184
+[; ;main.c: 184:         else if(r2==2||r2==3) while(prevr2+r2==5)r2=rand()%6;
+[e = _x ( _move (2 , _x _r ]
+"185
+[; ;main.c: 185:         else if(r2==4||r2==5) while(prevr2+r2==9)r2=rand()%6;
+[e ( _lighton (2 , _x _prevx ]
 "186
-[; ;main.c: 186:                 plane[0][j] = 1;
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 186: 
+[e = _prevx _x ]
 "187
-[; ;main.c: 187:                 plane[4][j] = 1;
-}
-[e :U 328 ]
-"172
-[; ;main.c: 172: }
-[e $ == _mode -> 1 `i 329  ]
-[e :U 330 ]
+[; ;main.c: 187:         x=move(x,r);
+[e = _prevx2 _x2 ]
 "188
-[; ;main.c: 188:             }
-[e :UE 327 ]
-}
+[; ;main.c: 188:         lighton(x,prevx);
+[e = _x2 ( _move (2 , _x2 _r ]
+"189
+[; ;main.c: 189:         prevx = x;
+[e ( _lighton (2 , _x2 _prevx2 ]
 "190
-[; ;main.c: 190:             for(int j = 1; j < 4; j++){
+[; ;main.c: 190:         x2=move(x2,r);
+[e = _prevx2 _x2 ]
+"191
+[; ;main.c: 191:         lighton(x2,prevx2);
+[e $U 329  ]
+[e :U 330 ]
+{
+"192
+[; ;main.c: 192:         prevx2 = x2;
+[e = _prevr _r ]
+"193
+[; ;main.c: 193:         _delay((unsigned long)((5)*(4000000/4000.0)));
+[e = _r % ( _rand ..  -> 6 `i ]
+"194
+[; ;main.c: 194:     }
+[e $ ! || == _r -> 0 `i == _r -> 1 `i 332  ]
+[e $U 333  ]
+[e :U 334 ]
+[e = _r % ( _rand ..  -> 6 `i ]
+[e :U 333 ]
+[e $ == + _prevr _r -> 1 `i 334  ]
+[e :U 335 ]
+[e $U 336  ]
+"195
+[; ;main.c: 195: }
+[e :U 332 ]
+[e $ ! || == _r -> 2 `i == _r -> 3 `i 337  ]
+[e $U 338  ]
+[e :U 339 ]
+[e = _r % ( _rand ..  -> 6 `i ]
+[e :U 338 ]
+[e $ == + _prevr _r -> 5 `i 339  ]
+[e :U 340 ]
+[e $U 341  ]
+"196
+[; ;main.c: 196: 
+[e :U 337 ]
+[e $ ! || == _r -> 4 `i == _r -> 5 `i 342  ]
+[e $U 343  ]
+[e :U 344 ]
+[e = _r % ( _rand ..  -> 6 `i ]
+[e :U 343 ]
+[e $ == + _prevr _r -> 9 `i 344  ]
+[e :U 345 ]
+[e :U 342 ]
+[e :U 341 ]
+[e :U 336 ]
+"197
+[; ;main.c: 197: void rainfall(int id){
+[e = _prevr2 _r2 ]
+"198
+[; ;main.c: 198:     clear_cube();
+[e = _r2 % ( _rand ..  -> 6 `i ]
+"199
+[; ;main.c: 199:     int x = 0;
+[e $ ! || == _r2 -> 0 `i == _r2 -> 1 `i 346  ]
+[e $U 347  ]
+[e :U 348 ]
+[e = _r2 % ( _rand ..  -> 6 `i ]
+[e :U 347 ]
+[e $ == + _prevr2 _r2 -> 1 `i 348  ]
+[e :U 349 ]
+[e $U 350  ]
+"200
+[; ;main.c: 200:     plane[0][0] = 1;
+[e :U 346 ]
+[e $ ! || == _r2 -> 2 `i == _r2 -> 3 `i 351  ]
+[e $U 352  ]
+[e :U 353 ]
+[e = _r2 % ( _rand ..  -> 6 `i ]
+[e :U 352 ]
+[e $ == + _prevr2 _r2 -> 5 `i 353  ]
+[e :U 354 ]
+[e $U 355  ]
+"201
+[; ;main.c: 201:     while(mode == id){
+[e :U 351 ]
+[e $ ! || == _r2 -> 4 `i == _r2 -> 5 `i 356  ]
+[e $U 357  ]
+[e :U 358 ]
+[e = _r2 % ( _rand ..  -> 6 `i ]
+[e :U 357 ]
+[e $ == + _prevr2 _r2 -> 9 `i 358  ]
+[e :U 359 ]
+[e :U 356 ]
+[e :U 355 ]
+[e :U 350 ]
+"203
+[; ;main.c: 203:         draw_plane();
+[e = _x ( _move (2 , _x _r ]
+"204
+[; ;main.c: 204:         x++;
+[e ( _lighton (2 , _x _prevx ]
+"205
+[; ;main.c: 205:         x %= 5;
+[e = _prevx _x ]
+"206
+[; ;main.c: 206:         plane[x][x] = 1;
+[e = _x2 ( _move (2 , _x2 _r ]
+"207
+[; ;main.c: 207:         set_plane(x);
+[e ( _lighton (2 , _x2 _prevx2 ]
+"208
+[; ;main.c: 208:         draw_plane();
+[e = _prevx2 _x2 ]
+"209
+[; ;main.c: 209:     }
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"210
+[; ;main.c: 210: }
+}
+[e :U 329 ]
+"191
+[; ;main.c: 191:         lighton(x2,prevx2);
+[e $ == _mode _id 330  ]
+[e :U 331 ]
+"211
+[; ;main.c: 211: 
+[e :UE 328 ]
+}
+"213
+[; ;main.c: 213:     clear_cube();
+[v _rainfall `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _rainfall ]
+[v _id `i ~T0 @X0 1 r1 ]
+[f ]
+"214
+[; ;main.c: 214: 
+[e ( _clear_cube ..  ]
+"215
+[; ;main.c: 215:     while(mode == id){
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+"216
+[; ;main.c: 216:         for(int i = 0; i < 5; i++)
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"217
+[; ;main.c: 217:             for(int j = 0; j < 5; j++)
+[e $U 361  ]
+[e :U 362 ]
+{
+"218
+[; ;main.c: 218:                 plane[i][j] = 1;
+[e = *U + &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _x `ui `ux -> -> # *U &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
+"219
+[; ;main.c: 219: 
+[e ( _draw_plane ..  ]
+"220
+[; ;main.c: 220:         for(int i = 0; i < 5; i++){
+[e ++ _x -> 1 `i ]
+"221
+[; ;main.c: 221:             set_plane(i);
+[e =% _x -> 5 `i ]
+"222
+[; ;main.c: 222:             draw_plane();
+[e = *U + &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _x `ui `ux -> -> # *U &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"223
+[; ;main.c: 223:             _delay((unsigned long)((8)*(4000000/4000.0)));
+[e ( _set_plane (1 _x ]
+"224
+[; ;main.c: 224:         }
+[e ( _draw_plane ..  ]
+"225
+[; ;main.c: 225:         for(int i = 0; i < 4; i++){
+}
+[e :U 361 ]
+"217
+[; ;main.c: 217:             for(int j = 0; j < 5; j++)
+[e $ == _mode _id 362  ]
+[e :U 363 ]
+"226
+[; ;main.c: 226:             set_plane(4-i);
+[e :UE 360 ]
+}
+"228
+[; ;main.c: 228:             _delay((unsigned long)((8)*(4000000/4000.0)));
+[v _scan `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _scan ]
+[v _id `i ~T0 @X0 1 r1 ]
+[f ]
+"229
+[; ;main.c: 229:         }
+[e ( _clear_cube ..  ]
+"231
+[; ;main.c: 231:             plane_on(i);
+[e $U 365  ]
+[e :U 366 ]
+{
+"232
+[; ;main.c: 232: 
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 368  ]
+[e $U 369  ]
+[e :U 368 ]
+"233
+[; ;main.c: 233:         for(int i = 0; i < 5; i++){
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 371  ]
+[e $U 372  ]
+[e :U 371 ]
+"234
+[; ;main.c: 234:             clear_plane();
+[e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 371  ]
+[e :U 372 ]
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 368  ]
+[e :U 369 ]
+}
+"236
+[; ;main.c: 236:                 plane[i][j] = 1;
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 374  ]
+[e $U 375  ]
+[e :U 374 ]
+{
+"237
+[; ;main.c: 237:             }
+[e ( _set_plane (1 _i ]
+"238
+[; ;main.c: 238:             draw_plane();
+[e ( _draw_plane ..  ]
+"239
+[; ;main.c: 239:             _delay((unsigned long)((8)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"240
+[; ;main.c: 240:         }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 374  ]
+[e :U 375 ]
+}
+"241
+[; ;main.c: 241:         for(int i = 0; i < 4; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 377  ]
+[e $U 378  ]
+[e :U 377 ]
+{
+"242
+[; ;main.c: 242:             clear_plane();
+[e ( _set_plane (1 - -> 4 `i _i ]
+"243
+[; ;main.c: 243:             for(int j = 0; j < 5; j++){
+[e ( _draw_plane ..  ]
+"244
+[; ;main.c: 244:                 plane[4-i][j] = 1;
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"245
+[; ;main.c: 245:             }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 377  ]
+[e :U 378 ]
+}
+"246
+[; ;main.c: 246:             draw_plane();
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 380  ]
+[e $U 381  ]
+[e :U 380 ]
+"247
+[; ;main.c: 247:             _delay((unsigned long)((8)*(4000000/4000.0)));
+[e ( _plane_on (1 _i ]
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 380  ]
+[e :U 381 ]
+}
+"249
+[; ;main.c: 249: 
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 383  ]
+[e $U 384  ]
+[e :U 383 ]
+{
+"250
+[; ;main.c: 250:         for(int i = 0; i < 5; i++){
+[e ( _clear_plane ..  ]
+"251
+[; ;main.c: 251:             clear_plane();
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 386  ]
+[e $U 387  ]
+[e :U 386 ]
+{
+"252
+[; ;main.c: 252:             for(int j = 0; j < 5; j++){
+[e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"253
+[; ;main.c: 253:                 plane[j][i] = 1;
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 386  ]
+[e :U 387 ]
+}
+"254
+[; ;main.c: 254:             }
+[e ( _draw_plane ..  ]
+"255
+[; ;main.c: 255:             draw_plane();
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"256
+[; ;main.c: 256:             _delay((unsigned long)((8)*(4000000/4000.0)));
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 383  ]
+[e :U 384 ]
+}
+"257
+[; ;main.c: 257:         }
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 389  ]
+[e $U 390  ]
+[e :U 389 ]
+{
+"258
+[; ;main.c: 258:         for(int i = 0; i < 4; i++){
+[e ( _clear_plane ..  ]
+"259
+[; ;main.c: 259:             clear_plane();
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 392  ]
+[e $U 393  ]
+[e :U 392 ]
+{
+"260
+[; ;main.c: 260:             for(int j = 0; j < 5; j++){
+[e = *U + &U *U + &U _plane * -> -> - -> 4 `i _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> - -> 4 `i _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"261
+[; ;main.c: 261:                 plane[j][4-i] = 1;
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 392  ]
+[e :U 393 ]
+}
+"262
+[; ;main.c: 262:             }
+[e ( _draw_plane ..  ]
+"263
+[; ;main.c: 263:             draw_plane();
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"264
+[; ;main.c: 264:             _delay((unsigned long)((8)*(4000000/4000.0)));
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 389  ]
+[e :U 390 ]
+}
+"266
+[; ;main.c: 266:     }
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 395  ]
+[e $U 396  ]
+[e :U 395 ]
+{
+"267
+[; ;main.c: 267: }
+[e ( _clear_plane ..  ]
+"268
+[; ;main.c: 268: 
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 398  ]
+[e $U 399  ]
+[e :U 398 ]
+{
+"269
+[; ;main.c: 269: void speedup(int id){
+[e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"270
+[; ;main.c: 270:     clear_cube();
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 398  ]
+[e :U 399 ]
+}
+"271
+[; ;main.c: 271:     int i = 0, dcnt = 0, del = 50;
+[e ( _draw_plane ..  ]
+"272
+[; ;main.c: 272:     plane[0][0] = 1;
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"273
+[; ;main.c: 273:     plane[0][4] = 1;
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 395  ]
+[e :U 396 ]
+}
+"274
+[; ;main.c: 274:     plane[4][0] = 1;
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 401  ]
+[e $U 402  ]
+[e :U 401 ]
+{
+"275
+[; ;main.c: 275:     plane[4][4] = 1;
+[e ( _clear_plane ..  ]
+"276
+[; ;main.c: 276:     while(mode == id){
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 404  ]
+[e $U 405  ]
+[e :U 404 ]
+{
+"277
+[; ;main.c: 277:         if(i == 0 || i == 4){
+[e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> - -> 4 `i _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"278
+[; ;main.c: 278:             for(int j = 1; j < 4; j++){
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 404  ]
+[e :U 405 ]
+}
+"279
+[; ;main.c: 279:                 plane[j][0] = 1;
+[e ( _draw_plane ..  ]
+"280
+[; ;main.c: 280:                 plane[j][4] = 1;
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"281
+[; ;main.c: 281:                 plane[0][j] = 1;
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 401  ]
+[e :U 402 ]
+}
+"282
+[; ;main.c: 282:                 plane[4][j] = 1;
+}
+[e :U 365 ]
+"231
+[; ;main.c: 231:             plane_on(i);
+[e $ == _mode _id 366  ]
+[e :U 367 ]
+"283
+[; ;main.c: 283:             }
+[e :UE 364 ]
+}
+"285
+[; ;main.c: 285:             for(int j = 1; j < 4; j++){
 [v _speedup `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _speedup ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"191
-[; ;main.c: 191:                 plane[j][0] = 0;
+"286
+[; ;main.c: 286:                 plane[j][0] = 0;
 [e ( _clear_cube ..  ]
-"192
-[; ;main.c: 192:                 plane[j][4] = 0;
+"287
+[; ;main.c: 287:                 plane[j][4] = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [v _dcnt `i ~T0 @X0 1 a ]
 [e = _dcnt -> 0 `i ]
 [v _del `i ~T0 @X0 1 a ]
 [e = _del -> 50 `i ]
-"193
-[; ;main.c: 193:                 plane[0][j] = 0;
+"288
+[; ;main.c: 288:                 plane[0][j] = 0;
 [e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"194
-[; ;main.c: 194:                 plane[4][j] = 0;
+"289
+[; ;main.c: 289:                 plane[4][j] = 0;
 [e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"195
-[; ;main.c: 195:             }
+"290
+[; ;main.c: 290:             }
 [e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"196
-[; ;main.c: 196:         }
+"291
+[; ;main.c: 291:         }
 [e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"197
-[; ;main.c: 197: 
-[e $U 346  ]
-[e :U 347 ]
+"292
+[; ;main.c: 292: 
+[e $U 408  ]
+[e :U 409 ]
 {
-"198
-[; ;main.c: 198:         set_plane(5);
-[e $ ! || == _i -> 0 `i == _i -> 4 `i 349  ]
+"293
+[; ;main.c: 293:         set_plane(5);
+[e $ ! || == _i -> 0 `i == _i -> 4 `i 411  ]
 {
-"199
-[; ;main.c: 199:         draw_plane();
+"294
+[; ;main.c: 294:         draw_plane();
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 1 `i ]
-[e $ < _j -> 4 `i 350  ]
-[e $U 351  ]
-[e :U 350 ]
+[e $ < _j -> 4 `i 412  ]
+[e $U 413  ]
+[e :U 412 ]
 {
-"200
-[; ;main.c: 200:         set_plane(i);
+"295
+[; ;main.c: 295:         set_plane(i);
 [e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"201
-[; ;main.c: 201:         for(int j=0;j<del && mode == id;j++)_delay((unsigned long)((1)*(4000000/4000.0)));
+"296
+[; ;main.c: 296:         for(int j=0;j<del && mode == id;j++)_delay((unsigned long)((1)*(4000000/4000.0)));
 [e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"202
-[; ;main.c: 202:         dcnt++;
+"297
+[; ;main.c: 297:         dcnt++;
 [e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"203
-[; ;main.c: 203:         if(del>10)del-=2;
+"298
+[; ;main.c: 298:         if(del>10)del-=2;
 [e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"204
-[; ;main.c: 204:         else if(del>0 && dcnt == 10)del-=1;
+"299
+[; ;main.c: 299:         else if(del>0 && dcnt == 10)del-=1;
 }
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 4 `i 350  ]
-[e :U 351 ]
+[e $ < _j -> 4 `i 412  ]
+[e :U 413 ]
 }
-"205
-[; ;main.c: 205:         dcnt = dcnt%10;
+"300
+[; ;main.c: 300:         dcnt = dcnt%10;
 }
-[e $U 353  ]
-[e :U 349 ]
+[e $U 415  ]
+[e :U 411 ]
 {
-"206
-[; ;main.c: 206:         i++;
+"301
+[; ;main.c: 301:         i++;
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 1 `i ]
-[e $ < _j -> 4 `i 354  ]
-[e $U 355  ]
-[e :U 354 ]
+[e $ < _j -> 4 `i 416  ]
+[e $U 417  ]
+[e :U 416 ]
 {
-"207
-[; ;main.c: 207:         i%=5;
+"302
+[; ;main.c: 302:         i%=5;
 [e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"208
-[; ;main.c: 208:     }
+"303
+[; ;main.c: 303:     }
 [e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"209
-[; ;main.c: 209: }
+"304
+[; ;main.c: 304: }
 [e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"210
-[; ;main.c: 210: 
+"305
+[; ;main.c: 305: 
 [e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"211
-[; ;main.c: 211: void cubeidle(int id){
+"306
+[; ;main.c: 306: void cubeidle(int id){
 }
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 4 `i 354  ]
-[e :U 355 ]
+[e $ < _j -> 4 `i 416  ]
+[e :U 417 ]
 }
-"212
-[; ;main.c: 212:     srand(time(((void*)0)));
+"307
+[; ;main.c: 307:     srand(time(((void*)0)));
 }
-[e :U 353 ]
-"214
-[; ;main.c: 214:     lighton(0,-1);
+[e :U 415 ]
+"309
+[; ;main.c: 309:     lighton(0,-1);
 [e ( _set_plane (1 -> 5 `i ]
-"215
-[; ;main.c: 215:     while(mode == id){
+"310
+[; ;main.c: 310:     while(mode == id){
 [e ( _draw_plane ..  ]
-"216
-[; ;main.c: 216:         for(int i=1;i<125 && mode == 0;i++){
+"311
+[; ;main.c: 311:         for(int i=1;i<125 && mode == 0;i++){
 [e ( _set_plane (1 _i ]
-"217
-[; ;main.c: 217:             lighton(i,i-1);
+"312
+[; ;main.c: 312:             lighton(i,i-1);
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $U 360  ]
-[e :U 357 ]
+[e $U 422  ]
+[e :U 419 ]
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 [e ++ _j -> 1 `i ]
-[e :U 360 ]
-[e $ && < _j _del == _mode _id 357  ]
-[e :U 358 ]
+[e :U 422 ]
+[e $ && < _j _del == _mode _id 419  ]
+[e :U 420 ]
 }
-"218
-[; ;main.c: 218:             _delay((unsigned long)((10)*(4000000/4000.0)));
+"313
+[; ;main.c: 313:             _delay((unsigned long)((10)*(4000000/4000.0)));
 [e ++ _dcnt -> 1 `i ]
-"219
-[; ;main.c: 219:         }
-[e $ ! > _del -> 10 `i 361  ]
+"314
+[; ;main.c: 314:         }
+[e $ ! > _del -> 10 `i 423  ]
 [e =- _del -> 2 `i ]
-[e $U 362  ]
-"220
-[; ;main.c: 220:         lighton(0,124);
-[e :U 361 ]
-[e $ ! && > _del -> 0 `i == _dcnt -> 10 `i 363  ]
+[e $U 424  ]
+"315
+[; ;main.c: 315:         lighton(0,124);
+[e :U 423 ]
+[e $ ! && > _del -> 0 `i == _dcnt -> 10 `i 425  ]
 [e =- _del -> 1 `i ]
-[e :U 363 ]
-[e :U 362 ]
-"221
-[; ;main.c: 221:         _delay((unsigned long)((2)*(4000000/4000.0)));
+[e :U 425 ]
+[e :U 424 ]
+"316
+[; ;main.c: 316:         _delay((unsigned long)((2)*(4000000/4000.0)));
 [e = _dcnt % _dcnt -> 10 `i ]
-"222
-[; ;main.c: 222:     }
+"317
+[; ;main.c: 317:     }
 [e ++ _i -> 1 `i ]
-"223
-[; ;main.c: 223: 
+"318
+[; ;main.c: 318: 
 [e =% _i -> 5 `i ]
-"224
-[; ;main.c: 224: 
+"319
+[; ;main.c: 319: 
 }
-[e :U 346 ]
-"197
-[; ;main.c: 197: 
-[e $ == _mode _id 347  ]
-[e :U 348 ]
-"225
-[; ;main.c: 225: 
-[e :UE 345 ]
+[e :U 408 ]
+"292
+[; ;main.c: 292: 
+[e $ == _mode _id 409  ]
+[e :U 410 ]
+"320
+[; ;main.c: 320: 
+[e :UE 407 ]
 }
-"227
-[; ;main.c: 227: 
+"322
+[; ;main.c: 322: 
 [v _cubeidle `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _cubeidle ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"228
-[; ;main.c: 228: 
+"323
+[; ;main.c: 323: 
 [e ( _srand (1 -> ( _time (1 -> -> -> 0 `i `*v `*o `ui ]
-"229
-[; ;main.c: 229: }
+"324
+[; ;main.c: 324: }
 [e ( _clear_cube ..  ]
-"230
-[; ;main.c: 230: 
+"325
+[; ;main.c: 325: 
 [e ( _lighton (2 , -> 0 `i -U -> 1 `i ]
-"231
-[; ;main.c: 231: void pulsing(int id){
-[e $U 365  ]
-[e :U 366 ]
+"326
+[; ;main.c: 326: void pulsing(int id){
+[e $U 427  ]
+[e :U 428 ]
 {
-"232
-[; ;main.c: 232:     clear_cube();
+"327
+[; ;main.c: 327: 
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 1 `i ]
-[e $U 371  ]
-[e :U 368 ]
+[e $U 433  ]
+[e :U 430 ]
 {
-"233
-[; ;main.c: 233:     while(mode == id);
+"328
+[; ;main.c: 328:     while(mode == id){
 [e ( _lighton (2 , _i - _i -> 1 `i ]
-"234
-[; ;main.c: 234: }
+"329
+[; ;main.c: 329:         clear_cube();
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"235
-[; ;main.c: 235: 
+"330
+[; ;main.c: 330:         plane[2][2] = 1;
 }
 [e ++ _i -> 1 `i ]
-[e :U 371 ]
-[e $ && < _i -> 125 `i == _mode -> 0 `i 368  ]
-[e :U 369 ]
+[e :U 433 ]
+[e $ && < _i -> 125 `i == _mode -> 0 `i 430  ]
+[e :U 431 ]
 }
-"236
-[; ;main.c: 236: void main(void) {
+"331
+[; ;main.c: 331:         draw_plane();
 [e ( _lighton (2 , -> 0 `i -> 124 `i ]
-"237
-[; ;main.c: 237:     init();
+"332
+[; ;main.c: 332:         plane_on(2);
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"238
-[; ;main.c: 238: 
+"333
+[; ;main.c: 333:         _delay((unsigned long)((50)*(4000000/4000.0)));
 }
-[e :U 365 ]
-"231
-[; ;main.c: 231: void pulsing(int id){
-[e $ == _mode _id 366  ]
-[e :U 367 ]
-"245
-[; ;main.c: 245:         switch(mode){
-[e :UE 364 ]
+[e :U 427 ]
+"326
+[; ;main.c: 326: void pulsing(int id){
+[e $ == _mode _id 428  ]
+[e :U 429 ]
+"340
+[; ;main.c: 340:         draw_plane();
+[e :UE 426 ]
 }
-"247
-[; ;main.c: 247:                 cubeidle(0);
+"342
+[; ;main.c: 342:         plane_on(3);
 [v _pulsing `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _pulsing ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"248
-[; ;main.c: 248:                 break;
+"344
+[; ;main.c: 344:         for(int i = 0; i < 5; i++){
+[e $U 435  ]
+[e :U 436 ]
+{
+"345
+[; ;main.c: 345:             for(int j = 0; j < 5; j++)
 [e ( _clear_cube ..  ]
-"249
-[; ;main.c: 249:             case 1:
-[e $U 373  ]
-[e :U 374 ]
-[e :U 373 ]
-[e $ == _mode _id 374  ]
-[e :U 375 ]
-"250
-[; ;main.c: 250:                 speedup(1);
-[e :UE 372 ]
+"346
+[; ;main.c: 346:                 plane[i][j] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"347
+[; ;main.c: 347:         }
+[e ( _draw_plane ..  ]
+"348
+[; ;main.c: 348:         plane_on(0);
+[e ( _plane_on (1 -> 2 `i ]
+"349
+[; ;main.c: 349:         plane_on(4);
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"350
+[; ;main.c: 350:         draw_plane();
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 1 `i ]
+[e $ < _i -> 4 `i 438  ]
+[e $U 439  ]
+[e :U 438 ]
+{
+"351
+[; ;main.c: 351:         _delay((unsigned long)((50)*(4000000/4000.0)));
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"352
+[; ;main.c: 352:         clear_cube();
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"353
+[; ;main.c: 353:         for(int i = 1; i < 4; i++){
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 438  ]
+[e :U 439 ]
+}
+"354
+[; ;main.c: 354:             plane[1][i] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"355
+[; ;main.c: 355:             plane[2][i] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"356
+[; ;main.c: 356:             plane[3][i] = 1;
+[e ( _draw_plane ..  ]
+"357
+[; ;main.c: 357:         }
+[e ( _plane_on (1 -> 1 `i ]
+"358
+[; ;main.c: 358:         plane_on(1);
+[e ( _plane_on (1 -> 3 `i ]
+"359
+[; ;main.c: 359:         plane_on(2);
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"360
+[; ;main.c: 360:         plane_on(3);
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 441  ]
+[e $U 442  ]
+[e :U 441 ]
+{
+"361
+[; ;main.c: 361:         draw_plane();
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 444  ]
+[e $U 445  ]
+[e :U 444 ]
+"362
+[; ;main.c: 362:         _delay((unsigned long)((50)*(4000000/4000.0)));
+[e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 444  ]
+[e :U 445 ]
+}
+"363
+[; ;main.c: 363:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 441  ]
+[e :U 442 ]
+}
+"364
+[; ;main.c: 364: }
+[e ( _plane_on (1 -> 0 `i ]
+"365
+[; ;main.c: 365: 
+[e ( _plane_on (1 -> 4 `i ]
+"366
+[; ;main.c: 366: void main(void) {
+[e ( _draw_plane ..  ]
+"367
+[; ;main.c: 367:     init();
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"368
+[; ;main.c: 368: 
+[e ( _clear_cube ..  ]
+"369
+[; ;main.c: 369: 
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 1 `i ]
+[e $ < _i -> 4 `i 447  ]
+[e $U 448  ]
+[e :U 447 ]
+{
+"370
+[; ;main.c: 370: 
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"371
+[; ;main.c: 371: 
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"372
+[; ;main.c: 372:     while(1){
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"373
+[; ;main.c: 373: 
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 447  ]
+[e :U 448 ]
+}
+"374
+[; ;main.c: 374:         switch(mode){
+[e ( _plane_on (1 -> 1 `i ]
+"375
+[; ;main.c: 375:             case 0:
+[e ( _plane_on (1 -> 2 `i ]
+"376
+[; ;main.c: 376:                 cubeidle(0);
+[e ( _plane_on (1 -> 3 `i ]
+"377
+[; ;main.c: 377:                 break;
+[e ( _draw_plane ..  ]
+"378
+[; ;main.c: 378:             case 1:
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"379
+[; ;main.c: 379:                 speedup(1);
+}
+[e :U 435 ]
+"344
+[; ;main.c: 344:         for(int i = 0; i < 5; i++){
+[e $ == _mode _id 436  ]
+[e :U 437 ]
+"380
+[; ;main.c: 380:                 break;
+[e :UE 434 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"252
-[; ;main.c: 252:             case 2:
+"382
+[; ;main.c: 382:                 pulsing(2);
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"253
-[; ;main.c: 253:                 set_plane(2);
+"383
+[; ;main.c: 383:                 break;
 [e ( _init ..  ]
-"259
-[; ;main.c: 259:                 set_plane(4);
-[e :U 378 ]
+"388
+[; ;main.c: 388:                 rainfall(4);
+[e :U 452 ]
 {
-"261
-[; ;main.c: 261:             default:
-[e $U 381  ]
+"390
+[; ;main.c: 390:             case 5:
+[e $U 455  ]
 {
-"262
-[; ;main.c: 262:                 set_plane(0);
-[e :U 382 ]
-"263
-[; ;main.c: 263:                 break;
+"391
+[; ;main.c: 391:                 scan(5);
+[e :U 456 ]
+"392
+[; ;main.c: 392:                 break;
 [e ( _cubeidle (1 -> 0 `i ]
-"264
-[; ;main.c: 264:         }
-[e $U 380  ]
-"265
-[; ;main.c: 265: 
-[e :U 383 ]
-"266
-[; ;main.c: 266:     };
+"393
+[; ;main.c: 393:             default:
+[e $U 454  ]
+"394
+[; ;main.c: 394:                 clear_cube();
+[e :U 457 ]
+"395
+[; ;main.c: 395:                 break;
 [e ( _speedup (1 -> 1 `i ]
-"267
-[; ;main.c: 267:     return;
-[e $U 380  ]
-"268
-[; ;main.c: 268: }
-[e :U 384 ]
-"269
-[; ;main.c: 269: 
-[e ( _set_plane (1 -> 2 `i ]
-"270
-[; ;main.c: 270: void __attribute__((picinterrupt(("high_priority"))))H_ISR(){
-[e $U 380  ]
-"271
-[; ;main.c: 271: 
-[e :U 385 ]
-"272
-[; ;main.c: 272:     int value = ((ADRESH<<8) + ADRESL);
-[e ( _set_plane (1 -> 3 `i ]
-"273
-[; ;main.c: 273: 
-[e $U 380  ]
-"274
-[; ;main.c: 274: 
-[e :U 386 ]
-"275
-[; ;main.c: 275:     unsigned char mapResult = 0;
-[e ( _set_plane (1 -> 4 `i ]
-"276
-[; ;main.c: 276: 
-[e $U 380  ]
-"277
-[; ;main.c: 277:     while (value > 205) {
-[e :U 387 ]
-"278
-[; ;main.c: 278:         value -= 205;
-[e ( _set_plane (1 -> 0 `i ]
-"279
-[; ;main.c: 279:         mapResult += 1;
-[e $U 380  ]
-"280
-[; ;main.c: 280:     }
+"396
+[; ;main.c: 396:         }
+[e $U 454  ]
+"397
+[; ;main.c: 397: 
+[e :U 458 ]
+"398
+[; ;main.c: 398:     };
+[e ( _pulsing (1 -> 2 `i ]
+"399
+[; ;main.c: 399:     return;
+[e $U 454  ]
+"400
+[; ;main.c: 400: }
+[e :U 459 ]
+"401
+[; ;main.c: 401: 
+[e ( _random_pattern (1 -> 3 `i ]
+"402
+[; ;main.c: 402: void __attribute__((picinterrupt(("high_priority"))))H_ISR(){
+[e $U 454  ]
+"403
+[; ;main.c: 403: 
+[e :U 460 ]
+"404
+[; ;main.c: 404:     int value = ((ADRESH<<8) + ADRESL);
+[e ( _rainfall (1 -> 4 `i ]
+"405
+[; ;main.c: 405: 
+[e $U 454  ]
+"406
+[; ;main.c: 406: 
+[e :U 461 ]
+"407
+[; ;main.c: 407:     unsigned char mapResult = 0;
+[e ( _scan (1 -> 5 `i ]
+"408
+[; ;main.c: 408: 
+[e $U 454  ]
+"409
+[; ;main.c: 409:     while (value > 180) {
+[e :U 462 ]
+"410
+[; ;main.c: 410:         value -= 180;
+[e ( _clear_cube ..  ]
+"411
+[; ;main.c: 411:         mapResult += 1;
+[e $U 454  ]
+"412
+[; ;main.c: 412:     }
 }
-[e $U 380  ]
-[e :U 381 ]
-[e [\ _mode , $ -> 0 `i 382
- , $ -> 1 `i 383
- , $ -> 2 `i 384
- , $ -> 3 `i 385
- , $ -> 4 `i 386
- 387 ]
-[e :U 380 ]
-"282
-[; ;main.c: 282: 
+[e $U 454  ]
+[e :U 455 ]
+[e [\ _mode , $ -> 0 `i 456
+ , $ -> 1 `i 457
+ , $ -> 2 `i 458
+ , $ -> 3 `i 459
+ , $ -> 4 `i 460
+ , $ -> 5 `i 461
+ 462 ]
+[e :U 454 ]
+"414
+[; ;main.c: 414: 
 }
-[e :U 377 ]
-[e $U 378  ]
-[e :U 379 ]
-"283
-[; ;main.c: 283: 
-[e $UE 376  ]
-"284
-[; ;main.c: 284: 
-[e :UE 376 ]
+[e :U 451 ]
+[e $U 452  ]
+[e :U 453 ]
+"415
+[; ;main.c: 415: 
+[e $UE 450  ]
+"416
+[; ;main.c: 416: 
+[e :UE 450 ]
 }
 [v $root$_H_ISR `(v ~T0 @X0 0 e ]
-"286
-[; ;main.c: 286: 
+"418
+[; ;main.c: 418: 
 [v _H_ISR `(v ~T41 @X0 1 ef ]
 {
 [e :U _H_ISR ]
 [f ]
-"288
-[; ;main.c: 288: 
+"420
+[; ;main.c: 420: 
 [v _value `i ~T0 @X0 1 a ]
 [e = _value + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
-"291
-[; ;main.c: 291:     ADCON0bits.GO = 1;
+"423
+[; ;main.c: 423:     ADCON0bits.GO = 1;
 [v _mapResult `uc ~T0 @X0 1 a ]
 [e = _mapResult -> -> 0 `i `uc ]
-"293
-[; ;main.c: 293:     return;
-[e $U 389  ]
-[e :U 390 ]
+"425
+[; ;main.c: 425:     return;
+[e $U 464  ]
+[e :U 465 ]
 {
-"294
-[; ;main.c: 294: }
-[e =- _value -> 205 `i ]
-"295
+"426
+[; ;main.c: 426: }
+[e =- _value -> 180 `i ]
+"427
 [e =+ _mapResult -> -> 1 `i `uc ]
-"296
+"428
 }
-[e :U 389 ]
-"293
-[; ;main.c: 293:     return;
-[e $ > _value -> 205 `i 390  ]
-[e :U 391 ]
-"297
+[e :U 464 ]
+"425
+[; ;main.c: 425:     return;
+[e $ > _value -> 180 `i 465  ]
+[e :U 466 ]
+"429
 [e = _mode -> _mapResult `i ]
-"301
+"433
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"305
+"437
 [e ( __delay (1 -> * -> -> 4 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"307
+"439
 [e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-"309
-[e $UE 388  ]
-"310
-[e :UE 388 ]
+"441
+[e $UE 463  ]
+"442
+[e :UE 463 ]
 }

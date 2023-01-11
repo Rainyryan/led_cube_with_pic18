@@ -87,12 +87,7 @@ void clear_plane(){
     draw_plane();
 }
 
-void set_plane(int a){
-    TRISEbits.TRISE1 = 1; // base platform
-    TRISEbits.TRISE2 = 1; // second platform
-    TRISAbits.TRISA7 = 1;
-    TRISAbits.TRISA6 = 1;
-    TRISCbits.TRISC0 = 1;
+void plane_on(int a){
     switch (a){
         case 0: 
             TRISEbits.TRISE1 = 0;
@@ -124,20 +119,33 @@ void set_plane(int a){
     }
 }
 
-void clear_cube(){
-    TRISEbits.TRISE1 = 1;
-    TRISEbits.TRISE2 = 1;
+void set_plane(int a){
+    TRISEbits.TRISE1 = 1; // base platform
+    TRISEbits.TRISE2 = 1; // second platform
     TRISAbits.TRISA7 = 1;
     TRISAbits.TRISA6 = 1;
     TRISCbits.TRISC0 = 1;
+    plane_on(a);
+}
+
+
+
+void clear_cube(){
+
     TRISA = 0;
     TRISB = 0;
     TRISC = 0;
     TRISD = 0;
     TRISE = 0;
+    TRISEbits.TRISE1 = 1;
+    TRISEbits.TRISE2 = 1;
+    TRISAbits.TRISA7 = 1;
+    TRISAbits.TRISA6 = 1;
+    TRISCbits.TRISC0 = 1;
     for(int i = 0; i < 5; i++)
         for(int j = 0; j < 5; j++)
             plane[i][j] = 0;
+
 }
 
 void lighton(int x, int prev){
@@ -156,35 +164,122 @@ int move(int x, int r){
     return x;
 }
 
-void random_pattern(){
+void random_pattern(int id){
+    clear_plane();
     srand(time(NULL)); 
     int x = 0, r = 0, prevr, prevx = -1;
+    int x2 = 0, r2 = 0, prevr2, prevx2 = -1;
     lighton(0, prevx);
     r = rand() % 6;
     prevx = x;
     x = move(x,r);
     lighton(x,prevx);
+    lighton(123, prevx2);
+    r2 = rand() % 6;
+    prevx2 = x2;
+    x2 = move(x2,r2);
+    lighton(x2,prevx2);
     delay(30);
     prevx = x;
     x = move(x,r);
     lighton(x,prevx);
     prevx = x;
-    while(mode == 1){
+    prevx2 = x2;
+    x2 = move(x2,r);
+    lighton(x2,prevx2);
+    prevx2 = x2;
+    while(mode == id){
         prevr = r;
         r=rand()%6;
         if(r==0||r==1)while(prevr+r==1)r=rand()%6;
         else if(r==2||r==3) while(prevr+r==5)r=rand()%6;
         else if(r==4||r==5) while(prevr+r==9)r=rand()%6;   
+        prevr2 = r2;
+        r2=rand()%6;
+        if(r2==0||r2==1)while(prevr2+r2==1)r2=rand()%6;
+        else if(r2==2||r2==3) while(prevr2+r2==5)r2=rand()%6;
+        else if(r2==4||r2==5) while(prevr2+r2==9)r2=rand()%6;   
 //        x = move(x,r);
         x=move(x,r);
         lighton(x,prevx);
         prevx = x;
-        delay(30);
-        x=move(x,r);
-        lighton(x,prevx);
-        prevx = x;
-        delay(30);
+        x2=move(x2,r);
+        lighton(x2,prevx2);
+        prevx2 = x2;
+        delay(5);
     }
+}
+
+void rainfall(int id){
+    clear_cube();
+    int x = 0;
+    plane[0][0] = 1;
+    while(mode == id){
+        plane[x][x] = 0;
+        draw_plane();
+        x++;
+        x %= 5;
+        plane[x][x] = 1;
+        set_plane(x);
+        draw_plane();
+    }
+}
+
+void scan(int id){
+    clear_cube();
+
+    while(mode == id){
+        for(int i = 0; i < 5; i++)
+            for(int j = 0; j < 5; j++)
+                plane[i][j] = 1;
+        //l-h
+        for(int i = 0; i < 5; i++){
+            set_plane(i);
+            draw_plane();
+            delay(8);
+        }
+        for(int i = 0; i < 4; i++){
+            set_plane(4-i);
+            draw_plane();
+            delay(8);
+        }
+        for(int i = 0; i < 5; i++)
+            plane_on(i);
+        // f-b
+        for(int i = 0; i < 5; i++){
+            clear_plane();
+            for(int j = 0; j < 5; j++){
+                plane[i][j] = 1;
+            }
+            draw_plane();
+            delay(8);
+        }
+        for(int i = 0; i < 4; i++){
+            clear_plane();
+            for(int j = 0; j < 5; j++){
+                plane[4-i][j] = 1;
+            }
+            draw_plane();
+            delay(8);
+        }
+        // l-r
+        for(int i = 0; i < 5; i++){
+            clear_plane();
+            for(int j = 0; j < 5; j++){
+                plane[j][i] = 1;
+            }
+            draw_plane();
+            delay(8);
+        }
+        for(int i = 0; i < 4; i++){
+            clear_plane();
+            for(int j = 0; j < 5; j++){
+                plane[j][4-i] = 1;
+            }
+            draw_plane();
+            delay(8);
+        }
+    }        
 }
 
 void speedup(int id){
@@ -245,8 +340,43 @@ void cubeidle(int id){
 }
 
 void pulsing(int id){
-    clear_cube();
-    while(mode == id);
+
+    while(mode == id){
+        clear_cube();
+        plane[2][2] = 1;
+        draw_plane();
+        plane_on(2);
+        delay(50);
+        for(int i = 1; i < 4; i++){
+            plane[1][i] = 1;
+            plane[3][i] = 1;
+        }
+        plane[2][1] = 1;
+        plane[2][3] = 1;
+        draw_plane();
+        plane_on(1);
+        plane_on(3);
+        delay(50);
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 5; j++)
+                plane[i][j] = 1;
+        }
+        plane_on(0);
+        plane_on(4);
+        draw_plane();
+        delay(50);
+        clear_cube();
+        for(int i = 1; i < 4; i++){
+            plane[1][i] = 1;
+            plane[2][i] = 1;
+            plane[3][i] = 1;
+        }
+        plane_on(1);
+        plane_on(2);
+        plane_on(3);
+        draw_plane();
+        delay(50);
+    }
 }
 
 void main(void) {
@@ -255,7 +385,6 @@ void main(void) {
 //    for(int i = 0; i < 5; i++)
 //        for(int j = 0; j < 5; j++)
 //            plane[i][j] = 1;
-    
     while(1){
 //        draw_plane();
         switch(mode){
@@ -266,16 +395,19 @@ void main(void) {
                 speedup(1);
                 break;
             case 2:
-                set_plane(2);
+                pulsing(2);
                 break;
             case 3:
-                set_plane(3);
+                random_pattern(3);
                 break;
             case 4:
-                set_plane(4);
+                rainfall(4);
+                break;
+            case 5:
+                scan(5);
                 break;
             default:
-                set_plane(0);
+                clear_cube();
                 break;
         }
 
@@ -290,8 +422,8 @@ void __interrupt(high_priority)H_ISR(){
     //do things, map 1024 to 0-4
     unsigned char mapResult = 0;
     
-    while (value > 205) {
-        value -= 205;
+    while (value > 180) {
+        value -= 180;
         mapResult += 1;
     }
     mode = mapResult;
