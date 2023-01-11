@@ -16,8 +16,6 @@
 
 int plane[5][5];
 int mode = 0;
-int bounds [9] = {102, 102, 102, 102, 102, 102, 102, 102, 102};
-int count = 0;
 
 void init(){
     TRISA = 0;
@@ -189,14 +187,14 @@ void random_pattern(){
     }
 }
 
-void speedup(){
+void speedup(int id){
     clear_cube();
     int i = 0, dcnt = 0, del = 50;
     plane[0][0] = 1;
     plane[0][4] = 1;
     plane[4][0] = 1;
     plane[4][4] = 1;
-    while(mode == 1){
+    while(mode == id){
         if(i == 0 || i == 4){
             for(int j = 1; j < 4; j++){
                 plane[j][0] = 1;
@@ -216,7 +214,7 @@ void speedup(){
         set_plane(5);
         draw_plane();
         set_plane(i);
-        for(int j=0;j<del && mode == 1;j++)delay(1);
+        for(int j=0;j<del && mode == id;j++)delay(1);
         dcnt++;
         if(del>10)del-=2;
         else if(del>0 && dcnt == 10)del-=1;
@@ -226,11 +224,11 @@ void speedup(){
     }
 }
 
-void cubeidle(){
+void cubeidle(int id){
     srand(time(NULL));
     clear_cube();
     lighton(0,-1);
-    while(mode == 0){
+    while(mode == id){
         for(int i=1;i<125 && mode == 0;i++){
             lighton(i,i-1);
             delay(10);
@@ -246,6 +244,11 @@ void cubeidle(){
 //    }
 }
 
+void pulsing(int id){
+    clear_cube();
+    while(mode == id);
+}
+
 void main(void) {
     init();
 
@@ -257,10 +260,10 @@ void main(void) {
 //        draw_plane();
         switch(mode){
             case 0:
-                cubeidle();
+                cubeidle(0);
                 break;
             case 1:
-                speedup();
+                speedup(1);
                 break;
             case 2:
                 set_plane(2);

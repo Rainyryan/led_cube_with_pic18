@@ -39,25 +39,25 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"22 C:\Users\rc615\MPLABXProjects\led_cube.X\main.c
+"20 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"53
+"51
 [v _draw_plane draw_plane `(v  1 e 1 0 ]
-"92
+"90
 [v _set_plane set_plane `(v  1 e 1 0 ]
-"129
+"127
 [v _clear_cube clear_cube `(v  1 e 1 0 ]
-"145
+"143
 [v _lighton lighton `(v  1 e 1 0 ]
-"151
+"149
 [v _move move `(i  1 e 2 0 ]
-"192
+"190
 [v _speedup speedup `(v  1 e 1 0 ]
-"229
+"227
 [v _cubeidle cubeidle `(v  1 e 1 0 ]
-"249
+"252
 [v _main main `(v  1 e 1 0 ]
-"283
+"286
 [v _H_ISR H_ISR `IIH(v  1 e 1 0 ]
 [s S379 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
@@ -352,41 +352,45 @@
 [v _INTCONbits INTCONbits `VES352  1 e 1 @4082 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\rand.c
 [v _seed seed `ul  1 s 4 seed ]
-"17 C:\Users\rc615\MPLABXProjects\led_cube.X\main.c
+"17 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _plane plane `[5][5]i  1 e 50 0 ]
 "18
 [v _mode mode `i  1 e 2 0 ]
-"249
+"252
 [v _main main `(v  1 e 1 0 ]
 {
-"281
+"284
 } 0
-"192
+"190
 [v _speedup speedup `(v  1 e 1 0 ]
 {
-"208
-[v speedup@j_719 j `i  1 a 2 42 ]
-"201
-[v speedup@j j `i  1 a 2 40 ]
-"219
-[v speedup@j_720 j `i  1 a 2 32 ]
-"194
-[v speedup@i i `i  1 a 2 38 ]
-[v speedup@del del `i  1 a 2 36 ]
-[v speedup@dcnt dcnt `i  1 a 2 34 ]
-"227
+"206
+[v speedup@j_718 j `i  1 a 2 44 ]
+"199
+[v speedup@j j `i  1 a 2 42 ]
+"217
+[v speedup@j_719 j `i  1 a 2 34 ]
+"192
+[v speedup@i i `i  1 a 2 40 ]
+[v speedup@del del `i  1 a 2 38 ]
+[v speedup@dcnt dcnt `i  1 a 2 36 ]
+"190
+[v speedup@id id `i  1 p 2 31 ]
+"225
 } 0
-"22
+"20
 [v _init init `(v  1 e 1 0 ]
 {
-"51
+"49
 } 0
-"229
+"227
 [v _cubeidle cubeidle `(v  1 e 1 0 ]
 {
-"234
-[v cubeidle@i i `i  1 a 2 39 ]
-"247
+"232
+[v cubeidle@i i `i  1 a 2 41 ]
+"227
+[v cubeidle@id id `i  1 p 2 31 ]
+"245
 } 0
 "6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\time.c
 [v _time time `(o  1 e 8 0 ]
@@ -400,23 +404,23 @@
 [v srand@s s `ui  1 p 2 13 ]
 "9
 } 0
-"145 C:\Users\rc615\MPLABXProjects\led_cube.X\main.c
+"143 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _lighton lighton `(v  1 e 1 0 ]
 {
 [v lighton@x x `i  1 p 2 25 ]
 [v lighton@prev prev `i  1 p 2 27 ]
-"150
+"148
 } 0
-"92
+"90
 [v _set_plane set_plane `(v  1 e 1 0 ]
 {
 [v set_plane@a a `i  1 p 2 19 ]
-"127
+"125
 } 0
-"53
+"51
 [v _draw_plane draw_plane `(v  1 e 1 0 ]
 {
-"83
+"81
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -442,14 +446,14 @@
 [v ___awdiv@divisor divisor `i  1 p 2 13 ]
 "41
 } 0
-"129 C:\Users\rc615\MPLABXProjects\led_cube.X\main.c
+"127 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _clear_cube clear_cube `(v  1 e 1 0 ]
 {
-"141
+"139
 [v clear_cube@j j `i  1 a 2 29 ]
-"140
+"138
 [v clear_cube@i i `i  1 a 2 27 ]
-"143
+"141
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -461,12 +465,12 @@
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 21 ]
 "53
 } 0
-"283 C:\Users\rc615\MPLABXProjects\led_cube.X\main.c
+"286 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _H_ISR H_ISR `IIH(v  1 e 1 0 ]
 {
-"285
-[v H_ISR@value value `i  1 a 2 2 ]
 "288
+[v H_ISR@value value `i  1 a 2 2 ]
+"291
 [v H_ISR@mapResult mapResult `uc  1 a 1 4 ]
-"307
+"310
 } 0

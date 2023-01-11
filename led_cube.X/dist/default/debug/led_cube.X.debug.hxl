@@ -11,12 +11,12 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 3h		(dist/default/debug\led_cube.X.debug.hex)
-  8h - ABBh		(dist/default/debug\led_cube.X.debug.hex)
+  8h - AA9h		(dist/default/debug\led_cube.X.debug.hex)
   200000h - 200007h		(dist/default/debug\led_cube.X.debug.hex)
   300000h - 30000Dh		(dist/default/debug\led_cube.X.debug.hex)
  Unused ranges:
   4h - 7h
-  ABCh - 1FFFFFh
+  AAAh - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -196,8 +196,7 @@
 00000A70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000A80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000A90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000AA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000AB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
+00000AA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
