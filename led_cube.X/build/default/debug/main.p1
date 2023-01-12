@@ -74,9 +74,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6109
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 6109: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
 [v _OSCCONbits `VS258 ~T0 @X0 0 e@4051 ]
-"4691
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 4691: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"4697
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 4697:     struct {
+[s S185 :4 `uc 1 :2 `uc 1 ]
+[n S185 . PCFG VCFG ]
+"4701
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 4701:     struct {
+[s S186 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S186 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
+"4709
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 4709:     struct {
+[s S187 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S187 . . CHSN3 VCFG01 VCFG11 ]
+"4696
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 4696: typedef union {
+[u S184 `S185 1 `S186 1 `S187 1 ]
+[n S184 . . . . ]
+"4716
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 4716: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0xFC1)));
+[v _ADCON1bits `VS184 ~T0 @X0 0 e@4033 ]
 "4782
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 4782:     struct {
 [s S189 :1 `uc 1 :1 `uc 1 ]
@@ -692,224 +708,236 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h: 7002: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "8 main.c
-[; ;main.c: 8:     TRISD = 0;
+[; ;main.c: 8:     TRISC = 0;
 [p x OSC  =  INTIO67     ]
 "9
-[; ;main.c: 9:     TRISE = 0;
+[; ;main.c: 9:     TRISD = 0;
 [p x WDT  =  OFF         ]
 "10
-[; ;main.c: 10:     TRISEbits.TRISE1 = 1;
+[; ;main.c: 10:     TRISE = 0;
 [p x PWRT  =  OFF        ]
 "11
-[; ;main.c: 11:     TRISEbits.TRISE2 = 1;
+[; ;main.c: 11:     TRISEbits.TRISE1 = 1;
 [p x BOREN  =  ON        ]
 "12
-[; ;main.c: 12:     TRISAbits.TRISA7 = 1;
+[; ;main.c: 12:     TRISEbits.TRISE2 = 1;
 [p x PBADEN  =  OFF      ]
 "13
-[; ;main.c: 13:     TRISAbits.TRISA6 = 1;
+[; ;main.c: 13:     TRISAbits.TRISA7 = 1;
 [p x LVP  =  OFF         ]
 "14
-[; ;main.c: 14:     TRISCbits.TRISC0 = 1;
+[; ;main.c: 14:     TRISAbits.TRISA6 = 1;
 [p x CPD  =  OFF         ]
 [v F3039 `i ~T0 @X0 -> 5 `i t ]
 "17
-[; ;main.c: 17:     TRISAbits.TRISA5 = 1;
+[; ;main.c: 17:     OSCCONbits.IRCF = 0b110;
 [v _plane `F3039 ~T0 @X0 -> 5 `i e ]
 "18
-[; ;main.c: 18:     ADCON1 = 0b00001001;
+[; ;main.c: 18:     TRISAbits.RA5 = 1;
 [v _mode `i ~T0 @X0 1 e ]
 [i _mode
 -> 0 `i
 ]
-"20
-[; ;main.c: 20:     ADCON2bits.ADCS = 0b100;
+"19
+[; ;main.c: 19:     ADCON1bits.VCFG0 = 0;
+[v _flag `i ~T0 @X0 1 e ]
+[i _flag
+-> 0 `i
+]
+"21
+[; ;main.c: 21:     ADCON1bits.PCFG = 0b0101;
 [v _init `(v ~T0 @X0 1 ef ]
 {
 [e :U _init ]
 [f ]
-"21
-[; ;main.c: 21:     ADCON2bits.ACQT = 0b010;
-[e = _TRISA -> -> 0 `i `uc ]
 "22
-[; ;main.c: 22:     ADCON0bits.ADON = 1;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;main.c: 22:     ADCON0bits.CHS = 0b0101;
+[e = _TRISA -> -> 0 `i `uc ]
 "23
-[; ;main.c: 23:     ADCON2bits.ADFM = 1;
-[e = _TRISC -> -> 0 `i `uc ]
+[; ;main.c: 23: 
+[e = _TRISB -> -> 0 `i `uc ]
 "24
-[; ;main.c: 24: 
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;main.c: 24:     ADCON2bits.ADCS = 0b100;
+[e = _TRISC -> -> 0 `i `uc ]
 "25
-[; ;main.c: 25:     PIE1bits.ADIE = 1;
-[e = _TRISE -> -> 0 `i `uc ]
+[; ;main.c: 25:     ADCON2bits.ACQT = 0b010;
+[e = _TRISD -> -> 0 `i `uc ]
 "26
-[; ;main.c: 26: 
-[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 26:     ADCON0bits.ADON = 1;
+[e = _TRISE -> -> 0 `i `uc ]
 "27
-[; ;main.c: 27:     PIR1bits.ADIF = 0;
-[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 27:     ADCON2bits.ADFM = 1;
+[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
 "28
 [; ;main.c: 28: 
-[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
+[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
 "29
-[; ;main.c: 29:     INTCONbits.PEIE = 1;
-[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 29:     PIE1bits.ADIE = 1;
+[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
 "30
 [; ;main.c: 30: 
+[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
+"31
+[; ;main.c: 31:     PIR1bits.ADIF = 0;
 [e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
-"32
-[; ;main.c: 32:     ADCON0bits.GO = 1;
-[e = . . _OSCCONbits 0 3 -> -> 6 `i `uc ]
 "33
-[; ;main.c: 33: }
-[e = . . _TRISAbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 33:     INTCONbits.PEIE = 1;
+[e = . . _OSCCONbits 0 3 -> -> 6 `i `uc ]
 "34
 [; ;main.c: 34: 
-[e = _ADCON1 -> -> 9 `i `uc ]
+[e = . . _TRISAbits 1 5 -> -> 1 `i `uc ]
 "35
-[; ;main.c: 35: void draw_plane(){
-[e = . . _ADCON0bits 1 2 -> -> 5 `i `uc ]
+[; ;main.c: 35:     INTCONbits.GIE = 1;
+[e = . . _ADCON1bits 1 4 -> -> 0 `i `uc ]
 "36
-[; ;main.c: 36:     LATAbits.LA0 = plane[0][0];
-[e = . . _ADCON2bits 0 0 -> -> 4 `i `uc ]
+[; ;main.c: 36:     ADCON0bits.GO = 1;
+[e = . . _ADCON1bits 1 5 -> -> 0 `i `uc ]
 "37
-[; ;main.c: 37:     LATAbits.LA1 = plane[0][1];
-[e = . . _ADCON2bits 0 1 -> -> 2 `i `uc ]
+[; ;main.c: 37: }
+[e = . . _ADCON1bits 0 0 -> -> 5 `i `uc ]
 "38
-[; ;main.c: 38:     LATAbits.LA2 = plane[0][2];
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-"39
-[; ;main.c: 39:     LATAbits.LA3 = plane[0][3];
-[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 38: 
+[e = . . _ADCON0bits 1 2 -> -> 5 `i `uc ]
+"40
+[; ;main.c: 40:     LATAbits.LA0 = plane[0][0];
+[e = . . _ADCON2bits 0 0 -> -> 4 `i `uc ]
 "41
-[; ;main.c: 41: 
-[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 41:     LATAbits.LA1 = plane[0][1];
+[e = . . _ADCON2bits 0 1 -> -> 2 `i `uc ]
+"42
+[; ;main.c: 42:     LATAbits.LA2 = plane[0][2];
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
 "43
-[; ;main.c: 43:     LATCbits.LC2 = plane[1][1];
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;main.c: 43:     LATAbits.LA3 = plane[0][3];
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
 "45
-[; ;main.c: 45:     LATDbits.LD0 = plane[1][3];
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;main.c: 45: 
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
 "47
-[; ;main.c: 47: 
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"48
-[; ;main.c: 48:     LATBbits.LB0 = plane[2][0];
-[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+[; ;main.c: 47:     LATCbits.LC2 = plane[1][1];
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "49
-[; ;main.c: 49:     LATBbits.LB1 = plane[2][1];
+[; ;main.c: 49:     LATDbits.LD0 = plane[1][3];
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"51
+[; ;main.c: 51: 
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"52
+[; ;main.c: 52:     LATBbits.LB0 = plane[2][0];
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+"53
+[; ;main.c: 53:     LATBbits.LB1 = plane[2][1];
 [e :UE 288 ]
 }
-"51
-[; ;main.c: 51:     LATBbits.LB3 = plane[2][3];
+"55
+[; ;main.c: 55:     LATBbits.LB3 = plane[2][3];
 [v _draw_plane `(v ~T0 @X0 1 ef ]
 {
 [e :U _draw_plane ]
 [f ]
-"52
-[; ;main.c: 52:     LATBbits.LB4 = plane[2][4];
-[e = . . _LATAbits 1 0 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
-"53
-[; ;main.c: 53: 
-[e = . . _LATAbits 1 1 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
-"54
-[; ;main.c: 54:     LATCbits.LC7 = plane[3][0];
-[e = . . _LATAbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
-"55
-[; ;main.c: 55:     LATDbits.LD4 = plane[3][1];
-[e = . . _LATAbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "56
-[; ;main.c: 56:     LATDbits.LD5 = plane[3][2];
-[e = . . _LATAbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 56:     LATBbits.LB4 = plane[2][4];
+[e = . . _LATAbits 1 0 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+"57
+[; ;main.c: 57: 
+[e = . . _LATAbits 1 1 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "58
-[; ;main.c: 58:     LATDbits.LD7 = plane[3][4];
-[e = . . _LATCbits 1 1 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 58:     LATCbits.LC7 = plane[3][0];
+[e = . . _LATAbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "59
-[; ;main.c: 59: 
-[e = . . _LATCbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 59:     LATDbits.LD4 = plane[3][1];
+[e = . . _LATAbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "60
-[; ;main.c: 60:     LATDbits.LD2 = plane[4][0];
-[e = . . _LATCbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
-"61
-[; ;main.c: 61:     LATDbits.LD3 = plane[4][1];
-[e = . . _LATDbits 1 0 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 60:     LATDbits.LD5 = plane[3][2];
+[e = . . _LATAbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "62
-[; ;main.c: 62:     LATCbits.LC4 = plane[4][2];
-[e = . . _LATDbits 1 1 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 62:     LATDbits.LD7 = plane[3][4];
+[e = . . _LATCbits 1 1 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+"63
+[; ;main.c: 63: 
+[e = . . _LATCbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "64
-[; ;main.c: 64:     LATCbits.LC6 = plane[4][4];
-[e = . . _LATBbits 1 0 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 64:     LATDbits.LD2 = plane[4][0];
+[e = . . _LATCbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "65
-[; ;main.c: 65: }
-[e = . . _LATBbits 1 1 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 65:     LATDbits.LD3 = plane[4][1];
+[e = . . _LATDbits 1 0 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "66
-[; ;main.c: 66: 
-[e = . . _LATBbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
-"67
-[; ;main.c: 67: void clear_plane(){
-[e = . . _LATBbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 66:     LATCbits.LC4 = plane[4][2];
+[e = . . _LATDbits 1 1 -> *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "68
-[; ;main.c: 68:     for(int i = 0; i < 5; i++)
-[e = . . _LATBbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 68:     LATCbits.LC6 = plane[4][4];
+[e = . . _LATBbits 1 0 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+"69
+[; ;main.c: 69: }
+[e = . . _LATBbits 1 1 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "70
-[; ;main.c: 70:             plane[i][j] = 0;
-[e = . . _LATCbits 1 7 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 70: 
+[e = . . _LATBbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "71
-[; ;main.c: 71:     draw_plane();
-[e = . . _LATDbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 71: void clear_plane(){
+[e = . . _LATBbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "72
-[; ;main.c: 72: }
-[e = . . _LATDbits 1 5 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
-"73
-[; ;main.c: 73: 
-[e = . . _LATDbits 1 6 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 72:     for(int i = 0; i < 5; i++)
+[e = . . _LATBbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "74
-[; ;main.c: 74: void plane_on(int a){
-[e = . . _LATDbits 1 7 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 74:             plane[i][j] = 0;
+[e = . . _LATCbits 1 7 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+"75
+[; ;main.c: 75:     draw_plane();
+[e = . . _LATDbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "76
-[; ;main.c: 76:         case 0:
-[e = . . _LATDbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 76: }
+[e = . . _LATDbits 1 5 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "77
-[; ;main.c: 77:             TRISEbits.TRISE1 = 0;
-[e = . . _LATDbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 77: 
+[e = . . _LATDbits 1 6 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "78
-[; ;main.c: 78:             LATEbits.LE1 = 1;
-[e = . . _LATCbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
-"79
-[; ;main.c: 79:             break;
-[e = . . _LATCbits 1 5 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 78: void plane_on(int a){
+[e = . . _LATDbits 1 7 -> *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "80
-[; ;main.c: 80:         case 1:
-[e = . . _LATCbits 1 6 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+[; ;main.c: 80:         case 0:
+[e = . . _LATDbits 1 2 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "81
-[; ;main.c: 81:             TRISEbits.TRISE2 = 0;
-[e :UE 289 ]
-}
+[; ;main.c: 81:             TRISEbits.TRISE1 = 0;
+[e = . . _LATDbits 1 3 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+"82
+[; ;main.c: 82:             LATEbits.LE1 = 1;
+[e = . . _LATCbits 1 4 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
 "83
 [; ;main.c: 83:             break;
+[e = . . _LATCbits 1 5 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+"84
+[; ;main.c: 84:         case 1:
+[e = . . _LATCbits 1 6 -> *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux `uc ]
+"85
+[; ;main.c: 85:             TRISEbits.TRISE2 = 0;
+[e :UE 289 ]
+}
+"87
+[; ;main.c: 87:             break;
 [v _clear_plane `(v ~T0 @X0 1 ef ]
 {
 [e :U _clear_plane ]
 [f ]
-"84
-[; ;main.c: 84:         case 2:
+"88
+[; ;main.c: 88:         case 2:
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $ < _i -> 5 `i 291  ]
 [e $U 292  ]
 [e :U 291 ]
-"85
-[; ;main.c: 85:             TRISAbits.TRISA7 = 0;
+"89
+[; ;main.c: 89:             TRISAbits.TRISA7 = 0;
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
 [e $ < _j -> 5 `i 294  ]
 [e $U 295  ]
 [e :U 294 ]
-"86
-[; ;main.c: 86:             LATAbits.LA7 = 1;
+"90
+[; ;main.c: 90:             LATAbits.LA7 = 1;
 [e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
 [e ++ _j -> 1 `i ]
 [e $ < _j -> 5 `i 294  ]
@@ -919,107 +947,107 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < _i -> 5 `i 291  ]
 [e :U 292 ]
 }
-"87
-[; ;main.c: 87:             break;
+"91
+[; ;main.c: 91:             break;
 [e ( _draw_plane ..  ]
-"88
-[; ;main.c: 88:         case 3:
+"92
+[; ;main.c: 92:         case 3:
 [e :UE 290 ]
 }
-"90
-[; ;main.c: 90:             LATAbits.LA6 = 1;
+"94
+[; ;main.c: 94:             LATAbits.LA6 = 1;
 [v _plane_on `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _plane_on ]
 [v _a `i ~T0 @X0 1 r1 ]
 [f ]
-"91
-[; ;main.c: 91:             break;
-[e $U 299  ]
-{
-"92
-[; ;main.c: 92:         case 4:
-[e :U 300 ]
-"93
-[; ;main.c: 93:             TRISCbits.TRISC0 = 0;
-[e = . . _TRISEbits 0 1 -> -> 0 `i `uc ]
-"94
-[; ;main.c: 94:             LATCbits.LC0 = 1 ;
-[e = . . _LATEbits 1 1 -> -> 1 `i `uc ]
 "95
 [; ;main.c: 95:             break;
-[e $U 298  ]
+[e $U 299  ]
+{
 "96
-[; ;main.c: 96:         default:
-[e :U 301 ]
+[; ;main.c: 96:         case 4:
+[e :U 300 ]
 "97
-[; ;main.c: 97:             TRISEbits.TRISE1 = 1;
-[e = . . _TRISEbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 97:             TRISCbits.TRISC0 = 0;
+[e = . . _TRISEbits 0 1 -> -> 0 `i `uc ]
 "98
-[; ;main.c: 98:             TRISEbits.TRISE2 = 1;
-[e = . . _LATEbits 1 2 -> -> 1 `i `uc ]
+[; ;main.c: 98:             LATCbits.LC0 = 1 ;
+[e = . . _LATEbits 1 1 -> -> 1 `i `uc ]
 "99
-[; ;main.c: 99:             TRISAbits.TRISA7 = 1;
+[; ;main.c: 99:             break;
 [e $U 298  ]
 "100
-[; ;main.c: 100:             TRISAbits.TRISA6 = 1;
-[e :U 302 ]
+[; ;main.c: 100:         default:
+[e :U 301 ]
 "101
-[; ;main.c: 101:             TRISCbits.TRISC0 = 1;
-[e = . . _TRISAbits 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 101:             TRISEbits.TRISE1 = 1;
+[e = . . _TRISEbits 0 2 -> -> 0 `i `uc ]
 "102
-[; ;main.c: 102:             break;
-[e = . . _LATAbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 102:             TRISEbits.TRISE2 = 1;
+[e = . . _LATEbits 1 2 -> -> 1 `i `uc ]
 "103
-[; ;main.c: 103:     }
+[; ;main.c: 103:             TRISAbits.TRISA7 = 1;
 [e $U 298  ]
 "104
-[; ;main.c: 104: }
-[e :U 303 ]
+[; ;main.c: 104:             TRISAbits.TRISA6 = 1;
+[e :U 302 ]
 "105
-[; ;main.c: 105: 
-[e = . . _TRISAbits 0 6 -> -> 0 `i `uc ]
+[; ;main.c: 105:             TRISCbits.TRISC0 = 1;
+[e = . . _TRISAbits 0 7 -> -> 0 `i `uc ]
 "106
-[; ;main.c: 106: void set_plane(int a){
-[e = . . _LATAbits 1 6 -> -> 1 `i `uc ]
+[; ;main.c: 106:             break;
+[e = . . _LATAbits 1 7 -> -> 1 `i `uc ]
 "107
-[; ;main.c: 107:     TRISEbits.TRISE1 = 1;
+[; ;main.c: 107:     }
 [e $U 298  ]
 "108
-[; ;main.c: 108:     TRISEbits.TRISE2 = 1;
-[e :U 304 ]
+[; ;main.c: 108: }
+[e :U 303 ]
 "109
-[; ;main.c: 109:     TRISAbits.TRISA7 = 1;
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 109: 
+[e = . . _TRISAbits 0 6 -> -> 0 `i `uc ]
 "110
-[; ;main.c: 110:     TRISAbits.TRISA6 = 1;
-[e = . . _LATCbits 1 0 -> -> 1 `i `uc ]
+[; ;main.c: 110: void set_plane(int a){
+[e = . . _LATAbits 1 6 -> -> 1 `i `uc ]
 "111
-[; ;main.c: 111:     TRISCbits.TRISC0 = 1;
+[; ;main.c: 111:     TRISEbits.TRISE1 = 1;
 [e $U 298  ]
 "112
-[; ;main.c: 112:     plane_on(a);
-[e :U 305 ]
+[; ;main.c: 112:     TRISEbits.TRISE2 = 1;
+[e :U 304 ]
 "113
-[; ;main.c: 113: }
-[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 113:     TRISAbits.TRISA7 = 1;
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
 "114
-[; ;main.c: 114: 
-[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 114:     TRISAbits.TRISA6 = 1;
+[e = . . _LATCbits 1 0 -> -> 1 `i `uc ]
 "115
-[; ;main.c: 115: 
-[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 115:     TRISCbits.TRISC0 = 1;
+[e $U 298  ]
 "116
-[; ;main.c: 116: 
-[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 116:     plane_on(a);
+[e :U 305 ]
 "117
-[; ;main.c: 117: void clear_cube(){
-[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 117: }
+[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
 "118
 [; ;main.c: 118: 
-[e $U 298  ]
+[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
 "119
-[; ;main.c: 119:     TRISA = 0;
+[; ;main.c: 119: 
+[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
+"120
+[; ;main.c: 120: 
+[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
+"121
+[; ;main.c: 121: void clear_cube(){
+[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+"122
+[; ;main.c: 122: 
+[e $U 298  ]
+"123
+[; ;main.c: 123:     TRISA = 0;
 }
 [e $U 298  ]
 [e :U 299 ]
@@ -1030,93 +1058,93 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 304
  305 ]
 [e :U 298 ]
-"120
-[; ;main.c: 120:     TRISB = 0;
+"124
+[; ;main.c: 124:     TRISB = 0;
 [e :UE 297 ]
 }
-"122
-[; ;main.c: 122:     TRISD = 0;
+"126
+[; ;main.c: 126:     TRISD = 0;
 [v _set_plane `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _set_plane ]
 [v _a `i ~T0 @X0 1 r1 ]
 [f ]
-"123
-[; ;main.c: 123:     TRISE = 0;
-[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
-"124
-[; ;main.c: 124:     TRISEbits.TRISE1 = 1;
-[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
-"125
-[; ;main.c: 125:     TRISEbits.TRISE2 = 1;
-[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
-"126
-[; ;main.c: 126:     TRISAbits.TRISA7 = 1;
-[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
 "127
-[; ;main.c: 127:     TRISAbits.TRISA6 = 1;
-[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 127:     TRISE = 0;
+[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
 "128
-[; ;main.c: 128:     TRISCbits.TRISC0 = 1;
-[e ( _plane_on (1 _a ]
+[; ;main.c: 128:     TRISEbits.TRISE1 = 1;
+[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
 "129
-[; ;main.c: 129:     for(int i = 0; i < 5; i++)
+[; ;main.c: 129:     TRISEbits.TRISE2 = 1;
+[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
+"130
+[; ;main.c: 130:     TRISAbits.TRISA7 = 1;
+[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
+"131
+[; ;main.c: 131:     TRISAbits.TRISA6 = 1;
+[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+"132
+[; ;main.c: 132:     TRISCbits.TRISC0 = 1;
+[e ( _plane_on (1 _a ]
+"133
+[; ;main.c: 133:     for(int i = 0; i < 5; i++)
 [e :UE 306 ]
 }
-"133
-[; ;main.c: 133: }
+"137
+[; ;main.c: 137: }
 [v _clear_cube `(v ~T0 @X0 1 ef ]
 {
 [e :U _clear_cube ]
 [f ]
-"135
-[; ;main.c: 135: void lighton(int x, int prev){
-[e = _TRISA -> -> 0 `i `uc ]
-"136
-[; ;main.c: 136:     set_plane(x/25);
-[e = _TRISB -> -> 0 `i `uc ]
-"137
-[; ;main.c: 137:     if(prev != -1)plane[(prev%25)/5][prev%5] = 0;
-[e = _TRISC -> -> 0 `i `uc ]
-"138
-[; ;main.c: 138:     plane[(x%25)/5][x%5] = 1;
-[e = _TRISD -> -> 0 `i `uc ]
 "139
-[; ;main.c: 139:     draw_plane();
-[e = _TRISE -> -> 0 `i `uc ]
+[; ;main.c: 139: void lighton(int x, int prev){
+[e = _TRISA -> -> 0 `i `uc ]
 "140
-[; ;main.c: 140: }
-[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 140:     set_plane(x/25);
+[e = _TRISB -> -> 0 `i `uc ]
 "141
-[; ;main.c: 141: int move(int x, int r){
-[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 141:     if(prev != -1)plane[(prev%25)/5][prev%5] = 0;
+[e = _TRISC -> -> 0 `i `uc ]
 "142
-[; ;main.c: 142:     if(r == 0)x = (x%5 == 4) ? x-4 : x+1;
-[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 142:     if(x!=-1)plane[(x%25)/5][x%5] = 1;
+[e = _TRISD -> -> 0 `i `uc ]
 "143
-[; ;main.c: 143:     else if(r == 1)x = (x%5 == 0) ? x+4 : x-1;
-[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 143:     draw_plane();
+[e = _TRISE -> -> 0 `i `uc ]
 "144
-[; ;main.c: 144:     else if(r == 2)x = (x%25 >= 20) ? x-20 : x+5;
-[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 144: }
+[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
 "145
-[; ;main.c: 145:     else if(r == 3)x = (x%25 < 5) ? x+20 : x-5;
+[; ;main.c: 145: int move(int x, int r){
+[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
+"146
+[; ;main.c: 146:     if(r == 0)x = (x%5 == 4) ? x-4 : x+1;
+[e = . . _TRISAbits 0 7 -> -> 1 `i `uc ]
+"147
+[; ;main.c: 147:     else if(r == 1)x = (x%5 == 0) ? x+4 : x-1;
+[e = . . _TRISAbits 0 6 -> -> 1 `i `uc ]
+"148
+[; ;main.c: 148:     else if(r == 2)x = (x%25 >= 20) ? x-20 : x+5;
+[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+"149
+[; ;main.c: 149:     else if(r == 3)x = (x%25 < 5) ? x+20 : x-5;
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $ < _i -> 5 `i 308  ]
 [e $U 309  ]
 [e :U 308 ]
-"146
-[; ;main.c: 146:     else if(r == 4)x = (x >= 100) ? x-100 : x+25;
+"150
+[; ;main.c: 150:     else if(r == 4)x = (x >= 100) ? x-100 : x+25;
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
 [e $ < _j -> 5 `i 311  ]
 [e $U 312  ]
 [e :U 311 ]
-"147
-[; ;main.c: 147:     else if(r == 5)x = (x<25) ? x+100 : x-25;
+"151
+[; ;main.c: 151:     else if(r == 5)x = (x<25) ? x+100 : x-25;
 [e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
 [e ++ _j -> 1 `i ]
 [e $ < _j -> 5 `i 311  ]
@@ -1126,107 +1154,109 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < _i -> 5 `i 308  ]
 [e :U 309 ]
 }
-"149
-[; ;main.c: 149: }
+"153
+[; ;main.c: 153: }
 [e :UE 307 ]
 }
-"151
-[; ;main.c: 151: void random_pattern(int id){
+"155
+[; ;main.c: 155: void random_pattern(int id){
 [v _lighton `(v ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _lighton ]
 [v _x `i ~T0 @X0 1 r1 ]
 [v _prev `i ~T0 @X0 1 r2 ]
 [f ]
-"152
-[; ;main.c: 152:     clear_plane();
+"156
+[; ;main.c: 156:     clear_plane();
 [e ( _set_plane (1 / _x -> 25 `i ]
-"153
-[; ;main.c: 153:     srand(time(((void*)0)));
+"157
+[; ;main.c: 157:     srand(time(((void*)0)));
 [e $ ! != _prev -U -> 1 `i 315  ]
 [e = *U + &U *U + &U _plane * -> -> / % _prev -> 25 `i -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> % _prev -> 5 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> / % _prev -> 25 `i -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
 [e :U 315 ]
-"154
-[; ;main.c: 154:     int x = 0, r = 0, prevr, prevx = -1;
+"158
+[; ;main.c: 158:     int x = 0, r = 0, prevr, prevx = -1;
+[e $ ! != _x -U -> 1 `i 316  ]
 [e = *U + &U *U + &U _plane * -> -> / % _x -> 25 `i -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> % _x -> 5 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> / % _x -> 25 `i -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"155
-[; ;main.c: 155:     lighton(0, prevx);
+[e :U 316 ]
+"159
+[; ;main.c: 159:     lighton(0, prevx);
 [e ( _draw_plane ..  ]
-"156
-[; ;main.c: 156:     r = rand() % 6;
+"160
+[; ;main.c: 160:     r = rand() % 6;
 [e :UE 314 ]
 }
-"157
-[; ;main.c: 157:     prevx = x;
+"161
+[; ;main.c: 161:     prevx = x;
 [v _move `(i ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _move ]
 [v _x `i ~T0 @X0 1 r1 ]
 [v _r `i ~T0 @X0 1 r2 ]
 [f ]
-"158
-[; ;main.c: 158:     x = move(x,r);
-[e $ ! == _r -> 0 `i 317  ]
-[e = _x ? == % _x -> 5 `i -> 4 `i : - _x -> 4 `i + _x -> 1 `i ]
-[e $U 318  ]
-"159
-[; ;main.c: 159:     lighton(x,prevx);
-[e :U 317 ]
-[e $ ! == _r -> 1 `i 319  ]
-[e = _x ? == % _x -> 5 `i -> 0 `i : + _x -> 4 `i - _x -> 1 `i ]
-[e $U 320  ]
-"160
-[; ;main.c: 160:     _delay((unsigned long)((2)*(4000000/4000.0)));
-[e :U 319 ]
-[e $ ! == _r -> 2 `i 321  ]
-[e = _x ? >= % _x -> 25 `i -> 20 `i : - _x -> 20 `i + _x -> 5 `i ]
-[e $U 322  ]
-"161
-[; ;main.c: 161:     while(mode == id){
-[e :U 321 ]
-[e $ ! == _r -> 3 `i 323  ]
-[e = _x ? < % _x -> 25 `i -> 5 `i : + _x -> 20 `i - _x -> 5 `i ]
-[e $U 324  ]
 "162
-[; ;main.c: 162:         prevr = r;
-[e :U 323 ]
-[e $ ! == _r -> 4 `i 325  ]
-[e = _x ? >= _x -> 100 `i : - _x -> 100 `i + _x -> 25 `i ]
-[e $U 326  ]
+[; ;main.c: 162:     x = move(x,r);
+[e $ ! == _r -> 0 `i 318  ]
+[e = _x ? == % _x -> 5 `i -> 4 `i : - _x -> 4 `i + _x -> 1 `i ]
+[e $U 319  ]
 "163
-[; ;main.c: 163:         r=rand()%6;
-[e :U 325 ]
-[e $ ! == _r -> 5 `i 327  ]
-[e = _x ? < _x -> 25 `i : + _x -> 100 `i - _x -> 25 `i ]
-[e :U 327 ]
-[e :U 326 ]
-[e :U 324 ]
-[e :U 322 ]
-[e :U 320 ]
+[; ;main.c: 163:     lighton(x,prevx);
 [e :U 318 ]
+[e $ ! == _r -> 1 `i 320  ]
+[e = _x ? == % _x -> 5 `i -> 0 `i : + _x -> 4 `i - _x -> 1 `i ]
+[e $U 321  ]
 "164
-[; ;main.c: 164:         if(r==0||r==1)while(prevr+r==1)r=rand()%6;
-[e ) _x ]
-[e $UE 316  ]
+[; ;main.c: 164:     _delay((unsigned long)((2)*(4000000/4000.0)));
+[e :U 320 ]
+[e $ ! == _r -> 2 `i 322  ]
+[e = _x ? >= % _x -> 25 `i -> 20 `i : - _x -> 20 `i + _x -> 5 `i ]
+[e $U 323  ]
 "165
-[; ;main.c: 165:         else if(r==2||r==3) while(prevr+r==5)r=rand()%6;
-[e :UE 316 ]
-}
+[; ;main.c: 165:     while(mode == id){
+[e :U 322 ]
+[e $ ! == _r -> 3 `i 324  ]
+[e = _x ? < % _x -> 25 `i -> 5 `i : + _x -> 20 `i - _x -> 5 `i ]
+[e $U 325  ]
+"166
+[; ;main.c: 166:         prevr = r;
+[e :U 324 ]
+[e $ ! == _r -> 4 `i 326  ]
+[e = _x ? >= _x -> 100 `i : - _x -> 100 `i + _x -> 25 `i ]
+[e $U 327  ]
 "167
-[; ;main.c: 167: 
+[; ;main.c: 167:         r=rand()%6;
+[e :U 326 ]
+[e $ ! == _r -> 5 `i 328  ]
+[e = _x ? < _x -> 25 `i : + _x -> 100 `i - _x -> 25 `i ]
+[e :U 328 ]
+[e :U 327 ]
+[e :U 325 ]
+[e :U 323 ]
+[e :U 321 ]
+[e :U 319 ]
+"168
+[; ;main.c: 168:         if(r==0||r==1)while(prevr+r==1)r=rand()%6;
+[e ) _x ]
+[e $UE 317  ]
+"169
+[; ;main.c: 169:         else if(r==2||r==3) while(prevr+r==5)r=rand()%6;
+[e :UE 317 ]
+}
+"171
+[; ;main.c: 171: 
 [v _random_pattern `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _random_pattern ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"168
-[; ;main.c: 168:         x=move(x,r);
+"172
+[; ;main.c: 172:         x=move(x,r);
 [e ( _clear_plane ..  ]
-"169
-[; ;main.c: 169:         lighton(x,prevx);
+"173
+[; ;main.c: 173:         lighton(x,prevx);
 [e ( _srand (1 -> ( _time (1 -> -> -> 0 `i `*v `*o `ui ]
-"170
-[; ;main.c: 170:         prevx = x;
+"174
+[; ;main.c: 174:         prevx = x;
 [v _x `i ~T0 @X0 1 a ]
 [e = _x -> 0 `i ]
 [v _r `i ~T0 @X0 1 a ]
@@ -1234,160 +1264,299 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _prevr `i ~T0 @X0 1 a ]
 [v _prevx `i ~T0 @X0 1 a ]
 [e = _prevx -U -> 1 `i ]
-"171
-[; ;main.c: 171:         _delay((unsigned long)((2)*(4000000/4000.0)));
-[e ( _lighton (2 , -> 0 `i _prevx ]
-"172
-[; ;main.c: 172:     }
-[e = _r % ( _rand ..  -> 6 `i ]
-"173
-[; ;main.c: 173: }
-[e = _prevx _x ]
-"174
-[; ;main.c: 174: 
-[e = _x ( _move (2 , _x _r ]
 "175
-[; ;main.c: 175: void slash(int id){
-[e ( _lighton (2 , _x _prevx ]
+[; ;main.c: 175:         _delay((unsigned long)((2)*(4000000/4000.0)));
+[e ( _lighton (2 , -> 0 `i _prevx ]
 "176
-[; ;main.c: 176:     clear_cube();
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 176:     }
+[e = _r % ( _rand ..  -> 6 `i ]
 "177
-[; ;main.c: 177:     int x = 0;
-[e $U 329  ]
-[e :U 330 ]
-{
-"178
-[; ;main.c: 178:     plane[0][0] = 1;
-[e = _prevr _r ]
-"179
-[; ;main.c: 179:     while(mode == id){
-[e = _r % ( _rand ..  -> 6 `i ]
-"180
-[; ;main.c: 180:         plane[x][x] = 0;
-[e $ ! || == _r -> 0 `i == _r -> 1 `i 332  ]
-[e $U 333  ]
-[e :U 334 ]
-[e = _r % ( _rand ..  -> 6 `i ]
-[e :U 333 ]
-[e $ == + _prevr _r -> 1 `i 334  ]
-[e :U 335 ]
-[e $U 336  ]
-"181
-[; ;main.c: 181:         draw_plane();
-[e :U 332 ]
-[e $ ! || == _r -> 2 `i == _r -> 3 `i 337  ]
-[e $U 338  ]
-[e :U 339 ]
-[e = _r % ( _rand ..  -> 6 `i ]
-[e :U 338 ]
-[e $ == + _prevr _r -> 5 `i 339  ]
-[e :U 340 ]
-[e $U 341  ]
-"182
-[; ;main.c: 182:         x++;
-[e :U 337 ]
-[e $ ! || == _r -> 4 `i == _r -> 5 `i 342  ]
-[e $U 343  ]
-[e :U 344 ]
-[e = _r % ( _rand ..  -> 6 `i ]
-[e :U 343 ]
-[e $ == + _prevr _r -> 9 `i 344  ]
-[e :U 345 ]
-[e :U 342 ]
-[e :U 341 ]
-[e :U 336 ]
-"184
-[; ;main.c: 184:         plane[x][x] = 1;
-[e = _x ( _move (2 , _x _r ]
-"185
-[; ;main.c: 185:         set_plane(x);
-[e ( _lighton (2 , _x _prevx ]
-"186
-[; ;main.c: 186:         draw_plane();
+[; ;main.c: 177: }
 [e = _prevx _x ]
-"187
-[; ;main.c: 187:     }
+"178
+[; ;main.c: 178: 
+[e = _x ( _move (2 , _x _r ]
+"179
+[; ;main.c: 179: void slash(int id){
+[e ( _lighton (2 , _x _prevx ]
+"180
+[; ;main.c: 180:     clear_cube();
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"188
-[; ;main.c: 188: }
-}
-[e :U 329 ]
-"177
-[; ;main.c: 177:     int x = 0;
-[e $ == _mode _id 330  ]
+"181
+[; ;main.c: 181:     int x = 0;
+[e $U 330  ]
 [e :U 331 ]
+{
+"182
+[; ;main.c: 182:     plane[0][0] = 1;
+[e = _prevr _r ]
+"183
+[; ;main.c: 183:     while(mode == id){
+[e = _r % ( _rand ..  -> 6 `i ]
+"184
+[; ;main.c: 184:         plane[x][x] = 0;
+[e $ ! || == _r -> 0 `i == _r -> 1 `i 333  ]
+[e $U 334  ]
+[e :U 335 ]
+[e = _r % ( _rand ..  -> 6 `i ]
+[e :U 334 ]
+[e $ == + _prevr _r -> 1 `i 335  ]
+[e :U 336 ]
+[e $U 337  ]
+"185
+[; ;main.c: 185:         draw_plane();
+[e :U 333 ]
+[e $ ! || == _r -> 2 `i == _r -> 3 `i 338  ]
+[e $U 339  ]
+[e :U 340 ]
+[e = _r % ( _rand ..  -> 6 `i ]
+[e :U 339 ]
+[e $ == + _prevr _r -> 5 `i 340  ]
+[e :U 341 ]
+[e $U 342  ]
+"186
+[; ;main.c: 186:         x++;
+[e :U 338 ]
+[e $ ! || == _r -> 4 `i == _r -> 5 `i 343  ]
+[e $U 344  ]
+[e :U 345 ]
+[e = _r % ( _rand ..  -> 6 `i ]
+[e :U 344 ]
+[e $ == + _prevr _r -> 9 `i 345  ]
+[e :U 346 ]
+[e :U 343 ]
+[e :U 342 ]
+[e :U 337 ]
+"188
+[; ;main.c: 188:         plane[x][x] = 1;
+[e = _x ( _move (2 , _x _r ]
 "189
-[; ;main.c: 189: 
-[e :UE 328 ]
-}
+[; ;main.c: 189:         set_plane(x);
+[e ( _lighton (2 , _x _prevx ]
+"190
+[; ;main.c: 190:         draw_plane();
+[e = _prevx _x ]
 "191
-[; ;main.c: 191:     clear_cube();
+[; ;main.c: 191:     }
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"192
+[; ;main.c: 192: }
+}
+[e :U 330 ]
+"181
+[; ;main.c: 181:     int x = 0;
+[e $ == _mode _id 331  ]
+[e :U 332 ]
+"193
+[; ;main.c: 193: 
+[e :UE 329 ]
+}
+"195
+[; ;main.c: 195:     clear_cube();
 [v _slash `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _slash ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"192
-[; ;main.c: 192:     int x=0, it=5 ,cnt=0,itcnt=0;
+"196
+[; ;main.c: 196:     srand(time(((void*)0)));
 [e ( _clear_cube ..  ]
-"193
-[; ;main.c: 193:     while(mode == id){
+"197
+[; ;main.c: 197:     int cnt=0, a[5]={0,0,0,0,0}, idx=0;
 [v _x `i ~T0 @X0 1 a ]
 [e = _x -> 0 `i ]
-"194
-[; ;main.c: 194:         clear_plane();
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"195
-[; ;main.c: 195:         draw_plane();
-[e $U 347  ]
-[e :U 348 ]
-{
-"196
-[; ;main.c: 196:         if(x==0){
-[e = *U + &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _x `ui `ux -> -> # *U &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"197
-[; ;main.c: 197:             if(cnt==0){
-[e ( _draw_plane ..  ]
 "198
-[; ;main.c: 198:                 plane[2][0] = 1;
-[e ++ _x -> 1 `i ]
+[; ;main.c: 198:     for(int i=0;i<5;i++){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "199
-[; ;main.c: 199:                 plane[2][1] = 1;
-[e =% _x -> 5 `i ]
-"200
-[; ;main.c: 200:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _x `ui `ux -> -> # *U &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"201
-[; ;main.c: 201:                 plane[2][4] = 1;
-[e ( _set_plane (1 _x ]
-"202
-[; ;main.c: 202:             }else if(cnt == 1){
-[e ( _draw_plane ..  ]
-"203
-[; ;main.c: 203:                 plane[2][2] = 1;
-}
-[e :U 347 ]
-"195
-[; ;main.c: 195:         draw_plane();
-[e $ == _mode _id 348  ]
+[; ;main.c: 199:         a[i]=rand()%25;
+[e $U 348  ]
 [e :U 349 ]
-"204
-[; ;main.c: 204:                 plane[2][4] = 1;
-[e :UE 346 ]
-}
-"206
-[; ;main.c: 206:                 plane[2][0] = 1;
-[v _rainfall `(v ~T0 @X0 1 ef1`i ]
 {
-[e :U _rainfall ]
+"200
+[; ;main.c: 200:         lighton(a[i],-1);
+[e = *U + &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _x `ui `ux -> -> # *U &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
+"201
+[; ;main.c: 201:     }
+[e ( _draw_plane ..  ]
+"202
+[; ;main.c: 202:     _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ++ _x -> 1 `i ]
+"203
+[; ;main.c: 203:     while(mode == id){
+[e =% _x -> 5 `i ]
+"204
+[; ;main.c: 204:         int tmp = a[idx];
+[e = *U + &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _x `ui `ux -> -> # *U &U *U + &U _plane * -> -> _x `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"205
+[; ;main.c: 205:         idx%=5;
+[e ( _set_plane (1 _x ]
+"206
+[; ;main.c: 206:         clear_plane();
+[e ( _draw_plane ..  ]
+"207
+[; ;main.c: 207:         for(int i=1;i<5;i++){
+}
+[e :U 348 ]
+"199
+[; ;main.c: 199:         a[i]=rand()%25;
+[e $ == _mode _id 349  ]
+[e :U 350 ]
+"208
+[; ;main.c: 208:             set_plane(i);
+[e :UE 347 ]
+}
+"210
+[; ;main.c: 210:             tmp = move(tmp,4);
+[v _antirainfall `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _antirainfall ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"207
-[; ;main.c: 207:                 plane[2][1] = 1;
+"211
+[; ;main.c: 211:             _delay((unsigned long)((10)*(4000000/4000.0)));
 [e ( _clear_cube ..  ]
-"208
-[; ;main.c: 208:                 plane[2][2] = 1;
+"212
+[; ;main.c: 212:         }
+[e ( _srand (1 -> ( _time (1 -> -> -> 0 `i `*v `*o `ui ]
+"213
+[; ;main.c: 213:         a[idx++] = rand()%25;
+[v _cnt `i ~T0 @X0 1 a ]
+[e = _cnt -> 0 `i ]
+[v F3104 `i ~T0 @X0 -> 5 `i s ]
+[i F3104
+:U ..
+-> 0 `i
+-> 0 `i
+-> 0 `i
+-> 0 `i
+-> 0 `i
+..
+]
+[v _a `i ~T0 @X0 -> 5 `i a ]
+[e = _a F3104 ]
+[v _idx `i ~T0 @X0 1 a ]
+[e = _idx -> 0 `i ]
+"214
+[; ;main.c: 214:         idx %= 5;
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 352  ]
+[e $U 353  ]
+[e :U 352 ]
+{
+"215
+[; ;main.c: 215:         set_plane(0);
+[e = *U + &U _a * -> -> _i `ui `ux -> -> # *U &U _a `ui `ux % ( _rand ..  -> 25 `i ]
+"216
+[; ;main.c: 216:         for(int i=0;i<5;i++)plane[a[i]/5][a[i]%5] = 1;
+[e ( _lighton (2 , *U + &U _a * -> -> _i `ui `ux -> -> # *U &U _a `ui `ux -U -> 1 `i ]
+"217
+[; ;main.c: 217:         draw_plane();
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 352  ]
+[e :U 353 ]
+}
+"218
+[; ;main.c: 218:         _delay((unsigned long)((100)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"219
+[; ;main.c: 219:     }
+[e $U 355  ]
+[e :U 356 ]
+{
+"220
+[; ;main.c: 220: }
+[v _tmp `i ~T0 @X0 1 a ]
+[e = _tmp *U + &U _a * -> -> _idx `ui `ux -> -> # *U &U _a `ui `ux ]
+"221
+[; ;main.c: 221: 
+[e =% _idx -> 5 `i ]
+"222
+[; ;main.c: 222: void hitler(int id){
+[e ( _clear_plane ..  ]
+"223
+[; ;main.c: 223:     clear_cube();
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 1 `i ]
+[e $ < _i -> 5 `i 358  ]
+[e $U 359  ]
+[e :U 358 ]
+{
+"224
+[; ;main.c: 224:     int x=0, it=5 ,cnt=0,itcnt=0;
+[e ( _set_plane (1 _i ]
+"225
+[; ;main.c: 225:     while(mode == id){
+[e ( _lighton (2 , _tmp _tmp ]
+"226
+[; ;main.c: 226:         clear_plane();
+[e = _tmp ( _move (2 , _tmp -> 4 `i ]
+"227
+[; ;main.c: 227:         draw_plane();
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"228
+[; ;main.c: 228:         if(x==0){
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 358  ]
+[e :U 359 ]
+}
+"229
+[; ;main.c: 229:             if(cnt==0){
+[e = *U + &U _a * -> -> ++ _idx -> 1 `i `ui `ux -> -> # *U &U _a `ui `ux % ( _rand ..  -> 25 `i ]
+"230
+[; ;main.c: 230:                 plane[2][0] = 1;
+[e =% _idx -> 5 `i ]
+"231
+[; ;main.c: 231:                 plane[2][1] = 1;
+[e ( _set_plane (1 -> 0 `i ]
+"232
+[; ;main.c: 232:                 plane[2][2] = 1;
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 361  ]
+[e $U 362  ]
+[e :U 361 ]
+[e = *U + &U *U + &U _plane * -> -> / *U + &U _a * -> -> _i `ui `ux -> -> # *U &U _a `ui `ux -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> % *U + &U _a * -> -> _i `ui `ux -> -> # *U &U _a `ui `ux -> 5 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> / *U + &U _a * -> -> _i `ui `ux -> -> # *U &U _a `ui `ux -> 5 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 361  ]
+[e :U 362 ]
+}
+"233
+[; ;main.c: 233:                 plane[2][4] = 1;
+[e ( _draw_plane ..  ]
+"234
+[; ;main.c: 234:             }else if(cnt == 1){
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"235
+[; ;main.c: 235:                 plane[2][2] = 1;
+}
+[e :U 355 ]
+"219
+[; ;main.c: 219:     }
+[e $ == _mode _id 356  ]
+[e :U 357 ]
+"236
+[; ;main.c: 236:                 plane[2][4] = 1;
+[e :UE 351 ]
+}
+"238
+[; ;main.c: 238:                 plane[2][0] = 1;
+[v _hitler `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _hitler ]
+[v _id `i ~T0 @X0 1 r1 ]
+[f ]
+"239
+[; ;main.c: 239:                 plane[2][1] = 1;
+[e ( _clear_cube ..  ]
+"240
+[; ;main.c: 240:                 plane[2][2] = 1;
 [v _x `i ~T0 @X0 1 a ]
 [e = _x -> 0 `i ]
 [v _it `i ~T0 @X0 1 a ]
@@ -1396,1694 +1565,1718 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _cnt -> 0 `i ]
 [v _itcnt `i ~T0 @X0 1 a ]
 [e = _itcnt -> 0 `i ]
-"209
-[; ;main.c: 209:                 plane[2][3] = 1;
-[e $U 351  ]
-[e :U 352 ]
-{
-"210
-[; ;main.c: 210:                 plane[2][4] = 1;
-[e ( _clear_plane ..  ]
-"211
-[; ;main.c: 211:             }else if(cnt == 3){
-[e ( _draw_plane ..  ]
-"212
-[; ;main.c: 212:                 plane[2][0] = 1;
-[e $ ! == _x -> 0 `i 354  ]
-{
-"213
-[; ;main.c: 213:                 plane[2][2] = 1;
-[e $ ! == _cnt -> 0 `i 355  ]
-{
-"214
-[; ;main.c: 214:             }else if(cnt == 4){
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"215
-[; ;main.c: 215:                 plane[2][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"216
-[; ;main.c: 216:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"217
-[; ;main.c: 217:                 plane[2][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"218
-[; ;main.c: 218:                 plane[2][4] = 1;
-}
-[e $U 356  ]
-[e :U 355 ]
-[e $ ! == _cnt -> 1 `i 357  ]
-{
-"219
-[; ;main.c: 219:             }
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"220
-[; ;main.c: 220:         }else if(x==1){
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"221
-[; ;main.c: 221:             if(cnt==0){
-}
-[e $U 358  ]
-[e :U 357 ]
-[e $ ! == _cnt -> 2 `i 359  ]
-{
-"222
-[; ;main.c: 222:                 plane[4][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"223
-[; ;main.c: 223:                 plane[3][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"224
-[; ;main.c: 224:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"225
-[; ;main.c: 225:                 plane[0][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"226
-[; ;main.c: 226:             }else if(cnt == 1){
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"227
-[; ;main.c: 227:                 plane[2][2] = 1;
-}
-[e $U 360  ]
-[e :U 359 ]
-[e $ ! == _cnt -> 3 `i 361  ]
-{
-"228
-[; ;main.c: 228:                 plane[0][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"229
-[; ;main.c: 229:             }else if(cnt == 2){
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"230
-[; ;main.c: 230:                 plane[4][0] = 1;
-}
-[e $U 362  ]
-[e :U 361 ]
-[e $ ! == _cnt -> 4 `i 363  ]
-{
-"231
-[; ;main.c: 231:                 plane[3][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"232
-[; ;main.c: 232:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"233
-[; ;main.c: 233:                 plane[1][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"234
-[; ;main.c: 234:                 plane[0][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"235
-[; ;main.c: 235:             }else if(cnt == 3){
-}
-[e :U 363 ]
-[e :U 362 ]
-[e :U 360 ]
-[e :U 358 ]
-[e :U 356 ]
-"236
-[; ;main.c: 236:                 plane[4][0] = 1;
-}
-[e $U 364  ]
-[e :U 354 ]
-[e $ ! == _x -> 1 `i 365  ]
-{
-"237
-[; ;main.c: 237:                 plane[2][2] = 1;
-[e $ ! == _cnt -> 0 `i 366  ]
-{
-"238
-[; ;main.c: 238:             }else if(cnt == 4){
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"239
-[; ;main.c: 239:                 plane[4][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"240
-[; ;main.c: 240:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "241
-[; ;main.c: 241:                 plane[1][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"242
-[; ;main.c: 242:                 plane[0][4] = 1;
-}
-[e $U 367  ]
+[; ;main.c: 241:                 plane[2][3] = 1;
+[e $U 365  ]
 [e :U 366 ]
-[e $ ! == _cnt -> 1 `i 368  ]
 {
+"242
+[; ;main.c: 242:                 plane[2][4] = 1;
+[e ( _clear_plane ..  ]
 "243
-[; ;main.c: 243:             }
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 243:             }else if(cnt == 3){
+[e ( _draw_plane ..  ]
 "244
-[; ;main.c: 244:         }else if(x==2){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 244:                 plane[2][0] = 1;
+[e $ ! == _x -> 0 `i 368  ]
+{
 "245
-[; ;main.c: 245:             if(cnt==0){
-}
-[e $U 369  ]
-[e :U 368 ]
-[e $ ! == _cnt -> 2 `i 370  ]
+[; ;main.c: 245:                 plane[2][2] = 1;
+[e $ ! == _cnt -> 0 `i 369  ]
 {
 "246
-[; ;main.c: 246:                 plane[4][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 246:             }else if(cnt == 4){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "247
-[; ;main.c: 247:                 plane[3][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 247:                 plane[2][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "248
 [; ;main.c: 248:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "249
-[; ;main.c: 249:                 plane[0][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 249:                 plane[2][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "250
-[; ;main.c: 250:             }else if(cnt == 1){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 250:                 plane[2][4] = 1;
+}
+[e $U 370  ]
+[e :U 369 ]
+[e $ ! == _cnt -> 1 `i 371  ]
+{
 "251
-[; ;main.c: 251:                 plane[2][2] = 1;
-}
-[e $U 371  ]
-[e :U 370 ]
-[e $ ! == _cnt -> 3 `i 372  ]
-{
-"252
-[; ;main.c: 252:                 plane[0][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"253
-[; ;main.c: 253:             }else if(cnt == 2){
+[; ;main.c: 251:             }
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"254
-[; ;main.c: 254:                 plane[4][2] = 1;
+"252
+[; ;main.c: 252:         }else if(x==1){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"253
+[; ;main.c: 253:             if(cnt==0){
 }
-[e $U 373  ]
-[e :U 372 ]
-[e $ ! == _cnt -> 4 `i 374  ]
+[e $U 372  ]
+[e :U 371 ]
+[e $ ! == _cnt -> 2 `i 373  ]
 {
+"254
+[; ;main.c: 254:                 plane[4][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "255
-[; ;main.c: 255:                 plane[3][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 255:                 plane[3][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "256
 [; ;main.c: 256:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "257
-[; ;main.c: 257:                 plane[1][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 257:                 plane[0][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "258
-[; ;main.c: 258:                 plane[0][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 258:             }else if(cnt == 1){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "259
-[; ;main.c: 259:             }else if(cnt == 3){
+[; ;main.c: 259:                 plane[2][2] = 1;
 }
-[e :U 374 ]
+[e $U 374  ]
 [e :U 373 ]
-[e :U 371 ]
-[e :U 369 ]
-[e :U 367 ]
+[e $ ! == _cnt -> 3 `i 375  ]
+{
 "260
-[; ;main.c: 260:                 plane[4][2] = 1;
-}
-[e $U 375  ]
-[e :U 365 ]
-[e $ ! == _x -> 2 `i 376  ]
-{
+[; ;main.c: 260:                 plane[0][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "261
-[; ;main.c: 261:                 plane[2][2] = 1;
-[e $ ! == _cnt -> 0 `i 377  ]
-{
+[; ;main.c: 261:             }else if(cnt == 2){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "262
-[; ;main.c: 262:             }else if(cnt == 4){
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 262:                 plane[4][0] = 1;
+}
+[e $U 376  ]
+[e :U 375 ]
+[e $ ! == _cnt -> 4 `i 377  ]
+{
 "263
-[; ;main.c: 263:                 plane[4][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 263:                 plane[3][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "264
 [; ;main.c: 264:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "265
-[; ;main.c: 265:                 plane[1][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 265:                 plane[1][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "266
-[; ;main.c: 266:                 plane[0][2] = 1;
+[; ;main.c: 266:                 plane[0][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"267
+[; ;main.c: 267:             }else if(cnt == 3){
+}
+[e :U 377 ]
+[e :U 376 ]
+[e :U 374 ]
+[e :U 372 ]
+[e :U 370 ]
+"268
+[; ;main.c: 268:                 plane[4][0] = 1;
 }
 [e $U 378  ]
-[e :U 377 ]
-[e $ ! == _cnt -> 1 `i 379  ]
+[e :U 368 ]
+[e $ ! == _x -> 1 `i 379  ]
 {
-"267
-[; ;main.c: 267:             }
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"268
-[; ;main.c: 268:         }else if(x==3){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "269
-[; ;main.c: 269:             if(cnt==0){
-}
-[e $U 380  ]
-[e :U 379 ]
-[e $ ! == _cnt -> 2 `i 381  ]
+[; ;main.c: 269:                 plane[2][2] = 1;
+[e $ ! == _cnt -> 0 `i 380  ]
 {
 "270
-[; ;main.c: 270:                 plane[4][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 270:             }else if(cnt == 4){
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "271
-[; ;main.c: 271:                 plane[3][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 271:                 plane[4][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "272
 [; ;main.c: 272:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "273
-[; ;main.c: 273:                 plane[0][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 273:                 plane[1][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "274
-[; ;main.c: 274:             }else if(cnt == 1){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 274:                 plane[0][4] = 1;
+}
+[e $U 381  ]
+[e :U 380 ]
+[e $ ! == _cnt -> 1 `i 382  ]
+{
 "275
-[; ;main.c: 275:                 plane[2][2] = 1;
-}
-[e $U 382  ]
-[e :U 381 ]
-[e $ ! == _cnt -> 3 `i 383  ]
-{
-"276
-[; ;main.c: 276:                 plane[0][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"277
-[; ;main.c: 277:             }else if(cnt == 2){
+[; ;main.c: 275:             }
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"278
-[; ;main.c: 278:                 plane[4][4] = 1;
+"276
+[; ;main.c: 276:         }else if(x==2){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"277
+[; ;main.c: 277:             if(cnt==0){
 }
-[e $U 384  ]
-[e :U 383 ]
-[e $ ! == _cnt -> 4 `i 385  ]
+[e $U 383  ]
+[e :U 382 ]
+[e $ ! == _cnt -> 2 `i 384  ]
 {
+"278
+[; ;main.c: 278:                 plane[4][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "279
-[; ;main.c: 279:                 plane[3][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 279:                 plane[3][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "280
 [; ;main.c: 280:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "281
-[; ;main.c: 281:                 plane[1][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 281:                 plane[0][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "282
-[; ;main.c: 282:                 plane[0][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 282:             }else if(cnt == 1){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "283
-[; ;main.c: 283:             }else if(cnt == 3){
+[; ;main.c: 283:                 plane[2][2] = 1;
 }
-[e :U 385 ]
+[e $U 385  ]
 [e :U 384 ]
-[e :U 382 ]
-[e :U 380 ]
-[e :U 378 ]
+[e $ ! == _cnt -> 3 `i 386  ]
+{
 "284
-[; ;main.c: 284:                 plane[4][4] = 1;
-}
-[e $U 386  ]
-[e :U 376 ]
-[e $ ! == _x -> 3 `i 387  ]
-{
+[; ;main.c: 284:                 plane[0][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "285
-[; ;main.c: 285:                 plane[2][2] = 1;
-[e $ ! == _cnt -> 0 `i 388  ]
-{
+[; ;main.c: 285:             }else if(cnt == 2){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "286
-[; ;main.c: 286:             }else if(cnt == 4){
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 286:                 plane[4][2] = 1;
+}
+[e $U 387  ]
+[e :U 386 ]
+[e $ ! == _cnt -> 4 `i 388  ]
+{
 "287
-[; ;main.c: 287:                 plane[4][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 287:                 plane[3][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "288
 [; ;main.c: 288:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "289
-[; ;main.c: 289:                 plane[1][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 289:                 plane[1][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "290
-[; ;main.c: 290:                 plane[0][0] = 1;
+[; ;main.c: 290:                 plane[0][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"291
+[; ;main.c: 291:             }else if(cnt == 3){
+}
+[e :U 388 ]
+[e :U 387 ]
+[e :U 385 ]
+[e :U 383 ]
+[e :U 381 ]
+"292
+[; ;main.c: 292:                 plane[4][2] = 1;
 }
 [e $U 389  ]
-[e :U 388 ]
-[e $ ! == _cnt -> 1 `i 390  ]
+[e :U 379 ]
+[e $ ! == _x -> 2 `i 390  ]
 {
-"291
-[; ;main.c: 291:             }
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"292
-[; ;main.c: 292:         }else if(x==4){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "293
-[; ;main.c: 293:             if(cnt==0){
-}
-[e $U 391  ]
-[e :U 390 ]
-[e $ ! == _cnt -> 2 `i 392  ]
+[; ;main.c: 293:                 plane[2][2] = 1;
+[e $ ! == _cnt -> 0 `i 391  ]
 {
 "294
-[; ;main.c: 294:                 plane[2][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 294:             }else if(cnt == 4){
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "295
-[; ;main.c: 295:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 295:                 plane[4][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "296
-[; ;main.c: 296:                 plane[2][3] = 1;
+[; ;main.c: 296:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "297
-[; ;main.c: 297:                 plane[2][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 297:                 plane[1][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "298
-[; ;main.c: 298:             }else if(cnt == 1){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 298:                 plane[0][2] = 1;
+}
+[e $U 392  ]
+[e :U 391 ]
+[e $ ! == _cnt -> 1 `i 393  ]
+{
 "299
-[; ;main.c: 299:                 plane[2][0] = 1;
-}
-[e $U 393  ]
-[e :U 392 ]
-[e $ ! == _cnt -> 3 `i 394  ]
-{
-"300
-[; ;main.c: 300:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"301
-[; ;main.c: 301:             }else if(cnt == 2){
+[; ;main.c: 299:             }
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"302
-[; ;main.c: 302:                 plane[2][0] = 1;
+"300
+[; ;main.c: 300:         }else if(x==3){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"301
+[; ;main.c: 301:             if(cnt==0){
 }
-[e $U 395  ]
-[e :U 394 ]
-[e $ ! == _cnt -> 4 `i 396  ]
+[e $U 394  ]
+[e :U 393 ]
+[e $ ! == _cnt -> 2 `i 395  ]
 {
+"302
+[; ;main.c: 302:                 plane[4][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "303
-[; ;main.c: 303:                 plane[2][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 303:                 plane[3][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "304
 [; ;main.c: 304:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "305
-[; ;main.c: 305:                 plane[2][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 305:                 plane[0][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "306
-[; ;main.c: 306:                 plane[2][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 306:             }else if(cnt == 1){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "307
-[; ;main.c: 307:             }else if(cnt == 3){
+[; ;main.c: 307:                 plane[2][2] = 1;
 }
-[e :U 396 ]
+[e $U 396  ]
 [e :U 395 ]
-[e :U 393 ]
-[e :U 391 ]
-[e :U 389 ]
+[e $ ! == _cnt -> 3 `i 397  ]
+{
 "308
-[; ;main.c: 308:                 plane[2][2] = 1;
-}
-[e $U 397  ]
-[e :U 387 ]
-[e $ ! == _x -> 4 `i 398  ]
-{
+[; ;main.c: 308:                 plane[0][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "309
-[; ;main.c: 309:                 plane[2][4] = 1;
-[e $ ! == _cnt -> 0 `i 399  ]
-{
-"310
-[; ;main.c: 310:             }else if(cnt == 4){
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"311
-[; ;main.c: 311:                 plane[2][0] = 1;
+[; ;main.c: 309:             }else if(cnt == 2){
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"310
+[; ;main.c: 310:                 plane[4][4] = 1;
+}
+[e $U 398  ]
+[e :U 397 ]
+[e $ ! == _cnt -> 4 `i 399  ]
+{
+"311
+[; ;main.c: 311:                 plane[3][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "312
-[; ;main.c: 312:                 plane[2][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 312:                 plane[2][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "313
-[; ;main.c: 313:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 313:                 plane[1][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "314
-[; ;main.c: 314:                 plane[2][4] = 1;
+[; ;main.c: 314:                 plane[0][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"315
+[; ;main.c: 315:             }else if(cnt == 3){
+}
+[e :U 399 ]
+[e :U 398 ]
+[e :U 396 ]
+[e :U 394 ]
+[e :U 392 ]
+"316
+[; ;main.c: 316:                 plane[4][4] = 1;
 }
 [e $U 400  ]
-[e :U 399 ]
-[e $ ! == _cnt -> 1 `i 401  ]
+[e :U 390 ]
+[e $ ! == _x -> 3 `i 401  ]
 {
-"315
-[; ;main.c: 315:             }
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"316
-[; ;main.c: 316:         }else if(x==5){
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "317
-[; ;main.c: 317:             if(cnt==0){
-}
-[e $U 402  ]
-[e :U 401 ]
-[e $ ! == _cnt -> 2 `i 403  ]
+[; ;main.c: 317:                 plane[2][2] = 1;
+[e $ ! == _cnt -> 0 `i 402  ]
 {
 "318
-[; ;main.c: 318:                 plane[0][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 318:             }else if(cnt == 4){
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "319
-[; ;main.c: 319:                 plane[1][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 319:                 plane[4][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "320
 [; ;main.c: 320:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "321
-[; ;main.c: 321:                 plane[4][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 321:                 plane[1][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "322
-[; ;main.c: 322:             }else if(cnt == 1){
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"323
-[; ;main.c: 323:                 plane[2][2] = 1;
+[; ;main.c: 322:                 plane[0][0] = 1;
 }
-[e $U 404  ]
-[e :U 403 ]
-[e $ ! == _cnt -> 3 `i 405  ]
-{
-"324
-[; ;main.c: 324:                 plane[4][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"325
-[; ;main.c: 325:             }else if(cnt == 2){
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"326
-[; ;main.c: 326:                 plane[0][4] = 1;
-}
-[e $U 406  ]
-[e :U 405 ]
-[e $ ! == _cnt -> 4 `i 407  ]
-{
-"327
-[; ;main.c: 327:                 plane[1][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"328
-[; ;main.c: 328:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"329
-[; ;main.c: 329:                 plane[3][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"330
-[; ;main.c: 330:                 plane[4][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"331
-[; ;main.c: 331:             }else if(cnt == 3){
-}
-[e :U 407 ]
-[e :U 406 ]
-[e :U 404 ]
+[e $U 403  ]
 [e :U 402 ]
-[e :U 400 ]
-"332
-[; ;main.c: 332:                 plane[0][4] = 1;
+[e $ ! == _cnt -> 1 `i 404  ]
+{
+"323
+[; ;main.c: 323:             }
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"324
+[; ;main.c: 324:         }else if(x==4){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"325
+[; ;main.c: 325:             if(cnt==0){
 }
-[e $U 408  ]
-[e :U 398 ]
-[e $ ! == _x -> 5 `i 409  ]
+[e $U 405  ]
+[e :U 404 ]
+[e $ ! == _cnt -> 2 `i 406  ]
 {
+"326
+[; ;main.c: 326:                 plane[2][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"327
+[; ;main.c: 327:                 plane[2][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"328
+[; ;main.c: 328:                 plane[2][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"329
+[; ;main.c: 329:                 plane[2][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"330
+[; ;main.c: 330:             }else if(cnt == 1){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"331
+[; ;main.c: 331:                 plane[2][0] = 1;
+}
+[e $U 407  ]
+[e :U 406 ]
+[e $ ! == _cnt -> 3 `i 408  ]
+{
+"332
+[; ;main.c: 332:                 plane[2][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "333
-[; ;main.c: 333:                 plane[2][2] = 1;
-[e $ ! == _cnt -> 0 `i 410  ]
-{
+[; ;main.c: 333:             }else if(cnt == 2){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "334
-[; ;main.c: 334:             }else if(cnt == 4){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 334:                 plane[2][0] = 1;
+}
+[e $U 409  ]
+[e :U 408 ]
+[e $ ! == _cnt -> 4 `i 410  ]
+{
 "335
-[; ;main.c: 335:                 plane[0][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 335:                 plane[2][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "336
 [; ;main.c: 336:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "337
-[; ;main.c: 337:                 plane[3][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 337:                 plane[2][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "338
-[; ;main.c: 338:                 plane[4][0] = 1;
+[; ;main.c: 338:                 plane[2][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"339
+[; ;main.c: 339:             }else if(cnt == 3){
+}
+[e :U 410 ]
+[e :U 409 ]
+[e :U 407 ]
+[e :U 405 ]
+[e :U 403 ]
+"340
+[; ;main.c: 340:                 plane[2][2] = 1;
 }
 [e $U 411  ]
-[e :U 410 ]
-[e $ ! == _cnt -> 1 `i 412  ]
+[e :U 401 ]
+[e $ ! == _x -> 4 `i 412  ]
 {
-"339
-[; ;main.c: 339:             }
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"340
-[; ;main.c: 340:         }else if(x==6){
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "341
-[; ;main.c: 341:             if(cnt==0){
-}
-[e $U 413  ]
-[e :U 412 ]
-[e $ ! == _cnt -> 2 `i 414  ]
+[; ;main.c: 341:                 plane[2][4] = 1;
+[e $ ! == _cnt -> 0 `i 413  ]
 {
 "342
-[; ;main.c: 342:                 plane[0][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 342:             }else if(cnt == 4){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "343
-[; ;main.c: 343:                 plane[1][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 343:                 plane[2][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "344
-[; ;main.c: 344:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 344:                 plane[2][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "345
-[; ;main.c: 345:                 plane[4][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 345:                 plane[2][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "346
-[; ;main.c: 346:             }else if(cnt == 1){
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 346:                 plane[2][4] = 1;
+}
+[e $U 414  ]
+[e :U 413 ]
+[e $ ! == _cnt -> 1 `i 415  ]
+{
 "347
-[; ;main.c: 347:                 plane[2][2] = 1;
-}
-[e $U 415  ]
-[e :U 414 ]
-[e $ ! == _cnt -> 3 `i 416  ]
-{
+[; ;main.c: 347:             }
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "348
-[; ;main.c: 348:                 plane[4][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"349
-[; ;main.c: 349:             }else if(cnt == 2){
+[; ;main.c: 348:         }else if(x==5){
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"350
-[; ;main.c: 350:                 plane[0][2] = 1;
+"349
+[; ;main.c: 349:             if(cnt==0){
 }
-[e $U 417  ]
-[e :U 416 ]
-[e $ ! == _cnt -> 4 `i 418  ]
+[e $U 416  ]
+[e :U 415 ]
+[e $ ! == _cnt -> 2 `i 417  ]
 {
+"350
+[; ;main.c: 350:                 plane[0][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "351
-[; ;main.c: 351:                 plane[1][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 351:                 plane[1][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "352
 [; ;main.c: 352:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "353
-[; ;main.c: 353:                 plane[3][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 353:                 plane[4][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "354
-[; ;main.c: 354:                 plane[4][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 354:             }else if(cnt == 1){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "355
-[; ;main.c: 355:             }else if(cnt == 3){
+[; ;main.c: 355:                 plane[2][2] = 1;
 }
-[e :U 418 ]
+[e $U 418  ]
 [e :U 417 ]
-[e :U 415 ]
-[e :U 413 ]
-[e :U 411 ]
+[e $ ! == _cnt -> 3 `i 419  ]
+{
 "356
-[; ;main.c: 356:                 plane[0][2] = 1;
-}
-[e $U 419  ]
-[e :U 409 ]
-[e $ ! == _x -> 6 `i 420  ]
-{
+[; ;main.c: 356:                 plane[4][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "357
-[; ;main.c: 357:                 plane[2][2] = 1;
-[e $ ! == _cnt -> 0 `i 421  ]
-{
+[; ;main.c: 357:             }else if(cnt == 2){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "358
-[; ;main.c: 358:             }else if(cnt == 4){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 358:                 plane[0][4] = 1;
+}
+[e $U 420  ]
+[e :U 419 ]
+[e $ ! == _cnt -> 4 `i 421  ]
+{
 "359
-[; ;main.c: 359:                 plane[0][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 359:                 plane[1][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "360
 [; ;main.c: 360:                 plane[2][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "361
-[; ;main.c: 361:                 plane[3][2] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 361:                 plane[3][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "362
-[; ;main.c: 362:                 plane[4][2] = 1;
+[; ;main.c: 362:                 plane[4][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"363
+[; ;main.c: 363:             }else if(cnt == 3){
+}
+[e :U 421 ]
+[e :U 420 ]
+[e :U 418 ]
+[e :U 416 ]
+[e :U 414 ]
+"364
+[; ;main.c: 364:                 plane[0][4] = 1;
 }
 [e $U 422  ]
-[e :U 421 ]
-[e $ ! == _cnt -> 1 `i 423  ]
+[e :U 412 ]
+[e $ ! == _x -> 5 `i 423  ]
 {
-"363
-[; ;main.c: 363:             }
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"364
-[; ;main.c: 364:         }else if(x==7){
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "365
-[; ;main.c: 365:             if(cnt==0){
-}
-[e $U 424  ]
-[e :U 423 ]
-[e $ ! == _cnt -> 2 `i 425  ]
+[; ;main.c: 365:                 plane[2][2] = 1;
+[e $ ! == _cnt -> 0 `i 424  ]
 {
 "366
-[; ;main.c: 366:                 plane[0][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 366:             }else if(cnt == 4){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "367
-[; ;main.c: 367:                 plane[1][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 367:                 plane[0][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "368
 [; ;main.c: 368:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "369
-[; ;main.c: 369:                 plane[4][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 369:                 plane[3][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "370
-[; ;main.c: 370:             }else if(cnt == 1){
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 370:                 plane[4][0] = 1;
+}
+[e $U 425  ]
+[e :U 424 ]
+[e $ ! == _cnt -> 1 `i 426  ]
+{
 "371
-[; ;main.c: 371:                 plane[2][2] = 1;
-}
-[e $U 426  ]
-[e :U 425 ]
-[e $ ! == _cnt -> 3 `i 427  ]
-{
-"372
-[; ;main.c: 372:                 plane[4][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"373
-[; ;main.c: 373:             }else if(cnt == 2){
+[; ;main.c: 371:             }
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"374
-[; ;main.c: 374:                 plane[4][4] = 1;
+"372
+[; ;main.c: 372:         }else if(x==6){
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"373
+[; ;main.c: 373:             if(cnt==0){
 }
-[e $U 428  ]
-[e :U 427 ]
-[e $ ! == _cnt -> 4 `i 429  ]
+[e $U 427  ]
+[e :U 426 ]
+[e $ ! == _cnt -> 2 `i 428  ]
 {
+"374
+[; ;main.c: 374:                 plane[0][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "375
-[; ;main.c: 375:                 plane[3][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 375:                 plane[1][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "376
 [; ;main.c: 376:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "377
-[; ;main.c: 377:                 plane[1][1] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 377:                 plane[4][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "378
-[; ;main.c: 378:                 plane[0][0] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 378:             }else if(cnt == 1){
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "379
-[; ;main.c: 379:             }else if(cnt == 3){
+[; ;main.c: 379:                 plane[2][2] = 1;
 }
-[e :U 429 ]
+[e $U 429  ]
 [e :U 428 ]
-[e :U 426 ]
-[e :U 424 ]
-[e :U 422 ]
+[e $ ! == _cnt -> 3 `i 430  ]
+{
 "380
-[; ;main.c: 380:                 plane[0][0] = 1;
-}
-[e $U 430  ]
-[e :U 420 ]
-[e $ ! == _x -> 7 `i 431  ]
-{
+[; ;main.c: 380:                 plane[4][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "381
-[; ;main.c: 381:                 plane[2][2] = 1;
-[e $ ! == _cnt -> 0 `i 432  ]
-{
+[; ;main.c: 381:             }else if(cnt == 2){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "382
-[; ;main.c: 382:             }else if(cnt == 4){
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 382:                 plane[0][2] = 1;
+}
+[e $U 431  ]
+[e :U 430 ]
+[e $ ! == _cnt -> 4 `i 432  ]
+{
 "383
-[; ;main.c: 383:                 plane[4][4] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 383:                 plane[1][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "384
 [; ;main.c: 384:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "385
-[; ;main.c: 385:                 plane[3][3] = 1;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 385:                 plane[3][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "386
-[; ;main.c: 386:                 plane[0][0] = 1;
+[; ;main.c: 386:                 plane[4][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"387
+[; ;main.c: 387:             }else if(cnt == 3){
+}
+[e :U 432 ]
+[e :U 431 ]
+[e :U 429 ]
+[e :U 427 ]
+[e :U 425 ]
+"388
+[; ;main.c: 388:                 plane[0][2] = 1;
 }
 [e $U 433  ]
-[e :U 432 ]
-[e $ ! == _cnt -> 1 `i 434  ]
+[e :U 423 ]
+[e $ ! == _x -> 6 `i 434  ]
 {
-"387
-[; ;main.c: 387:             }
-[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"388
-[; ;main.c: 388:         }
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "389
-[; ;main.c: 389:         set_plane(cnt);
-}
-[e $U 435  ]
-[e :U 434 ]
-[e $ ! == _cnt -> 2 `i 436  ]
+[; ;main.c: 389:                 plane[2][2] = 1;
+[e $ ! == _cnt -> 0 `i 435  ]
 {
 "390
-[; ;main.c: 390:         draw_plane();
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 390:             }else if(cnt == 4){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "391
-[; ;main.c: 391:         cnt++;
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 391:                 plane[0][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "392
-[; ;main.c: 392:         if(cnt == 5){
+[; ;main.c: 392:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "393
-[; ;main.c: 393:             cnt=0;
-[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 393:                 plane[3][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "394
-[; ;main.c: 394:             itcnt++;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 394:                 plane[4][2] = 1;
+}
+[e $U 436  ]
+[e :U 435 ]
+[e $ ! == _cnt -> 1 `i 437  ]
+{
 "395
-[; ;main.c: 395:             if(itcnt>it){
-}
-[e $U 437  ]
-[e :U 436 ]
-[e $ ! == _cnt -> 3 `i 438  ]
-{
-"396
-[; ;main.c: 396:                 x++;
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"397
-[; ;main.c: 397:                 itcnt=0;
+[; ;main.c: 395:             }
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"398
-[; ;main.c: 398:             }
+"396
+[; ;main.c: 396:         }else if(x==7){
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"397
+[; ;main.c: 397:             if(cnt==0){
 }
-[e $U 439  ]
-[e :U 438 ]
-[e $ ! == _cnt -> 4 `i 440  ]
+[e $U 438  ]
+[e :U 437 ]
+[e $ ! == _cnt -> 2 `i 439  ]
 {
+"398
+[; ;main.c: 398:                 plane[0][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "399
-[; ;main.c: 399:             x = x%8;
-[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 399:                 plane[1][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "400
-[; ;main.c: 400:         }
+[; ;main.c: 400:                 plane[2][2] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "401
-[; ;main.c: 401:     }
-[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 401:                 plane[4][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "402
-[; ;main.c: 402: }
-[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 402:             }else if(cnt == 1){
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "403
-[; ;main.c: 403: 
+[; ;main.c: 403:                 plane[2][2] = 1;
 }
-[e :U 440 ]
+[e $U 440  ]
 [e :U 439 ]
-[e :U 437 ]
-[e :U 435 ]
-[e :U 433 ]
+[e $ ! == _cnt -> 3 `i 441  ]
+{
 "404
-[; ;main.c: 404: void scan(int id){
-}
-[e :U 431 ]
-[e :U 430 ]
-[e :U 419 ]
-[e :U 408 ]
-[e :U 397 ]
-[e :U 386 ]
-[e :U 375 ]
-[e :U 364 ]
+[; ;main.c: 404:                 plane[4][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "405
-[; ;main.c: 405:     clear_cube();
-[e ( _set_plane (1 _cnt ]
+[; ;main.c: 405:             }else if(cnt == 2){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "406
-[; ;main.c: 406: 
-[e ( _draw_plane ..  ]
-"407
-[; ;main.c: 407:     while(mode == id){
-[e ++ _cnt -> 1 `i ]
-"408
-[; ;main.c: 408:         for(int i = 0; i < 5; i++)
-[e $ ! == _cnt -> 5 `i 441  ]
-{
-"409
-[; ;main.c: 409:             for(int j = 0; j < 5; j++)
-[e = _cnt -> 0 `i ]
-"410
-[; ;main.c: 410:                 plane[i][j] = 1;
-[e ++ _itcnt -> 1 `i ]
-"411
-[; ;main.c: 411: 
-[e $ ! > _itcnt _it 442  ]
-{
-"412
-[; ;main.c: 412:         for(int i = 0; i < 5; i++){
-[e ++ _x -> 1 `i ]
-"413
-[; ;main.c: 413:             set_plane(i);
-[e = _itcnt -> 0 `i ]
-"414
-[; ;main.c: 414:             draw_plane();
+[; ;main.c: 406:                 plane[4][4] = 1;
 }
-[e :U 442 ]
-"415
-[; ;main.c: 415:             _delay((unsigned long)((8)*(4000000/4000.0)));
-[e = _x % _x -> 8 `i ]
-"416
-[; ;main.c: 416:         }
-}
+[e $U 442  ]
 [e :U 441 ]
+[e $ ! == _cnt -> 4 `i 443  ]
+{
+"407
+[; ;main.c: 407:                 plane[3][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"408
+[; ;main.c: 408:                 plane[2][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"409
+[; ;main.c: 409:                 plane[1][1] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"410
+[; ;main.c: 410:                 plane[0][0] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"411
+[; ;main.c: 411:             }else if(cnt == 3){
+}
+[e :U 443 ]
+[e :U 442 ]
+[e :U 440 ]
+[e :U 438 ]
+[e :U 436 ]
+"412
+[; ;main.c: 412:                 plane[0][0] = 1;
+}
+[e $U 444  ]
+[e :U 434 ]
+[e $ ! == _x -> 7 `i 445  ]
+{
+"413
+[; ;main.c: 413:                 plane[2][2] = 1;
+[e $ ! == _cnt -> 0 `i 446  ]
+{
+"414
+[; ;main.c: 414:             }else if(cnt == 4){
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"415
+[; ;main.c: 415:                 plane[4][4] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"416
+[; ;main.c: 416:                 plane[2][2] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "417
-[; ;main.c: 417:         for(int i = 0; i < 4; i++){
-}
-[e :U 351 ]
-"209
-[; ;main.c: 209:                 plane[2][3] = 1;
-[e $ == _mode _id 352  ]
-[e :U 353 ]
+[; ;main.c: 417:                 plane[3][3] = 1;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "418
-[; ;main.c: 418:             set_plane(4-i);
-[e :UE 350 ]
+[; ;main.c: 418:                 plane[0][0] = 1;
 }
+[e $U 447  ]
+[e :U 446 ]
+[e $ ! == _cnt -> 1 `i 448  ]
+{
+"419
+[; ;main.c: 419:             }
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "420
-[; ;main.c: 420:             _delay((unsigned long)((8)*(4000000/4000.0)));
+[; ;main.c: 420:         }
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"421
+[; ;main.c: 421:         set_plane(cnt);
+}
+[e $U 449  ]
+[e :U 448 ]
+[e $ ! == _cnt -> 2 `i 450  ]
+{
+"422
+[; ;main.c: 422:         draw_plane();
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"423
+[; ;main.c: 423:         cnt++;
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"424
+[; ;main.c: 424:         if(cnt == 5){
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"425
+[; ;main.c: 425:             cnt=0;
+[e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"426
+[; ;main.c: 426:             itcnt++;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"427
+[; ;main.c: 427:             if(itcnt>it){
+}
+[e $U 451  ]
+[e :U 450 ]
+[e $ ! == _cnt -> 3 `i 452  ]
+{
+"428
+[; ;main.c: 428:                 x++;
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"429
+[; ;main.c: 429:                 itcnt=0;
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"430
+[; ;main.c: 430:             }
+}
+[e $U 453  ]
+[e :U 452 ]
+[e $ ! == _cnt -> 4 `i 454  ]
+{
+"431
+[; ;main.c: 431:             x = x%8;
+[e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"432
+[; ;main.c: 432:         }
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"433
+[; ;main.c: 433:     }
+[e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"434
+[; ;main.c: 434: }
+[e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"435
+[; ;main.c: 435: 
+}
+[e :U 454 ]
+[e :U 453 ]
+[e :U 451 ]
+[e :U 449 ]
+[e :U 447 ]
+"436
+[; ;main.c: 436: void scan(int id){
+}
+[e :U 445 ]
+[e :U 444 ]
+[e :U 433 ]
+[e :U 422 ]
+[e :U 411 ]
+[e :U 400 ]
+[e :U 389 ]
+[e :U 378 ]
+"437
+[; ;main.c: 437:     clear_cube();
+[e ( _set_plane (1 _cnt ]
+"438
+[; ;main.c: 438: 
+[e ( _draw_plane ..  ]
+"439
+[; ;main.c: 439:     while(mode == id){
+[e ++ _cnt -> 1 `i ]
+"440
+[; ;main.c: 440:         for(int i = 0; i < 5; i++)
+[e $ ! == _cnt -> 5 `i 455  ]
+{
+"441
+[; ;main.c: 441:             for(int j = 0; j < 5; j++)
+[e = _cnt -> 0 `i ]
+"442
+[; ;main.c: 442:                 plane[i][j] = 1;
+[e ++ _itcnt -> 1 `i ]
+"443
+[; ;main.c: 443: 
+[e $ ! > _itcnt _it 456  ]
+{
+"444
+[; ;main.c: 444:         for(int i = 0; i < 5; i++){
+[e ++ _x -> 1 `i ]
+"445
+[; ;main.c: 445:             set_plane(i);
+[e = _itcnt -> 0 `i ]
+"446
+[; ;main.c: 446:             draw_plane();
+}
+[e :U 456 ]
+"447
+[; ;main.c: 447:             _delay((unsigned long)((8)*(4000000/4000.0)));
+[e = _x % _x -> 8 `i ]
+"448
+[; ;main.c: 448:         }
+}
+[e :U 455 ]
+"449
+[; ;main.c: 449:         for(int i = 0; i < 4; i++){
+}
+[e :U 365 ]
+"241
+[; ;main.c: 241:                 plane[2][3] = 1;
+[e $ == _mode _id 366  ]
+[e :U 367 ]
+"450
+[; ;main.c: 450:             set_plane(4-i);
+[e :UE 364 ]
+}
+"452
+[; ;main.c: 452:             _delay((unsigned long)((8)*(4000000/4000.0)));
 [v _scan `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _scan ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"421
-[; ;main.c: 421:         }
-[e ( _clear_cube ..  ]
-"423
-[; ;main.c: 423:             plane_on(i);
-[e $U 444  ]
-[e :U 445 ]
-{
-"424
-[; ;main.c: 424: 
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 447  ]
-[e $U 448  ]
-[e :U 447 ]
-"425
-[; ;main.c: 425:         for(int i = 0; i < 5; i++){
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 5 `i 450  ]
-[e $U 451  ]
-[e :U 450 ]
-"426
-[; ;main.c: 426:             clear_plane();
-[e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 5 `i 450  ]
-[e :U 451 ]
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 447  ]
-[e :U 448 ]
-}
-"428
-[; ;main.c: 428:                 plane[i][j] = 1;
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 453  ]
-[e $U 454  ]
-[e :U 453 ]
-{
-"429
-[; ;main.c: 429:             }
-[e ( _set_plane (1 _i ]
-"430
-[; ;main.c: 430:             draw_plane();
-[e ( _draw_plane ..  ]
-"431
-[; ;main.c: 431:             _delay((unsigned long)((8)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"432
-[; ;main.c: 432:         }
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 453  ]
-[e :U 454 ]
-}
-"433
-[; ;main.c: 433:         for(int i = 0; i < 4; i++){
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 4 `i 456  ]
-[e $U 457  ]
-[e :U 456 ]
-{
-"434
-[; ;main.c: 434:             clear_plane();
-[e ( _set_plane (1 - -> 4 `i _i ]
-"435
-[; ;main.c: 435:             for(int j = 0; j < 5; j++){
-[e ( _draw_plane ..  ]
-"436
-[; ;main.c: 436:                 plane[4-i][j] = 1;
-[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"437
-[; ;main.c: 437:             }
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 456  ]
-[e :U 457 ]
-}
-"438
-[; ;main.c: 438:             draw_plane();
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 459  ]
-[e $U 460  ]
-[e :U 459 ]
-"439
-[; ;main.c: 439:             _delay((unsigned long)((8)*(4000000/4000.0)));
-[e ( _plane_on (1 _i ]
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 459  ]
-[e :U 460 ]
-}
-"441
-[; ;main.c: 441: 
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 462  ]
-[e $U 463  ]
-[e :U 462 ]
-{
-"442
-[; ;main.c: 442:         for(int i = 0; i < 5; i++){
-[e ( _clear_plane ..  ]
-"443
-[; ;main.c: 443:             clear_plane();
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 5 `i 465  ]
-[e $U 466  ]
-[e :U 465 ]
-{
-"444
-[; ;main.c: 444:             for(int j = 0; j < 5; j++){
-[e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"445
-[; ;main.c: 445:                 plane[j][i] = 1;
-}
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 5 `i 465  ]
-[e :U 466 ]
-}
-"446
-[; ;main.c: 446:             }
-[e ( _draw_plane ..  ]
-"447
-[; ;main.c: 447:             draw_plane();
-[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"448
-[; ;main.c: 448:             _delay((unsigned long)((8)*(4000000/4000.0)));
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 462  ]
-[e :U 463 ]
-}
-"449
-[; ;main.c: 449:         }
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 4 `i 468  ]
-[e $U 469  ]
-[e :U 468 ]
-{
-"450
-[; ;main.c: 450:         for(int i = 0; i < 4; i++){
-[e ( _clear_plane ..  ]
-"451
-[; ;main.c: 451:             clear_plane();
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 5 `i 471  ]
-[e $U 472  ]
-[e :U 471 ]
-{
-"452
-[; ;main.c: 452:             for(int j = 0; j < 5; j++){
-[e = *U + &U *U + &U _plane * -> -> - -> 4 `i _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> - -> 4 `i _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 "453
-[; ;main.c: 453:                 plane[j][4-i] = 1;
-}
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 5 `i 471  ]
-[e :U 472 ]
-}
-"454
-[; ;main.c: 454:             }
-[e ( _draw_plane ..  ]
+[; ;main.c: 453:         }
+[e ( _clear_cube ..  ]
 "455
-[; ;main.c: 455:             draw_plane();
-[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 455:             plane_on(i);
+[e $U 458  ]
+[e :U 459 ]
+{
 "456
-[; ;main.c: 456:             _delay((unsigned long)((8)*(4000000/4000.0)));
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 468  ]
-[e :U 469 ]
-}
-"458
-[; ;main.c: 458:     }
+[; ;main.c: 456: 
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 474  ]
-[e $U 475  ]
-[e :U 474 ]
-{
-"459
-[; ;main.c: 459: }
-[e ( _clear_plane ..  ]
-"460
-[; ;main.c: 460: 
+[e $ < _i -> 5 `i 461  ]
+[e $U 462  ]
+[e :U 461 ]
+"457
+[; ;main.c: 457:         for(int i = 0; i < 5; i++){
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 5 `i 477  ]
-[e $U 478  ]
-[e :U 477 ]
+[e $ < _j -> 5 `i 464  ]
+[e $U 465  ]
+[e :U 464 ]
+"458
+[; ;main.c: 458:             clear_plane();
+[e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 464  ]
+[e :U 465 ]
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 461  ]
+[e :U 462 ]
+}
+"460
+[; ;main.c: 460:                 plane[i][j] = 1;
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 467  ]
+[e $U 468  ]
+[e :U 467 ]
 {
 "461
-[; ;main.c: 461: void speedup(int id){
-[e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+[; ;main.c: 461:             }
+[e ( _set_plane (1 _i ]
 "462
-[; ;main.c: 462:     clear_cube();
-}
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 5 `i 477  ]
-[e :U 478 ]
-}
-"463
-[; ;main.c: 463:     int i = 0, dcnt = 0, del = 50;
+[; ;main.c: 462:             draw_plane();
 [e ( _draw_plane ..  ]
-"464
-[; ;main.c: 464:     plane[0][0] = 1;
+"463
+[; ;main.c: 463:             _delay((unsigned long)((8)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"465
-[; ;main.c: 465:     plane[0][4] = 1;
+"464
+[; ;main.c: 464:         }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 474  ]
-[e :U 475 ]
+[e $ < _i -> 5 `i 467  ]
+[e :U 468 ]
 }
-"466
-[; ;main.c: 466:     plane[4][0] = 1;
+"465
+[; ;main.c: 465:         for(int i = 0; i < 4; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 4 `i 480  ]
-[e $U 481  ]
-[e :U 480 ]
+[e $ < _i -> 4 `i 470  ]
+[e $U 471  ]
+[e :U 470 ]
 {
+"466
+[; ;main.c: 466:             clear_plane();
+[e ( _set_plane (1 - -> 4 `i _i ]
 "467
-[; ;main.c: 467:     plane[4][4] = 1;
-[e ( _clear_plane ..  ]
+[; ;main.c: 467:             for(int j = 0; j < 5; j++){
+[e ( _draw_plane ..  ]
 "468
-[; ;main.c: 468:     while(mode == id){
+[; ;main.c: 468:                 plane[4-i][j] = 1;
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"469
+[; ;main.c: 469:             }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 470  ]
+[e :U 471 ]
+}
+"470
+[; ;main.c: 470:             draw_plane();
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 473  ]
+[e $U 474  ]
+[e :U 473 ]
+"471
+[; ;main.c: 471:             _delay((unsigned long)((8)*(4000000/4000.0)));
+[e ( _plane_on (1 _i ]
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 473  ]
+[e :U 474 ]
+}
+"473
+[; ;main.c: 473: 
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 476  ]
+[e $U 477  ]
+[e :U 476 ]
+{
+"474
+[; ;main.c: 474:         for(int i = 0; i < 5; i++){
+[e ( _clear_plane ..  ]
+"475
+[; ;main.c: 475:             clear_plane();
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 5 `i 483  ]
-[e $U 484  ]
-[e :U 483 ]
+[e $ < _j -> 5 `i 479  ]
+[e $U 480  ]
+[e :U 479 ]
 {
-"469
-[; ;main.c: 469:         if(i == 0 || i == 4){
-[e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> - -> 4 `i _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"470
-[; ;main.c: 470:             for(int j = 1; j < 4; j++){
+"476
+[; ;main.c: 476:             for(int j = 0; j < 5; j++){
+[e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"477
+[; ;main.c: 477:                 plane[j][i] = 1;
 }
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 5 `i 483  ]
-[e :U 484 ]
+[e $ < _j -> 5 `i 479  ]
+[e :U 480 ]
 }
-"471
-[; ;main.c: 471:                 plane[j][0] = 1;
+"478
+[; ;main.c: 478:             }
 [e ( _draw_plane ..  ]
-"472
-[; ;main.c: 472:                 plane[j][4] = 1;
+"479
+[; ;main.c: 479:             draw_plane();
 [e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"473
-[; ;main.c: 473:                 plane[0][j] = 1;
+"480
+[; ;main.c: 480:             _delay((unsigned long)((8)*(4000000/4000.0)));
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 480  ]
-[e :U 481 ]
+[e $ < _i -> 5 `i 476  ]
+[e :U 477 ]
 }
-"474
-[; ;main.c: 474:                 plane[4][j] = 1;
+"481
+[; ;main.c: 481:         }
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 482  ]
+[e $U 483  ]
+[e :U 482 ]
+{
+"482
+[; ;main.c: 482:         for(int i = 0; i < 4; i++){
+[e ( _clear_plane ..  ]
+"483
+[; ;main.c: 483:             clear_plane();
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 485  ]
+[e $U 486  ]
+[e :U 485 ]
+{
+"484
+[; ;main.c: 484:             for(int j = 0; j < 5; j++){
+[e = *U + &U *U + &U _plane * -> -> - -> 4 `i _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> - -> 4 `i _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"485
+[; ;main.c: 485:                 plane[j][4-i] = 1;
 }
-[e :U 444 ]
-"423
-[; ;main.c: 423:             plane_on(i);
-[e $ == _mode _id 445  ]
-[e :U 446 ]
-"475
-[; ;main.c: 475:             }
-[e :UE 443 ]
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 485  ]
+[e :U 486 ]
 }
-"477
-[; ;main.c: 477:             for(int j = 1; j < 4; j++){
+"486
+[; ;main.c: 486:             }
+[e ( _draw_plane ..  ]
+"487
+[; ;main.c: 487:             draw_plane();
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"488
+[; ;main.c: 488:             _delay((unsigned long)((8)*(4000000/4000.0)));
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 482  ]
+[e :U 483 ]
+}
+"490
+[; ;main.c: 490:     }
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 488  ]
+[e $U 489  ]
+[e :U 488 ]
+{
+"491
+[; ;main.c: 491: }
+[e ( _clear_plane ..  ]
+"492
+[; ;main.c: 492: 
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 491  ]
+[e $U 492  ]
+[e :U 491 ]
+{
+"493
+[; ;main.c: 493: void speedup(int id){
+[e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"494
+[; ;main.c: 494:     clear_cube();
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 491  ]
+[e :U 492 ]
+}
+"495
+[; ;main.c: 495:     int i = 0, dcnt = 0, del = 50;
+[e ( _draw_plane ..  ]
+"496
+[; ;main.c: 496:     plane[0][0] = 1;
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"497
+[; ;main.c: 497:     plane[0][4] = 1;
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 488  ]
+[e :U 489 ]
+}
+"498
+[; ;main.c: 498:     plane[4][0] = 1;
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 494  ]
+[e $U 495  ]
+[e :U 494 ]
+{
+"499
+[; ;main.c: 499:     plane[4][4] = 1;
+[e ( _clear_plane ..  ]
+"500
+[; ;main.c: 500:     while(mode == id){
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 5 `i 497  ]
+[e $U 498  ]
+[e :U 497 ]
+{
+"501
+[; ;main.c: 501:         if(i == 0 || i == 4){
+[e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> - -> 4 `i _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"502
+[; ;main.c: 502:             for(int j = 1; j < 4; j++){
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 5 `i 497  ]
+[e :U 498 ]
+}
+"503
+[; ;main.c: 503:                 plane[j][0] = 1;
+[e ( _draw_plane ..  ]
+"504
+[; ;main.c: 504:                 plane[j][4] = 1;
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"505
+[; ;main.c: 505:                 plane[0][j] = 1;
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 494  ]
+[e :U 495 ]
+}
+"506
+[; ;main.c: 506:                 plane[4][j] = 1;
+}
+[e :U 458 ]
+"455
+[; ;main.c: 455:             plane_on(i);
+[e $ == _mode _id 459  ]
+[e :U 460 ]
+"507
+[; ;main.c: 507:             }
+[e :UE 457 ]
+}
+"509
+[; ;main.c: 509:             for(int j = 1; j < 4; j++){
 [v _speedup `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _speedup ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"478
-[; ;main.c: 478:                 plane[j][0] = 0;
+"510
+[; ;main.c: 510:                 plane[j][0] = 0;
 [e ( _clear_cube ..  ]
-"479
-[; ;main.c: 479:                 plane[j][4] = 0;
+"511
+[; ;main.c: 511:                 plane[j][4] = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [v _dcnt `i ~T0 @X0 1 a ]
 [e = _dcnt -> 0 `i ]
 [v _del `i ~T0 @X0 1 a ]
 [e = _del -> 50 `i ]
-"480
-[; ;main.c: 480:                 plane[0][j] = 0;
+"512
+[; ;main.c: 512:                 plane[0][j] = 0;
 [e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"481
-[; ;main.c: 481:                 plane[4][j] = 0;
+"513
+[; ;main.c: 513:                 plane[4][j] = 0;
 [e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"482
-[; ;main.c: 482:             }
+"514
+[; ;main.c: 514:             }
 [e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"483
-[; ;main.c: 483:         }
+"515
+[; ;main.c: 515:         }
 [e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"484
-[; ;main.c: 484: 
-[e $U 487  ]
-[e :U 488 ]
+"516
+[; ;main.c: 516: 
+[e $U 501  ]
+[e :U 502 ]
 {
-"485
-[; ;main.c: 485:         set_plane(5);
-[e $ ! || == _i -> 0 `i == _i -> 4 `i 490  ]
+"517
+[; ;main.c: 517:         set_plane(5);
+[e $ ! || == _i -> 0 `i == _i -> 4 `i 504  ]
 {
-"486
-[; ;main.c: 486:         draw_plane();
+"518
+[; ;main.c: 518:         draw_plane();
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 1 `i ]
-[e $ < _j -> 4 `i 491  ]
-[e $U 492  ]
-[e :U 491 ]
+[e $ < _j -> 4 `i 505  ]
+[e $U 506  ]
+[e :U 505 ]
 {
-"487
-[; ;main.c: 487:         set_plane(i);
+"519
+[; ;main.c: 519:         set_plane(i);
 [e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"488
-[; ;main.c: 488:         for(int j=0;j<del && mode == id;j++)_delay((unsigned long)((1)*(4000000/4000.0)));
+"520
+[; ;main.c: 520:         for(int j=0;j<del && mode == id;j++)_delay((unsigned long)((1)*(4000000/4000.0)));
 [e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"489
-[; ;main.c: 489:         dcnt++;
+"521
+[; ;main.c: 521:         dcnt++;
 [e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"490
-[; ;main.c: 490:         if(del>10)del-=2;
+"522
+[; ;main.c: 522:         if(del>10)del-=2;
 [e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"491
-[; ;main.c: 491:         else if(del>0 && dcnt == 10)del-=1;
+"523
+[; ;main.c: 523:         else if(del>0 && dcnt == 10)del-=1;
 }
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 4 `i 491  ]
-[e :U 492 ]
+[e $ < _j -> 4 `i 505  ]
+[e :U 506 ]
 }
-"492
-[; ;main.c: 492:         dcnt = dcnt%10;
+"524
+[; ;main.c: 524:         dcnt = dcnt%10;
 }
-[e $U 494  ]
-[e :U 490 ]
+[e $U 508  ]
+[e :U 504 ]
 {
-"493
-[; ;main.c: 493:         i++;
+"525
+[; ;main.c: 525:         i++;
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 1 `i ]
-[e $ < _j -> 4 `i 495  ]
-[e $U 496  ]
-[e :U 495 ]
+[e $ < _j -> 4 `i 509  ]
+[e $U 510  ]
+[e :U 509 ]
 {
-"494
-[; ;main.c: 494:         i%=5;
+"526
+[; ;main.c: 526:         i%=5;
 [e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"495
-[; ;main.c: 495:     }
+"527
+[; ;main.c: 527:     }
 [e = *U + &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> _j `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"496
-[; ;main.c: 496: }
+"528
+[; ;main.c: 528: }
 [e = *U + &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"497
-[; ;main.c: 497: 
+"529
+[; ;main.c: 529: 
 [e = *U + &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 0 `i ]
-"498
-[; ;main.c: 498: void cubeidle(int id){
+"530
+[; ;main.c: 530: void cubeidle(int id){
 }
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 4 `i 495  ]
-[e :U 496 ]
+[e $ < _j -> 4 `i 509  ]
+[e :U 510 ]
 }
-"499
-[; ;main.c: 499:     srand(time(((void*)0)));
+"531
+[; ;main.c: 531:     clear_cube();
 }
-[e :U 494 ]
-"501
-[; ;main.c: 501:     lighton(0,-1);
+[e :U 508 ]
+"533
+[; ;main.c: 533:     while(mode == id){
 [e ( _set_plane (1 -> 5 `i ]
-"502
-[; ;main.c: 502:     while(mode == id){
+"534
+[; ;main.c: 534:         for(int i=1;i<125 && mode == id;i++){
 [e ( _draw_plane ..  ]
-"503
-[; ;main.c: 503:         for(int i=1;i<125 && mode == 0;i++){
+"535
+[; ;main.c: 535:             lighton(i,i-1);
 [e ( _set_plane (1 _i ]
-"504
-[; ;main.c: 504:             lighton(i,i-1);
+"536
+[; ;main.c: 536:             _delay((unsigned long)((10)*(4000000/4000.0)));
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $U 501  ]
-[e :U 498 ]
+[e $U 515  ]
+[e :U 512 ]
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 [e ++ _j -> 1 `i ]
-[e :U 501 ]
-[e $ && < _j _del == _mode _id 498  ]
-[e :U 499 ]
+[e :U 515 ]
+[e $ && < _j _del == _mode _id 512  ]
+[e :U 513 ]
 }
-"505
-[; ;main.c: 505:             _delay((unsigned long)((10)*(4000000/4000.0)));
+"537
+[; ;main.c: 537:         }
 [e ++ _dcnt -> 1 `i ]
-"506
-[; ;main.c: 506:         }
-[e $ ! > _del -> 10 `i 502  ]
+"538
+[; ;main.c: 538:         lighton(0,124);
+[e $ ! > _del -> 10 `i 516  ]
 [e =- _del -> 2 `i ]
-[e $U 503  ]
-"507
-[; ;main.c: 507:         lighton(0,124);
-[e :U 502 ]
-[e $ ! && > _del -> 0 `i == _dcnt -> 10 `i 504  ]
+[e $U 517  ]
+"539
+[; ;main.c: 539:         _delay((unsigned long)((2)*(4000000/4000.0)));
+[e :U 516 ]
+[e $ ! && > _del -> 0 `i == _dcnt -> 10 `i 518  ]
 [e =- _del -> 1 `i ]
-[e :U 504 ]
-[e :U 503 ]
-"508
-[; ;main.c: 508:         _delay((unsigned long)((2)*(4000000/4000.0)));
+[e :U 518 ]
+[e :U 517 ]
+"540
+[; ;main.c: 540:     }
 [e = _dcnt % _dcnt -> 10 `i ]
-"509
-[; ;main.c: 509:     }
+"541
+[; ;main.c: 541: 
 [e ++ _i -> 1 `i ]
-"510
-[; ;main.c: 510: 
+"542
+[; ;main.c: 542: 
 [e =% _i -> 5 `i ]
-"511
-[; ;main.c: 511: 
+"543
+[; ;main.c: 543: 
 }
-[e :U 487 ]
-"484
-[; ;main.c: 484: 
-[e $ == _mode _id 488  ]
-[e :U 489 ]
-"512
-[; ;main.c: 512: 
-[e :UE 486 ]
+[e :U 501 ]
+"516
+[; ;main.c: 516: 
+[e $ == _mode _id 502  ]
+[e :U 503 ]
+"544
+[; ;main.c: 544: 
+[e :UE 500 ]
 }
-"514
-[; ;main.c: 514: 
+"546
+[; ;main.c: 546: 
 [v _cubeidle `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _cubeidle ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"515
-[; ;main.c: 515: 
-[e ( _srand (1 -> ( _time (1 -> -> -> 0 `i `*v `*o `ui ]
-"516
-[; ;main.c: 516: }
+"547
+[; ;main.c: 547: }
 [e ( _clear_cube ..  ]
-"517
-[; ;main.c: 517: 
+"548
+[; ;main.c: 548: 
 [e ( _lighton (2 , -> 0 `i -U -> 1 `i ]
-"518
-[; ;main.c: 518: void pulsing(int id){
-[e $U 506  ]
-[e :U 507 ]
+"549
+[; ;main.c: 549: void pulsing(int id){
+[e $U 520  ]
+[e :U 521 ]
 {
-"519
-[; ;main.c: 519: 
+"550
+[; ;main.c: 550:     while(mode == id){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 1 `i ]
-[e $U 512  ]
-[e :U 509 ]
+[e $U 526  ]
+[e :U 523 ]
 {
-"520
-[; ;main.c: 520:     while(mode == id){
+"551
+[; ;main.c: 551:         clear_cube();
 [e ( _lighton (2 , _i - _i -> 1 `i ]
-"521
-[; ;main.c: 521:         clear_cube();
+"552
+[; ;main.c: 552:         _delay((unsigned long)((60)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"522
-[; ;main.c: 522:         plane[2][2] = 1;
+"553
+[; ;main.c: 553:         plane[2][2] = 1;
 }
 [e ++ _i -> 1 `i ]
-[e :U 512 ]
-[e $ && < _i -> 125 `i == _mode -> 0 `i 509  ]
-[e :U 510 ]
+[e :U 526 ]
+[e $ && < _i -> 125 `i == _mode _id 523  ]
+[e :U 524 ]
 }
-"523
-[; ;main.c: 523:         draw_plane();
+"554
+[; ;main.c: 554:         draw_plane();
 [e ( _lighton (2 , -> 0 `i -> 124 `i ]
-"524
-[; ;main.c: 524:         plane_on(2);
+"555
+[; ;main.c: 555:         plane_on(2);
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"525
-[; ;main.c: 525:         _delay((unsigned long)((50)*(4000000/4000.0)));
+"556
+[; ;main.c: 556:         _delay((unsigned long)((30)*(4000000/4000.0)));
 }
-[e :U 506 ]
-"518
-[; ;main.c: 518: void pulsing(int id){
-[e $ == _mode _id 507  ]
-[e :U 508 ]
-"532
-[; ;main.c: 532:         draw_plane();
-[e :UE 505 ]
+[e :U 520 ]
+"549
+[; ;main.c: 549: void pulsing(int id){
+[e $ == _mode _id 521  ]
+[e :U 522 ]
+"563
+[; ;main.c: 563:         draw_plane();
+[e :UE 519 ]
 }
-"534
-[; ;main.c: 534:         plane_on(3);
+"565
+[; ;main.c: 565:         plane_on(3);
 [v _pulsing `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _pulsing ]
 [v _id `i ~T0 @X0 1 r1 ]
 [f ]
-"536
-[; ;main.c: 536:         for(int i = 0; i < 5; i++){
-[e $U 514  ]
-[e :U 515 ]
+"566
+[; ;main.c: 566:         _delay((unsigned long)((40)*(4000000/4000.0)));
+[e $U 528  ]
+[e :U 529 ]
 {
-"537
-[; ;main.c: 537:             for(int j = 0; j < 5; j++)
+"567
+[; ;main.c: 567:         for(int i = 0; i < 5; i++){
 [e ( _clear_cube ..  ]
-"538
-[; ;main.c: 538:                 plane[i][j] = 1;
+"568
+[; ;main.c: 568:             for(int j = 0; j < 5; j++)
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"569
+[; ;main.c: 569:                 plane[i][j] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"539
-[; ;main.c: 539:         }
+"570
+[; ;main.c: 570:         }
 [e ( _draw_plane ..  ]
-"540
-[; ;main.c: 540:         plane_on(0);
+"571
+[; ;main.c: 571:         plane_on(0);
 [e ( _plane_on (1 -> 2 `i ]
-"541
-[; ;main.c: 541:         plane_on(4);
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"542
-[; ;main.c: 542:         draw_plane();
+"572
+[; ;main.c: 572:         plane_on(4);
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"573
+[; ;main.c: 573:         draw_plane();
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 1 `i ]
-[e $ < _i -> 4 `i 517  ]
-[e $U 518  ]
-[e :U 517 ]
+[e $ < _i -> 4 `i 531  ]
+[e $U 532  ]
+[e :U 531 ]
 {
-"543
-[; ;main.c: 543:         _delay((unsigned long)((50)*(4000000/4000.0)));
+"574
+[; ;main.c: 574:         _delay((unsigned long)((70)*(4000000/4000.0)));
 [e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"544
-[; ;main.c: 544:         clear_cube();
+"575
+[; ;main.c: 575:         clear_cube();
 [e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"545
-[; ;main.c: 545:         for(int i = 1; i < 4; i++){
+"576
+[; ;main.c: 576:         for(int i = 1; i < 4; i++){
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 517  ]
-[e :U 518 ]
+[e $ < _i -> 4 `i 531  ]
+[e :U 532 ]
 }
-"546
-[; ;main.c: 546:             plane[1][i] = 1;
+"577
+[; ;main.c: 577:             plane[1][i] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"547
-[; ;main.c: 547:             plane[2][i] = 1;
+"578
+[; ;main.c: 578:             plane[2][i] = 1;
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"548
-[; ;main.c: 548:             plane[3][i] = 1;
+"579
+[; ;main.c: 579:             plane[3][i] = 1;
 [e ( _draw_plane ..  ]
-"549
-[; ;main.c: 549:         }
+"580
+[; ;main.c: 580:         }
 [e ( _plane_on (1 -> 1 `i ]
-"550
-[; ;main.c: 550:         plane_on(1);
+"581
+[; ;main.c: 581:         plane_on(1);
 [e ( _plane_on (1 -> 3 `i ]
-"551
-[; ;main.c: 551:         plane_on(2);
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"552
-[; ;main.c: 552:         plane_on(3);
+"582
+[; ;main.c: 582:         plane_on(2);
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"583
+[; ;main.c: 583:         plane_on(3);
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 520  ]
-[e $U 521  ]
-[e :U 520 ]
+[e $ < _i -> 5 `i 534  ]
+[e $U 535  ]
+[e :U 534 ]
 {
-"553
-[; ;main.c: 553:         draw_plane();
+"584
+[; ;main.c: 584:         draw_plane();
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 5 `i 523  ]
-[e $U 524  ]
-[e :U 523 ]
-"554
-[; ;main.c: 554:         _delay((unsigned long)((50)*(4000000/4000.0)));
+[e $ < _j -> 5 `i 537  ]
+[e $U 538  ]
+[e :U 537 ]
+"585
+[; ;main.c: 585:         _delay((unsigned long)((60)*(4000000/4000.0)));
 [e = *U + &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _plane * -> -> _i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 5 `i 523  ]
-[e :U 524 ]
+[e $ < _j -> 5 `i 537  ]
+[e :U 538 ]
 }
-"555
-[; ;main.c: 555:     }
+"586
+[; ;main.c: 586:         clear_cube();
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 520  ]
-[e :U 521 ]
+[e $ < _i -> 5 `i 534  ]
+[e :U 535 ]
 }
-"556
-[; ;main.c: 556: }
+"587
+[; ;main.c: 587:         plane[2][2] = 1;
 [e ( _plane_on (1 -> 0 `i ]
-"557
-[; ;main.c: 557: 
+"588
+[; ;main.c: 588:         draw_plane();
 [e ( _plane_on (1 -> 4 `i ]
-"558
-[; ;main.c: 558: void main(void) {
+"589
+[; ;main.c: 589:         plane_on(2);
 [e ( _draw_plane ..  ]
-"559
-[; ;main.c: 559:     init();
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"560
-[; ;main.c: 560: 
+"590
+[; ;main.c: 590:         _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 70 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"591
+[; ;main.c: 591:     }
 [e ( _clear_cube ..  ]
-"561
-[; ;main.c: 561: 
+"592
+[; ;main.c: 592: }
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 1 `i ]
-[e $ < _i -> 4 `i 526  ]
-[e $U 527  ]
-[e :U 526 ]
+[e $ < _i -> 4 `i 540  ]
+[e $U 541  ]
+[e :U 540 ]
 {
-"562
-[; ;main.c: 562: 
+"593
+[; ;main.c: 593: 
 [e = *U + &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"563
-[; ;main.c: 563: 
+"594
+[; ;main.c: 594: void main(void) {
 [e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"564
-[; ;main.c: 564:     while(1){
+"595
+[; ;main.c: 595:     init();
 [e = *U + &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> _i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 3 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
-"565
-[; ;main.c: 565: 
+"596
+[; ;main.c: 596: 
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 526  ]
-[e :U 527 ]
+[e $ < _i -> 4 `i 540  ]
+[e :U 541 ]
 }
-"566
-[; ;main.c: 566:         switch(mode){
+"597
+[; ;main.c: 597: 
 [e ( _plane_on (1 -> 1 `i ]
-"567
-[; ;main.c: 567:             case 0:
+"598
+[; ;main.c: 598: 
 [e ( _plane_on (1 -> 2 `i ]
-"568
-[; ;main.c: 568:                 cubeidle(0);
+"599
+[; ;main.c: 599: 
 [e ( _plane_on (1 -> 3 `i ]
-"569
-[; ;main.c: 569:                 break;
+"600
+[; ;main.c: 600:     while(1){
 [e ( _draw_plane ..  ]
-"570
-[; ;main.c: 570:             case 1:
+"601
+[; ;main.c: 601: 
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"602
+[; ;main.c: 602:         switch(mode){
+[e ( _clear_cube ..  ]
+"603
+[; ;main.c: 603:             case 0:
+[e = *U + &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _plane * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U _plane `ui -> -> 5 `i `ui `ux `ui `ux -> 1 `i ]
+"604
+[; ;main.c: 604:                 speedup(0);
+[e ( _draw_plane ..  ]
+"605
+[; ;main.c: 605:                 break;
+[e ( _plane_on (1 -> 2 `i ]
+"606
+[; ;main.c: 606:             case 1:
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"571
-[; ;main.c: 571:                 speedup(1);
+"607
+[; ;main.c: 607:                 cubeidle(1);
 }
-[e :U 514 ]
-"536
-[; ;main.c: 536:         for(int i = 0; i < 5; i++){
-[e $ == _mode _id 515  ]
-[e :U 516 ]
-"572
-[; ;main.c: 572:                 break;
-[e :UE 513 ]
+[e :U 528 ]
+"566
+[; ;main.c: 566:         _delay((unsigned long)((40)*(4000000/4000.0)));
+[e $ == _mode _id 529  ]
+[e :U 530 ]
+"608
+[; ;main.c: 608:                 break;
+[e :UE 527 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"574
-[; ;main.c: 574:                 pulsing(2);
+"610
+[; ;main.c: 610:                 pulsing(2);
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"575
-[; ;main.c: 575:                 break;
+"611
+[; ;main.c: 611:                 break;
 [e ( _init ..  ]
-"580
-[; ;main.c: 580:                 rainfall(4);
-[e :U 531 ]
+"616
+[; ;main.c: 616:                 hitler(4);
+[e :U 545 ]
 {
-"582
-[; ;main.c: 582:             case 5:
-[e $U 534  ]
+"618
+[; ;main.c: 618:             case 5:
+[e $U 548  ]
 {
-"583
-[; ;main.c: 583:                 scan(5);
-[e :U 535 ]
-"584
-[; ;main.c: 584:                 break;
-[e ( _cubeidle (1 -> 0 `i ]
-"585
-[; ;main.c: 585:             default:
-[e $U 533  ]
-"586
-[; ;main.c: 586:                 clear_cube();
-[e :U 536 ]
-"587
-[; ;main.c: 587:                 break;
-[e ( _speedup (1 -> 1 `i ]
-"588
-[; ;main.c: 588:         }
-[e $U 533  ]
-"589
-[; ;main.c: 589: 
-[e :U 537 ]
-"590
-[; ;main.c: 590:     };
+"619
+[; ;main.c: 619:                 scan(5);
+[e :U 549 ]
+"620
+[; ;main.c: 620:                 break;
+[e ( _speedup (1 -> 0 `i ]
+"621
+[; ;main.c: 621:             case 6:
+[e $U 547  ]
+"622
+[; ;main.c: 622:                 antirainfall(6);
+[e :U 550 ]
+"623
+[; ;main.c: 623:             default:
+[e ( _cubeidle (1 -> 1 `i ]
+"624
+[; ;main.c: 624:                 clear_cube();
+[e $U 547  ]
+"625
+[; ;main.c: 625:                 break;
+[e :U 551 ]
+"626
+[; ;main.c: 626:         }
 [e ( _pulsing (1 -> 2 `i ]
-"591
-[; ;main.c: 591:     return;
-[e $U 533  ]
-"592
-[; ;main.c: 592: }
-[e :U 538 ]
-"593
-[; ;main.c: 593: 
+"627
+[; ;main.c: 627: 
+[e $U 547  ]
+"628
+[; ;main.c: 628:     };
+[e :U 552 ]
+"629
+[; ;main.c: 629:     return;
 [e ( _random_pattern (1 -> 3 `i ]
-"594
-[; ;main.c: 594: void __attribute__((picinterrupt(("high_priority"))))H_ISR(){
-[e $U 533  ]
-"595
-[; ;main.c: 595: 
-[e :U 539 ]
-"596
-[; ;main.c: 596:     int value = ((ADRESH<<8) + ADRESL);
-[e ( _rainfall (1 -> 4 `i ]
-"597
-[; ;main.c: 597: 
-[e $U 533  ]
-"598
-[; ;main.c: 598: 
-[e :U 540 ]
-"599
-[; ;main.c: 599:     unsigned char mapResult = 0;
+"630
+[; ;main.c: 630: }
+[e $U 547  ]
+"631
+[; ;main.c: 631: 
+[e :U 553 ]
+"632
+[; ;main.c: 632: void __attribute__((picinterrupt(("high_priority"))))H_ISR(){
+[e ( _hitler (1 -> 4 `i ]
+"633
+[; ;main.c: 633: 
+[e $U 547  ]
+"634
+[; ;main.c: 634:     int value = ((ADRESH<<8) + ADRESL);
+[e :U 554 ]
+"635
+[; ;main.c: 635: 
 [e ( _scan (1 -> 5 `i ]
-"600
-[; ;main.c: 600: 
-[e $U 533  ]
-"601
-[; ;main.c: 601:     while (value > 205) {
-[e :U 541 ]
-"602
-[; ;main.c: 602:         value -= 205;
+"636
+[; ;main.c: 636: 
+[e $U 547  ]
+"637
+[; ;main.c: 637:     unsigned char mapResult = 0;
+[e :U 555 ]
+"638
+[; ;main.c: 638:     if(!flag && value > 200){
+[e ( _antirainfall (1 -> 6 `i ]
+"639
+[; ;main.c: 639:         flag = 1;
+[e :U 556 ]
+"640
+[; ;main.c: 640:         mode++;
 [e ( _clear_cube ..  ]
-"603
-[; ;main.c: 603:         mapResult += 1;
-[e $U 533  ]
-"604
-[; ;main.c: 604:     }
+"641
+[; ;main.c: 641:         mode%=7;
+[e $U 547  ]
+"642
+[; ;main.c: 642:     }else if (flag && value < 20){
 }
-[e $U 533  ]
-[e :U 534 ]
-[e [\ _mode , $ -> 0 `i 535
- , $ -> 1 `i 536
- , $ -> 2 `i 537
- , $ -> 3 `i 538
- , $ -> 4 `i 539
- , $ -> 5 `i 540
- 541 ]
-[e :U 533 ]
-"606
-[; ;main.c: 606: 
+[e $U 547  ]
+[e :U 548 ]
+[e [\ _mode , $ -> 0 `i 549
+ , $ -> 1 `i 550
+ , $ -> 2 `i 551
+ , $ -> 3 `i 552
+ , $ -> 4 `i 553
+ , $ -> 5 `i 554
+ , $ -> 6 `i 555
+ 556 ]
+[e :U 547 ]
+"644
+[; ;main.c: 644:     }
 }
-[e :U 530 ]
-[e $U 531  ]
-[e :U 532 ]
-"607
-[; ;main.c: 607: 
-[e $UE 529  ]
-"608
-[; ;main.c: 608: 
-[e :UE 529 ]
+[e :U 544 ]
+[e $U 545  ]
+[e :U 546 ]
+"645
+[e $UE 543  ]
+"646
+[e :UE 543 ]
 }
 [v $root$_H_ISR `(v ~T0 @X0 0 e ]
-"610
-[; ;main.c: 610: 
+"648
 [v _H_ISR `(v ~T41 @X0 1 ef ]
 {
 [e :U _H_ISR ]
 [f ]
-"612
-[; ;main.c: 612: 
+"650
 [v _value `i ~T0 @X0 1 a ]
 [e = _value + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
-"615
-[; ;main.c: 615:     ADCON0bits.GO = 1;
+"653
 [v _mapResult `uc ~T0 @X0 1 a ]
 [e = _mapResult -> -> 0 `i `uc ]
-"617
-[; ;main.c: 617:     return;
-[e $U 543  ]
-[e :U 544 ]
+"654
+[e $ ! && ! != _flag -> 0 `i > _value -> 200 `i 558  ]
 {
-"618
-[; ;main.c: 618: }
-[e =- _value -> 205 `i ]
-"619
-[e =+ _mapResult -> -> 1 `i `uc ]
-"620
+"655
+[e = _flag -> 1 `i ]
+"656
+[e ++ _mode -> 1 `i ]
+"657
+[e =% _mode -> 7 `i ]
+"658
 }
-[e :U 543 ]
-"617
-[; ;main.c: 617:     return;
-[e $ > _value -> 205 `i 544  ]
-[e :U 545 ]
-"621
-[e = _mode -> _mapResult `i ]
-"625
+[e $U 559  ]
+[e :U 558 ]
+[e $ ! && != _flag -> 0 `i < _value -> 20 `i 560  ]
+{
+"659
+[e = _flag -> 0 `i ]
+"660
+}
+[e :U 560 ]
+[e :U 559 ]
+"674
+[; ;main.c: 674:     PIR1bits.ADIF = 0;
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"629
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"631
+"678
+[; ;main.c: 678:     _delay((unsigned long)((2)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"680
+[; ;main.c: 680:     ADCON0bits.GO = 1;
 [e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-"633
-[e $UE 542  ]
-"634
-[e :UE 542 ]
+"682
+[; ;main.c: 682:     return;
+[e $UE 557  ]
+"683
+[; ;main.c: 683: }
+[e :UE 557 ]
 }

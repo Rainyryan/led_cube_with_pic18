@@ -7,6 +7,7 @@
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
+[v i2___awmod __awmod `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\float.c
@@ -39,39 +40,41 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"20 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
+"21 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"51
+"55
 [v _draw_plane draw_plane `(v  1 e 1 0 ]
-"83
+"87
 [v _clear_plane clear_plane `(v  1 e 1 0 ]
-"90
+"94
 [v _plane_on plane_on `(v  1 e 1 0 ]
-"122
+"126
 [v _set_plane set_plane `(v  1 e 1 0 ]
-"133
+"137
 [v _clear_cube clear_cube `(v  1 e 1 0 ]
-"151
+"155
 [v _lighton lighton `(v  1 e 1 0 ]
-"157
+"161
 [v _move move `(i  1 e 2 0 ]
-"167
+"171
 [v _random_pattern random_pattern `(v  1 e 1 0 ]
-"206
-[v _rainfall rainfall `(v  1 e 1 0 ]
-"420
+"210
+[v _antirainfall antirainfall `(v  1 e 1 0 ]
+"238
+[v _hitler hitler `(v  1 e 1 0 ]
+"452
 [v _scan scan `(v  1 e 1 0 ]
-"477
+"509
 [v _speedup speedup `(v  1 e 1 0 ]
-"514
+"546
 [v _cubeidle cubeidle `(v  1 e 1 0 ]
-"534
+"565
 [v _pulsing pulsing `(v  1 e 1 0 ]
-"574
-[v _main main `(v  1 e 1 0 ]
 "610
+[v _main main `(v  1 e 1 0 ]
+"648
 [v _H_ISR H_ISR `IIH(v  1 e 1 0 ]
-[s S379 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S413 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -81,7 +84,7 @@
 `uc 1 LATA7 1 0 :1:7 
 ]
 "1005 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h
-[s S388 . 1 `uc 1 LA0 1 0 :1:0 
+[s S422 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -90,9 +93,9 @@
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S397 . 1 `S379 1 . 1 0 `S388 1 . 1 0 ]
-[v _LATAbits LATAbits `VES397  1 e 1 @3977 ]
-[s S499 . 1 `uc 1 LATB0 1 0 :1:0 
+[u S431 . 1 `S413 1 . 1 0 `S422 1 . 1 0 ]
+[v _LATAbits LATAbits `VES431  1 e 1 @3977 ]
+[s S533 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -102,7 +105,7 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "1117
-[s S508 . 1 `uc 1 LB0 1 0 :1:0 
+[s S542 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -111,9 +114,9 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S517 . 1 `S499 1 . 1 0 `S508 1 . 1 0 ]
-[v _LATBbits LATBbits `VES517  1 e 1 @3978 ]
-[s S419 . 1 `uc 1 LATC0 1 0 :1:0 
+[u S551 . 1 `S533 1 . 1 0 `S542 1 . 1 0 ]
+[v _LATBbits LATBbits `VES551  1 e 1 @3978 ]
+[s S453 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -123,7 +126,7 @@
 `uc 1 LATC7 1 0 :1:7 
 ]
 "1229
-[s S428 . 1 `uc 1 LC0 1 0 :1:0 
+[s S462 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -132,9 +135,9 @@
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S437 . 1 `S419 1 . 1 0 `S428 1 . 1 0 ]
-[v _LATCbits LATCbits `VES437  1 e 1 @3979 ]
-[s S459 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S471 . 1 `S453 1 . 1 0 `S462 1 . 1 0 ]
+[v _LATCbits LATCbits `VES471  1 e 1 @3979 ]
+[s S493 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -144,7 +147,7 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "1341
-[s S468 . 1 `uc 1 LD0 1 0 :1:0 
+[s S502 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -153,19 +156,19 @@
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S477 . 1 `S459 1 . 1 0 `S468 1 . 1 0 ]
-[v _LATDbits LATDbits `VES477  1 e 1 @3980 ]
-[s S539 . 1 `uc 1 LATE0 1 0 :1:0 
+[u S511 . 1 `S493 1 . 1 0 `S502 1 . 1 0 ]
+[v _LATDbits LATDbits `VES511  1 e 1 @3980 ]
+[s S573 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 ]
 "1443
-[s S543 . 1 `uc 1 LE0 1 0 :1:0 
+[s S577 . 1 `uc 1 LE0 1 0 :1:0 
 `uc 1 LE1 1 0 :1:1 
 `uc 1 LE2 1 0 :1:2 
 ]
-[u S547 . 1 `S539 1 . 1 0 `S543 1 . 1 0 ]
-[v _LATEbits LATEbits `VES547  1 e 1 @3981 ]
+[u S581 . 1 `S573 1 . 1 0 `S577 1 . 1 0 ]
+[v _LATEbits LATEbits `VES581  1 e 1 @3981 ]
 "1478
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 [s S61 . 1 `uc 1 TRISA0 1 0 :1:0 
@@ -235,7 +238,7 @@
 ]
 [u S43 . 1 `S29 1 . 1 0 `S38 1 . 1 0 ]
 [v _TRISEbits TRISEbits `VES43  1 e 1 @3990 ]
-[s S270 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S304 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -245,13 +248,13 @@
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "2617
-[s S279 . 1 `uc 1 . 1 0 :4:0 
+[s S313 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S283 . 1 `S270 1 . 1 0 `S279 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES283  1 e 1 @3997 ]
-[s S300 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S317 . 1 `S304 1 . 1 0 `S313 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES317  1 e 1 @3997 ]
+[s S334 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -261,61 +264,77 @@
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "2694
-[s S309 . 1 `uc 1 . 1 0 :4:0 
+[s S343 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S313 . 1 `S300 1 . 1 0 `S309 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES313  1 e 1 @3998 ]
-[s S242 . 1 `uc 1 ADCS 1 0 :3:0 
+[u S347 . 1 `S334 1 . 1 0 `S343 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES347  1 e 1 @3998 ]
+[s S276 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "4641
-[s S247 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S281 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S254 . 1 `S242 1 . 1 0 `S247 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES254  1 e 1 @4032 ]
-"4691
-[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-[s S174 . 1 `uc 1 . 1 0 :1:0 
+[u S288 . 1 `S276 1 . 1 0 `S281 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES288  1 e 1 @4032 ]
+[s S173 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"4716
+[s S176 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S183 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S188 . 1 `S173 1 . 1 0 `S176 1 . 1 0 `S183 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES188  1 e 1 @4033 ]
+[s S208 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "4820
-[s S177 . 1 `uc 1 ADON 1 0 :1:0 
+[s S211 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S181 . 1 `uc 1 . 1 0 :1:0 
+[s S215 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S188 . 1 `uc 1 . 1 0 :1:0 
+[s S222 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S191 . 1 `uc 1 . 1 0 :1:0 
+[s S225 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S194 . 1 `uc 1 . 1 0 :1:0 
+[s S228 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S197 . 1 `uc 1 . 1 0 :1:0 
+[s S231 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S200 . 1 `uc 1 . 1 0 :1:0 
+[s S234 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S203 . 1 `S174 1 . 1 0 `S177 1 . 1 0 `S181 1 . 1 0 `S188 1 . 1 0 `S191 1 . 1 0 `S194 1 . 1 0 `S197 1 . 1 0 `S200 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES203  1 e 1 @4034 ]
+[u S237 . 1 `S208 1 . 1 0 `S211 1 . 1 0 `S215 1 . 1 0 `S222 1 . 1 0 `S225 1 . 1 0 `S228 1 . 1 0 `S231 1 . 1 0 `S234 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES237  1 e 1 @4034 ]
 "4902
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "4909
@@ -337,7 +356,7 @@
 ]
 [u S155 . 1 `S141 1 . 1 0 `S147 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES155  1 e 1 @4051 ]
-[s S330 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S364 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -347,7 +366,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6725
-[s S339 . 1 `uc 1 . 1 0 :1:0 
+[s S373 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -356,86 +375,159 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S348 . 1 `uc 1 . 1 0 :6:0 
+[s S382 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S352 . 1 `S330 1 . 1 0 `S339 1 . 1 0 `S348 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES352  1 e 1 @4082 ]
+[u S386 . 1 `S364 1 . 1 0 `S373 1 . 1 0 `S382 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES386  1 e 1 @4082 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\rand.c
 [v _seed seed `ul  1 s 4 seed ]
 "17 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _plane plane `[5][5]i  1 e 50 0 ]
 "18
 [v _mode mode `i  1 e 2 0 ]
-"574
+"19
+[v _flag flag `i  1 e 2 0 ]
+"610
 [v _main main `(v  1 e 1 0 ]
 {
-"608
+"646
 } 0
-"477
+"509
 [v _speedup speedup `(v  1 e 1 0 ]
 {
-"493
-[v speedup@j_747 j `i  1 a 2 62 ]
-"486
-[v speedup@j j `i  1 a 2 60 ]
-"504
-[v speedup@j_748 j `i  1 a 2 52 ]
-"479
-[v speedup@i i `i  1 a 2 58 ]
-[v speedup@del del `i  1 a 2 56 ]
-[v speedup@dcnt dcnt `i  1 a 2 54 ]
-"477
-[v speedup@id id `i  1 p 2 49 ]
-"512
+"525
+[v speedup@j_808 j `i  1 a 2 67 ]
+"518
+[v speedup@j j `i  1 a 2 65 ]
+"536
+[v speedup@j_809 j `i  1 a 2 57 ]
+"511
+[v speedup@i i `i  1 a 2 63 ]
+[v speedup@del del `i  1 a 2 61 ]
+[v speedup@dcnt dcnt `i  1 a 2 59 ]
+"509
+[v speedup@id id `i  1 p 2 54 ]
+"544
 } 0
-"420
+"452
 [v _scan scan `(v  1 e 1 0 ]
 {
-"468
-[v scan@j_740 j `i  1 a 2 79 ]
-"460
-[v scan@j_738 j `i  1 a 2 75 ]
-"451
-[v scan@j_736 j `i  1 a 2 71 ]
-"443
-[v scan@j_734 j `i  1 a 2 67 ]
-"425
-[v scan@j j `i  1 a 2 57 ]
-"466
-[v scan@i_739 i `i  1 a 2 77 ]
-"458
-[v scan@i_737 i `i  1 a 2 73 ]
-"449
-[v scan@i_735 i `i  1 a 2 69 ]
-"441
-[v scan@i_733 i `i  1 a 2 65 ]
-"438
-[v scan@i_732 i `i  1 a 2 63 ]
-"433
-[v scan@i_731 i `i  1 a 2 61 ]
-"428
-[v scan@i_730 i `i  1 a 2 59 ]
-"424
-[v scan@i i `i  1 a 2 55 ]
-"420
-[v scan@id id `i  1 p 2 49 ]
+"500
+[v scan@j_801 j `i  1 a 2 84 ]
+"492
+[v scan@j_799 j `i  1 a 2 80 ]
+"483
+[v scan@j_797 j `i  1 a 2 76 ]
 "475
+[v scan@j_795 j `i  1 a 2 72 ]
+"457
+[v scan@j j `i  1 a 2 62 ]
+"498
+[v scan@i_800 i `i  1 a 2 82 ]
+"490
+[v scan@i_798 i `i  1 a 2 78 ]
+"481
+[v scan@i_796 i `i  1 a 2 74 ]
+"473
+[v scan@i_794 i `i  1 a 2 70 ]
+"470
+[v scan@i_793 i `i  1 a 2 68 ]
+"465
+[v scan@i_792 i `i  1 a 2 66 ]
+"460
+[v scan@i_791 i `i  1 a 2 64 ]
+"456
+[v scan@i i `i  1 a 2 60 ]
+"452
+[v scan@id id `i  1 p 2 54 ]
+"507
 } 0
-"167
+"171
 [v _random_pattern random_pattern `(v  1 e 1 0 ]
 {
-"170
-[v random_pattern@r r `i  1 a 2 65 ]
-[v random_pattern@x x `i  1 a 2 63 ]
-[v random_pattern@prevx prevx `i  1 a 2 61 ]
-[v random_pattern@prevr prevr `i  1 a 2 59 ]
-"167
-[v random_pattern@id id `i  1 p 2 49 ]
-"189
+"174
+[v random_pattern@r r `i  1 a 2 70 ]
+[v random_pattern@x x `i  1 a 2 68 ]
+[v random_pattern@prevx prevx `i  1 a 2 66 ]
+[v random_pattern@prevr prevr `i  1 a 2 64 ]
+"171
+[v random_pattern@id id `i  1 p 2 54 ]
+"193
 } 0
-"11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\rand.c
+"565
+[v _pulsing pulsing `(v  1 e 1 0 ]
+{
+"584
+[v pulsing@j j `i  1 a 2 60 ]
+"592
+[v pulsing@i_818 i `i  1 a 2 64 ]
+"583
+[v pulsing@i_816 i `i  1 a 2 58 ]
+"573
+[v pulsing@i i `i  1 a 2 62 ]
+"565
+[v pulsing@id id `i  1 p 2 54 ]
+"608
+} 0
+"21
+[v _init init `(v  1 e 1 0 ]
+{
+"53
+} 0
+"238
+[v _hitler hitler `(v  1 e 1 0 ]
+{
+"240
+[v hitler@cnt cnt `i  1 a 2 63 ]
+[v hitler@x x `i  1 a 2 61 ]
+[v hitler@itcnt itcnt `i  1 a 2 59 ]
+[v hitler@it it `i  1 a 2 57 ]
+"238
+[v hitler@id id `i  1 p 2 54 ]
+"450
+} 0
+"546
+[v _cubeidle cubeidle `(v  1 e 1 0 ]
+{
+"550
+[v cubeidle@i i `i  1 a 2 57 ]
+"546
+[v cubeidle@id id `i  1 p 2 54 ]
+"563
+} 0
+"210
+[v _antirainfall antirainfall `(v  1 e 1 0 ]
+{
+"232
+[v antirainfall@i_780 i `i  1 a 2 80 ]
+"223
+[v antirainfall@i_779 i `i  1 a 2 76 ]
+"220
+[v antirainfall@tmp tmp `i  1 a 2 74 ]
+"214
+[v antirainfall@i i `i  1 a 2 78 ]
+"213
+[v antirainfall@a a `[5]i  1 a 10 64 ]
+[v antirainfall@idx idx `i  1 a 2 82 ]
+"210
+[v antirainfall@id id `i  1 p 2 54 ]
+"236
+} 0
+"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\time.c
+[v _time time `(o  1 e 8 0 ]
+{
+[v time@t t `*.2o  1 p 2 10 ]
+"12
+} 0
+"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\rand.c
+[v _srand srand `(v  1 e 1 0 ]
+{
+[v srand@s s `ui  1 p 2 18 ]
+"9
+} 0
+"11
 [v _rand rand `(i  1 e 2 0 ]
 {
 "15
@@ -444,154 +536,110 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 {
 "17
-[v ___lmul@product product `ul  1 a 4 13 ]
+[v ___lmul@product product `ul  1 a 4 18 ]
 "15
-[v ___lmul@multiplier multiplier `ul  1 p 4 5 ]
-[v ___lmul@multiplicand multiplicand `ul  1 p 4 9 ]
+[v ___lmul@multiplier multiplier `ul  1 p 4 10 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 14 ]
 "129
 } 0
-"157 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
+"161 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _move move `(i  1 e 2 0 ]
 {
-[v move@x x `i  1 p 2 29 ]
-[v move@r r `i  1 p 2 31 ]
-"165
+[v move@x x `i  1 p 2 34 ]
+[v move@r r `i  1 p 2 36 ]
+"169
 } 0
-"206
-[v _rainfall rainfall `(v  1 e 1 0 ]
-{
-"208
-[v rainfall@cnt cnt `i  1 a 2 58 ]
-[v rainfall@x x `i  1 a 2 56 ]
-[v rainfall@itcnt itcnt `i  1 a 2 54 ]
-[v rainfall@it it `i  1 a 2 52 ]
-"206
-[v rainfall@id id `i  1 p 2 49 ]
-"418
-} 0
-"83
-[v _clear_plane clear_plane `(v  1 e 1 0 ]
-{
-"85
-[v clear_plane@j j `i  1 a 2 47 ]
-"84
-[v clear_plane@i i `i  1 a 2 45 ]
-"88
-} 0
-"534
-[v _pulsing pulsing `(v  1 e 1 0 ]
-{
-"553
-[v pulsing@j j `i  1 a 2 55 ]
-"561
-[v pulsing@i_757 i `i  1 a 2 59 ]
-"552
-[v pulsing@i_755 i `i  1 a 2 53 ]
-"542
-[v pulsing@i i `i  1 a 2 57 ]
-"534
-[v pulsing@id id `i  1 p 2 49 ]
-"572
-} 0
-"20
-[v _init init `(v  1 e 1 0 ]
-{
-"49
-} 0
-"514
-[v _cubeidle cubeidle `(v  1 e 1 0 ]
-{
-"519
-[v cubeidle@i i `i  1 a 2 59 ]
-"514
-[v cubeidle@id id `i  1 p 2 49 ]
-"532
-} 0
-"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\time.c
-[v _time time `(o  1 e 8 0 ]
-{
-[v time@t t `*.2o  1 p 2 5 ]
-"12
-} 0
-"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\rand.c
-[v _srand srand `(v  1 e 1 0 ]
-{
-[v srand@s s `ui  1 p 2 13 ]
-"9
-} 0
-"151 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
+"155
 [v _lighton lighton `(v  1 e 1 0 ]
 {
-[v lighton@x x `i  1 p 2 43 ]
-[v lighton@prev prev `i  1 p 2 45 ]
-"156
+[v lighton@x x `i  1 p 2 48 ]
+[v lighton@prev prev `i  1 p 2 50 ]
+"160
 } 0
-"122
+"126
 [v _set_plane set_plane `(v  1 e 1 0 ]
 {
-[v set_plane@a a `i  1 p 2 37 ]
-"129
+[v set_plane@a a `i  1 p 2 42 ]
+"133
 } 0
-"90
+"94
 [v _plane_on plane_on `(v  1 e 1 0 ]
 {
-[v plane_on@a a `i  1 p 2 5 ]
-"120
-} 0
-"51
-[v _draw_plane draw_plane `(v  1 e 1 0 ]
-{
-"81
+[v plane_on@a a `i  1 p 2 10 ]
+"124
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "10
-[v ___awmod@sign sign `uc  1 a 1 28 ]
-[v ___awmod@counter counter `uc  1 a 1 27 ]
+[v ___awmod@sign sign `uc  1 a 1 33 ]
+[v ___awmod@counter counter `uc  1 a 1 32 ]
 "7
-[v ___awmod@dividend dividend `i  1 p 2 23 ]
-[v ___awmod@divisor divisor `i  1 p 2 25 ]
+[v ___awmod@dividend dividend `i  1 p 2 28 ]
+[v ___awmod@divisor divisor `i  1 p 2 30 ]
 "34
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 35 ]
+[v ___awdiv@quotient quotient `i  1 a 2 40 ]
 "11
-[v ___awdiv@sign sign `uc  1 a 1 34 ]
-[v ___awdiv@counter counter `uc  1 a 1 33 ]
+[v ___awdiv@sign sign `uc  1 a 1 39 ]
+[v ___awdiv@counter counter `uc  1 a 1 38 ]
 "7
-[v ___awdiv@dividend dividend `i  1 p 2 29 ]
-[v ___awdiv@divisor divisor `i  1 p 2 31 ]
+[v ___awdiv@dividend dividend `i  1 p 2 34 ]
+[v ___awdiv@divisor divisor `i  1 p 2 36 ]
 "41
 } 0
-"133 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
+"87 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
+[v _clear_plane clear_plane `(v  1 e 1 0 ]
+{
+"89
+[v clear_plane@j j `i  1 a 2 52 ]
+"88
+[v clear_plane@i i `i  1 a 2 50 ]
+"92
+} 0
+"55
+[v _draw_plane draw_plane `(v  1 e 1 0 ]
+{
+"85
+} 0
+"137
 [v _clear_cube clear_cube `(v  1 e 1 0 ]
 {
-"146
-[v clear_cube@j j `i  1 a 2 47 ]
-"145
-[v clear_cube@i i `i  1 a 2 45 ]
+"150
+[v clear_cube@j j `i  1 a 2 52 ]
 "149
+[v clear_cube@i i `i  1 a 2 50 ]
+"153
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 41 ]
+[v ___wmul@product product `ui  1 a 2 46 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 37 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 39 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 42 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 44 ]
 "53
 } 0
-"610 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
+"648 C:\Users\rc615\Documents\GitHub\led_cube_with_pic18\led_cube.X\main.c
 [v _H_ISR H_ISR `IIH(v  1 e 1 0 ]
 {
-"612
-[v H_ISR@value value `i  1 a 2 2 ]
-"615
-[v H_ISR@mapResult mapResult `uc  1 a 1 4 ]
-"634
+"650
+[v H_ISR@value value `i  1 a 2 8 ]
+"683
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\awmod.c
+[v i2___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v i2___awmod@sign sign `uc  1 a 1 5 ]
+[v i2___awmod@counter counter `uc  1 a 1 4 ]
+"7
+[v i2___awmod@dividend dividend `i  1 p 2 0 ]
+[v i2___awmod@divisor divisor `i  1 p 2 2 ]
+"34
 } 0

@@ -16,6 +16,7 @@
 
 int plane[5][5];
 int mode = 0;
+int flag = 0;
 
 void init(){
     TRISA = 0;
@@ -30,9 +31,12 @@ void init(){
     TRISCbits.TRISC0 = 1;
     
     OSCCONbits.IRCF = 0b110;
-    TRISAbits.TRISA5 = 1;
-    ADCON1 = 0b00001001;
+    TRISAbits.RA5 = 1;
+    ADCON1bits.VCFG0 = 0; 
+    ADCON1bits.VCFG1 = 0;
+    ADCON1bits.PCFG = 0b0101;
     ADCON0bits.CHS = 0b0101;
+    
     ADCON2bits.ADCS = 0b100;
     ADCON2bits.ACQT = 0b010;
     ADCON0bits.ADON = 1;
@@ -151,16 +155,16 @@ void clear_cube(){
 void lighton(int x, int prev){
     set_plane(x/25);
     if(prev != -1)plane[(prev%25)/5][prev%5] = 0;
-    plane[(x%25)/5][x%5] = 1;
+    if(x!=-1)plane[(x%25)/5][x%5] = 1;
     draw_plane();
 }
 int move(int x, int r){
-    if(r == 0)x = (x%5 == 4) ? x-4 : x+1;
-    else if(r == 1)x = (x%5 == 0) ? x+4 : x-1;
-    else if(r == 2)x = (x%25 >= 20) ? x-20 : x+5;
-    else if(r == 3)x = (x%25 < 5) ? x+20 : x-5;
-    else if(r == 4)x = (x >= 100) ? x-100 : x+25;
-    else if(r == 5)x = (x<25) ? x+100 : x-25;
+    if(r == 0)x = (x%5 == 4) ? x-4 : x+1; //right
+    else if(r == 1)x = (x%5 == 0) ? x+4 : x-1; //left
+    else if(r == 2)x = (x%25 >= 20) ? x-20 : x+5; //back
+    else if(r == 3)x = (x%25 < 5) ? x+20 : x-5; //front
+    else if(r == 4)x = (x >= 100) ? x-100 : x+25; //high
+    else if(r == 5)x = (x<25) ? x+100 : x-25; //low
     return x;
 }
 
@@ -203,7 +207,35 @@ void slash(int id){
     }
 }
 
-void rainfall(int id){
+void antirainfall(int id){
+    clear_cube();
+    srand(time(NULL));
+    int cnt=0, a[5]={0,0,0,0,0}, idx=0;
+    for(int i=0;i<5;i++){
+        a[i]=rand()%25;
+        lighton(a[i],-1);
+    }
+    delay(200);
+    while(mode == id){
+        int tmp = a[idx];
+        idx%=5;
+        clear_plane();
+        for(int i=1;i<5;i++){
+            set_plane(i);
+            lighton(tmp,tmp);
+            tmp = move(tmp,4);
+            delay(10);
+        }
+        a[idx++] = rand()%25;
+        idx %= 5;
+        set_plane(0);
+        for(int i=0;i<5;i++)plane[a[i]/5][a[i]%5] = 1;
+        draw_plane();
+        delay(100);
+    }
+}
+
+void hitler(int id){
     clear_cube();
     int x=0, it=5 ,cnt=0,itcnt=0;
     while(mode == id){
@@ -512,11 +544,10 @@ void speedup(int id){
 }
 
 void cubeidle(int id){
-    srand(time(NULL));
     clear_cube();
     lighton(0,-1);
     while(mode == id){
-        for(int i=1;i<125 && mode == 0;i++){
+        for(int i=1;i<125 && mode == id;i++){
             lighton(i,i-1);
             delay(10);
         }
@@ -532,13 +563,13 @@ void cubeidle(int id){
 }
 
 void pulsing(int id){
-
     while(mode == id){
         clear_cube();
+        delay(60);
         plane[2][2] = 1;
         draw_plane();
         plane_on(2);
-        delay(50);
+        delay(30);
         for(int i = 1; i < 4; i++){
             plane[1][i] = 1;
             plane[3][i] = 1;
@@ -548,7 +579,7 @@ void pulsing(int id){
         draw_plane();
         plane_on(1);
         plane_on(3);
-        delay(50);
+        delay(40);
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++)
                 plane[i][j] = 1;
@@ -556,7 +587,7 @@ void pulsing(int id){
         plane_on(0);
         plane_on(4);
         draw_plane();
-        delay(50);
+        delay(70);
         clear_cube();
         for(int i = 1; i < 4; i++){
             plane[1][i] = 1;
@@ -567,6 +598,11 @@ void pulsing(int id){
         plane_on(2);
         plane_on(3);
         draw_plane();
+        delay(60);
+        clear_cube();
+        plane[2][2] = 1;
+        draw_plane();
+        plane_on(2);
         delay(50);
     }
 }
@@ -581,10 +617,10 @@ void main(void) {
 //        draw_plane();
         switch(mode){
             case 0:
-                cubeidle(0);
+                speedup(0);
                 break;
             case 1:
-                speedup(1);
+                cubeidle(1);
                 break;
             case 2:
                 pulsing(2);
@@ -593,11 +629,13 @@ void main(void) {
                 random_pattern(3);
                 break;
             case 4:
-                rainfall(4);
+                hitler(4);
                 break;
             case 5:
                 scan(5);
                 break;
+            case 6:
+                antirainfall(6);
             default:
                 clear_cube();
                 break;
@@ -613,20 +651,31 @@ void __interrupt(high_priority)H_ISR(){
 
     //do things, map 1024 to 0-4
     unsigned char mapResult = 0;
-    
-    while (value > 205) {
-        value -= 205;
-        mapResult += 1;
+    if(!flag && value > 200){
+        flag = 1;
+        mode++;
+        mode%=7;
+    }else if (flag && value < 20){
+        flag = 0;
     }
-    mode = mapResult;
-    
+//    while (value > 140) {
+//        value -= 140;
+//        mapResult += 1;
+//    }
+//    mode = mapResult;
+//    if(value<3) mode = 0;
+//    else if(value<6)mode = 1;
+//    else if(value<9)mode = 2;
+//    else if(value<15)mode = 3;
+//    else if(value<20)mode = 4;
+//    else if(value<30)mode = 5;
     
     //clear flag bit
     PIR1bits.ADIF = 0;
     
     //step5 & go back step3
 //    delay at least 2tad
-    __delay_us(4);
+    __delay_us(2);
 
     ADCON0bits.GO = 1;
 
