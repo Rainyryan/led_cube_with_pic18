@@ -401,9 +401,9 @@ intcode 8 2457 CODE 8 0
 cstackCOMRAM 1 6B COMRAM 1 1
 bssBANK0 80 B1 BANK0 80 1
 %locals
-dist/default/debug\led_cube.X.debug.o
+dist/default/production\led_cube.X.production.o
 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4520.h
-C:\Users\rc615\AppData\Local\Temp\xcAsdt0.s
+C:\Users\rc615\AppData\Local\Temp\xcAsdt8.s
 515 23DA 0 CODE 0
 517 23DA 0 CODE 0
 520 23DA 0 CODE 0
@@ -1061,8 +1061,8 @@ C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 39 2414 0 CODE 0
 52 241C 0 CODE 0
 53 2424 0 CODE 0
-C:\Users\rc615\AppData\Local\Temp\xcAsdt0.s
-8662 8 0 CODE 0
+C:\Users\rc615\AppData\Local\Temp\xcAsdt8.s
+8644 8 0 CODE 0
 main.c
 648 8 0 CODE 0
 main.c
